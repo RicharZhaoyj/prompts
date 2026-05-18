@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import { Sparkles, TrendingUp, Users, Shield } from 'lucide-react'
+import { getFeaturedPrompts, getCategories } from '@/lib/prompts'
 
-export default function Home() {
+export default async function Home() {
+  const featuredPrompts = await getFeaturedPrompts()
+  const categories = await getCategories()
+
   return (
     <div>
       {/* Hero Section */}
@@ -76,24 +80,15 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Browse by Category</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { name: 'Writing', count: 2340, emoji: '✍️' },
-              { name: 'Coding', count: 1890, emoji: '💻' },
-              { name: 'Image Generation', count: 3200, emoji: '🎨' },
-              { name: 'Marketing', count: 1560, emoji: '📊' },
-              { name: 'Education', count: 980, emoji: '📚' },
-              { name: 'Business', count: 1120, emoji: '💼' },
-              { name: 'Creative', count: 2780, emoji: '✨' },
-              { name: 'Productivity', count: 1450, emoji: '⚡' },
-            ].map((category) => (
+            {categories.map((category) => (
               <Link
-                key={category.name}
-                href={`/prompts?category=${category.name.toLowerCase().replace(' ', '-')}`}
+                key={category.id}
+                href={`/prompts?category=${category.name}`}
                 className="p-6 bg-background rounded-lg border hover:border-primary hover:shadow-md transition-all"
               >
                 <div className="text-3xl mb-2">{category.emoji}</div>
                 <h3 className="font-semibold mb-1">{category.name}</h3>
-                <p className="text-sm text-muted-foreground">{category.count} prompts</p>
+                <p className="text-sm text-muted-foreground">{category.prompt_count} prompts</p>
               </Link>
             ))}
           </div>
@@ -110,46 +105,33 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Ultimate Blog Writer',
-                description: 'Generate engaging blog posts with SEO optimization',
-                price: 9.99,
-                category: 'Writing',
-                rating: 4.8,
-                sales: 1234,
-              },
-              {
-                title: 'Code Review Assistant',
-                description: 'Professional code review and optimization suggestions',
-                price: 14.99,
-                category: 'Coding',
-                rating: 4.9,
-                sales: 856,
-              },
-              {
-                title: 'Portrait Art Generator',
-                description: 'Create stunning portrait images with detailed prompts',
-                price: 7.99,
-                category: 'Image Generation',
-                rating: 4.7,
-                sales: 2341,
-              },
-            ].map((prompt, index) => (
-              <div key={index} className="bg-background border rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded">
+            {featuredPrompts.map((prompt) => (
+              <Link
+                key={prompt.id}
+                href={`/prompt/${prompt.id}`}
+                className="bg-background border rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="relative h-48">
+                  <img
+                    src={prompt.image_url}
+                    alt={prompt.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-3 left-3 px-3 py-1 bg-background/90 backdrop-blur-sm rounded-full text-xs font-medium">
                     {prompt.category}
                   </span>
-                  <span className="text-sm text-muted-foreground">★ {prompt.rating}</span>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{prompt.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{prompt.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold">${prompt.price}</span>
-                  <span className="text-sm text-muted-foreground">{prompt.sales} sold</span>
+                <div className="p-4">
+                  <h3 className="font-semibold mb-2">{prompt.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    {prompt.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg font-bold">${prompt.price}</span>
+                    <span className="text-sm text-muted-foreground">{prompt.sales} sold</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

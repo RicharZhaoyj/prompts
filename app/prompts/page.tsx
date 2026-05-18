@@ -1,108 +1,17 @@
 import Link from 'next/link'
 import { Search, Filter, Star } from 'lucide-react'
+import { getPrompts, getCategories } from '@/lib/prompts'
 
-const prompts = [
-  {
-    id: '1',
-    title: 'Ultimate Blog Writer Pro',
-    description: 'Generate SEO-optimized blog posts that rank on Google',
-    category: 'Writing',
-    price: 9.99,
-    rating: 4.8,
-    reviews: 234,
-    sales: 1234,
-    author: 'Sarah Chen',
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=300&fit=crop',
-  },
-  {
-    id: '2',
-    title: 'React Component Generator',
-    description: 'Create production-ready React components with TypeScript',
-    category: 'Coding',
-    price: 14.99,
-    rating: 4.9,
-    reviews: 156,
-    sales: 856,
-    author: 'Alex Kim',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
-  },
-  {
-    id: '3',
-    title: 'Portrait Photography Prompt',
-    description: 'Create stunning portrait photos with cinematic lighting',
-    category: 'Image Generation',
-    price: 7.99,
-    rating: 4.7,
-    reviews: 342,
-    sales: 2341,
-    author: 'Emma Wong',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
-  },
-  {
-    id: '4',
-    title: 'Email Marketing Campaigns',
-    description: 'Write high-converting email sequences for any niche',
-    category: 'Marketing',
-    price: 12.99,
-    rating: 4.6,
-    reviews: 89,
-    sales: 567,
-    author: 'Michael Brown',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=300&fit=crop',
-  },
-  {
-    id: '5',
-    title: 'Business Plan Generator',
-    description: 'Create comprehensive business plans for startups',
-    category: 'Business',
-    price: 19.99,
-    rating: 4.8,
-    reviews: 178,
-    sales: 923,
-    author: 'Lisa Johnson',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
-  },
-  {
-    id: '6',
-    title: 'Product Description Writer',
-    description: 'Write compelling product descriptions that sell',
-    category: 'Marketing',
-    price: 8.99,
-    rating: 4.5,
-    reviews: 123,
-    sales: 789,
-    author: 'David Lee',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
-  },
-  {
-    id: '7',
-    title: 'Landscape Art Generator',
-    description: 'Create breathtaking landscape images with depth',
-    category: 'Image Generation',
-    price: 6.99,
-    rating: 4.8,
-    reviews: 267,
-    sales: 1456,
-    author: 'Anna Zhang',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
-  },
-  {
-    id: '8',
-    title: 'Code Debug Assistant',
-    description: 'Find and fix bugs in your code instantly',
-    category: 'Coding',
-    price: 11.99,
-    rating: 4.7,
-    reviews: 145,
-    sales: 634,
-    author: 'James Wilson',
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop',
-  },
-]
+export default async function PromptsPage({
+  searchParams,
+}: {
+  searchParams?: { category?: string; search?: string }
+}) {
+  const category = searchParams?.category
+  const search = searchParams?.search
+  const prompts = await getPrompts(category, search)
+  const categories = await getCategories()
 
-const categories = ['All', 'Writing', 'Coding', 'Image Generation', 'Marketing', 'Business', 'Education', 'Creative']
-
-export default function PromptsPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
@@ -135,10 +44,14 @@ export default function PromptsPage() {
               <div className="mb-6">
                 <label className="text-sm font-medium mb-2 block">Category</label>
                 <div className="space-y-2">
+                  <label className="flex items-center gap-2 text-sm">
+                    <input type="checkbox" className="rounded" />
+                    All
+                  </label>
                   {categories.map((cat) => (
-                    <label key={cat} className="flex items-center gap-2 text-sm">
+                    <label key={cat.id} className="flex items-center gap-2 text-sm">
                       <input type="checkbox" className="rounded" />
-                      {cat}
+                      {cat.name}
                     </label>
                   ))}
                 </div>
@@ -190,7 +103,7 @@ export default function PromptsPage() {
           <main className="flex-1">
             {/* Sort & Results */}
             <div className="flex items-center justify-between mb-6">
-              <p className="text-sm text-muted-foreground">Showing 1-12 of 1,234 results</p>
+              <p className="text-sm text-muted-foreground">Showing {prompts.length} results</p>
               <div className="flex items-center gap-2">
                 <span className="text-sm">Sort by:</span>
                 <select className="border rounded-md px-3 py-1 text-sm">
@@ -213,7 +126,7 @@ export default function PromptsPage() {
                 >
                   <div className="relative h-48">
                     <img
-                      src={prompt.image}
+                      src={prompt.image_url}
                       alt={prompt.title}
                       className="w-full h-full object-cover"
                     />
@@ -238,7 +151,7 @@ export default function PromptsPage() {
                         <span className="text-lg font-bold">${prompt.price}</span>
                         <span className="text-sm text-muted-foreground ml-2">{prompt.sales} sold</span>
                       </div>
-                      <span className="text-xs text-muted-foreground">by {prompt.author}</span>
+                      <span className="text-xs text-muted-foreground">by {prompt.author_name}</span>
                     </div>
                   </div>
                 </Link>

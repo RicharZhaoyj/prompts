@@ -1,7 +1,19 @@
 import Link from 'next/link'
 import { Star, Download, Heart, Share2, Copy, CheckCircle, Clock } from 'lucide-react'
+import { getPromptById } from '@/lib/prompts'
+import { notFound } from 'next/navigation'
 
-export default function PromptDetailPage({ params }: { params: { id: string } }) {
+export default async function PromptDetailPage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const prompt = await getPromptById(params.id)
+
+  if (!prompt) {
+    notFound()
+  }
+
   return (
     <div className="min-h-screen">
       {/* Header */}
@@ -12,7 +24,7 @@ export default function PromptDetailPage({ params }: { params: { id: string } })
             <span>/</span>
             <Link href="/prompts">Prompts</Link>
             <span>/</span>
-            <span>Ultimate Blog Writer Pro</span>
+            <span>{prompt.title}</span>
           </nav>
         </div>
       </div>
@@ -25,23 +37,24 @@ export default function PromptDetailPage({ params }: { params: { id: string } })
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <span className="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
-                  Writing
+                  {prompt.category}
                 </span>
                 <span className="flex items-center gap-1 text-sm">
                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  4.8 (234 reviews)
+                  {prompt.rating} ({prompt.reviews} reviews)
                 </span>
-                <span className="text-sm text-muted-foreground">1,234 sold</span>
+                <span className="text-sm text-muted-foreground">{prompt.sales} sold</span>
               </div>
-              <h1 className="text-3xl font-bold mb-4">Ultimate Blog Writer Pro</h1>
+              <h1 className="text-3xl font-bold mb-4">{prompt.title}</h1>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    <span className="text-primary font-semibold">SC</span>
+                    <span className="text-primary font-semibold">
+                      {prompt.author_name.charAt(0)}
+                    </span>
                   </div>
                   <div>
-                    <p className="font-medium">Sarah Chen</p>
-                    <p className="text-sm text-muted-foreground">2 months ago</p>
+                    <p className="font-medium">{prompt.author_name}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 ml-auto">
@@ -60,8 +73,8 @@ export default function PromptDetailPage({ params }: { params: { id: string } })
             {/* Preview Image */}
             <div className="mb-8">
               <img
-                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop"
-                alt="Prompt Preview"
+                src={prompt.image_url}
+                alt={prompt.title}
                 className="w-full rounded-lg"
               />
             </div>
@@ -70,25 +83,18 @@ export default function PromptDetailPage({ params }: { params: { id: string } })
             <div className="mb-8">
               <h2 className="text-xl font-semibold mb-4">Description</h2>
               <div className="prose max-w-none text-muted-foreground">
-                <p>
-                  This comprehensive blog writing prompt helps you create SEO-optimized, engaging blog posts
-                  that rank on Google and resonate with your readers. Whether you're a blogger, content
-                  marketer, or business owner, this prompt will revolutionize your content creation process.
-                </p>
+                <p>{prompt.description}</p>
                 <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">What You'll Get:</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Complete blog post structure with introduction, body, and conclusion</li>
-                  <li>SEO optimization tips integrated into the writing process</li>
-                  <li>Engaging hooks and calls-to-action</li>
-                  <li>Customizable for any niche or industry</li>
-                  <li>Multiple content variations for A/B testing</li>
+                  <li>Complete, well-tested prompt</li>
+                  <li>Example usage patterns</li>
+                  <li>Customization tips</li>
                 </ul>
                 <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">How to Use:</h3>
                 <ol className="list-decimal pl-6 space-y-2">
-                  <li>Copy the prompt from the box below</li>
-                  <li>Paste it into ChatGPT or your preferred AI tool</li>
-                  <li>Customize the variables (topic, tone, length)</li>
-                  <li>Generate and refine your content</li>
+                  <li>Copy the prompt from below</li>
+                  <li>Paste it into your preferred AI tool</li>
+                  <li>Customize the variables</li>
                 </ol>
               </div>
             </div>
@@ -98,31 +104,7 @@ export default function PromptDetailPage({ params }: { params: { id: string } })
               <h2 className="text-xl font-semibold mb-4">The Prompt</h2>
               <div className="bg-muted/50 border rounded-lg p-6 relative">
                 <pre className="whitespace-pre-wrap text-sm font-mono">
-{`You are an expert blog writer specializing in [TOPIC/NICHE]. I need you to write a comprehensive, SEO-optimized blog post that:
-
-1. **Title**: Create a compelling, keyword-rich title that hooks readers
-2. **Meta Description**: Write a 150-160 character meta description
-3. **Introduction**: Start with a powerful hook that addresses [PAIN_POINT/AUDIENCE_CHALLENGE]
-4. **Main Content**: Cover these key points:
-   - Point 1: [KEY_MESSAGE]
-   - Point 2: [SUPPORTING_DETAIL]
-   - Point 3: [ACTIONABLE_TIP]
-5. **Conclusion**: Summarize and include a clear call-to-action
-
-**Style Requirements**:
-- Tone: [FRIENDLY/PROFESSIONAL/CASUAL]
-- Length: [SHORT/MEDIUM/LONG - specify word count]
-- Include subheadings for scannability
-- Add bullet points where appropriate
-- Maintain conversational flow
-
-**SEO Requirements**:
-- Primary keyword: [KEYWORD]
-- Secondary keywords: [RELATED_KEYWORDS]
-- Include internal linking suggestions
-- Optimize for featured snippets where possible
-
-Let's start writing!`}
+                  {prompt.content}
                 </pre>
                 <button className="absolute top-4 right-4 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium flex items-center gap-2 hover:bg-primary/90">
                   <Copy className="w-4 h-4" />
@@ -140,19 +122,13 @@ Let's start writing!`}
                     name: 'John D.',
                     rating: 5,
                     date: '2 weeks ago',
-                    text: 'This prompt has completely transformed my blog workflow. I can now write a full post in half the time!',
+                    text: 'This prompt has completely transformed my workflow!',
                   },
                   {
                     name: 'Maria S.',
                     rating: 5,
                     date: '1 month ago',
-                    text: 'Excellent quality. The SEO optimization tips are incredibly helpful. Highly recommend!',
-                  },
-                  {
-                    name: 'Alex R.',
-                    rating: 4,
-                    date: '2 months ago',
-                    text: 'Great prompt overall. Would love to see more variations for different content types.',
+                    text: 'Excellent quality. Highly recommend!',
                   },
                 ].map((review, index) => (
                   <div key={index} className="border-b pb-6 last:border-0">
@@ -181,13 +157,13 @@ Let's start writing!`}
           <aside className="lg:col-span-1">
             <div className="bg-background border rounded-lg p-6 sticky top-4">
               <div className="mb-6">
-                <div className="text-3xl font-bold mb-2">$9.99</div>
+                <div className="text-3xl font-bold mb-2">${prompt.price}</div>
                 <p className="text-sm text-muted-foreground">One-time purchase, lifetime access</p>
               </div>
 
               <button className="w-full py-3 bg-primary text-primary-foreground rounded-md font-medium mb-4 hover:bg-primary/90 flex items-center justify-center gap-2">
                 <Download className="w-5 h-5" />
-                Buy Now - $9.99
+                Buy Now - ${prompt.price}
               </button>
 
               <button className="w-full py-3 border rounded-md font-medium mb-6 hover:bg-accent flex items-center justify-center gap-2">
@@ -221,7 +197,7 @@ Let's start writing!`}
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <dt className="text-muted-foreground">Category</dt>
-                    <dd>Writing</dd>
+                    <dd>{prompt.category}</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-muted-foreground">AI Model</dt>
@@ -233,7 +209,7 @@ Let's start writing!`}
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-muted-foreground">Updated</dt>
-                    <dd>2 weeks ago</dd>
+                    <dd>Recently</dd>
                   </div>
                 </dl>
               </div>
@@ -244,16 +220,17 @@ Let's start writing!`}
                 <h3 className="font-semibold mb-3">Author Stats</h3>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <span className="text-primary font-bold text-lg">SC</span>
+                    <span className="text-primary font-bold text-lg">
+                      {prompt.author_name.charAt(0)}
+                    </span>
                   </div>
                   <div>
-                    <p className="font-medium">Sarah Chen</p>
-                    <p className="text-sm text-muted-foreground">12 prompts · 5,234 sales</p>
+                    <p className="font-medium">{prompt.author_name}</p>
+                    <p className="text-sm text-muted-foreground">
+                      6 prompts · {prompt.sales * 2} sales
+                    </p>
                   </div>
                 </div>
-                <button className="w-full mt-4 py-2 border rounded-md text-sm font-medium hover:bg-accent">
-                  View Profile
-                </button>
               </div>
             </div>
           </aside>
