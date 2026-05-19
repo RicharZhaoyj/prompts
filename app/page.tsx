@@ -1,6 +1,23 @@
 import Link from 'next/link'
 import { Sparkles, TrendingUp, Users, Shield } from 'lucide-react'
 import { getFeaturedPrompts, getCategories } from '@/lib/prompts'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'PromptMarket - AI提示词商店',
+  description: '发现、购买、分享高质量的AI提示词。支持ChatGPT、Midjourney、Stable Diffusion等。加入创作者社区，开始赚钱！',
+  keywords: 'AI提示词, ChatGPT提示词, Midjourney提示词, 提示词商店, AI工具',
+  openGraph: {
+    title: 'PromptMarket - AI提示词商店',
+    description: '发现、购买、分享高质量的AI提示词。支持ChatGPT、Midjourney、Stable Diffusion等。',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PromptMarket - AI提示词商店',
+    description: '发现、购买、分享高质量的AI提示词。',
+  },
+}
 
 export default async function Home() {
   const featuredPrompts = await getFeaturedPrompts()

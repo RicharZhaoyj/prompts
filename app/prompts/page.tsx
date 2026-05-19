@@ -1,6 +1,18 @@
 import Link from 'next/link'
 import { Search, Filter, Star } from 'lucide-react'
 import { getPrompts, getCategories } from '@/lib/prompts'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '浏览AI提示词 - PromptMarket',
+  description: '浏览超过10,000+高质量的AI提示词，覆盖写作、编程、图像生成、营销等多个领域。',
+  keywords: 'AI提示词列表, ChatGPT提示词库, Midjourney提示词, 提示词大全',
+  openGraph: {
+    title: '浏览AI提示词 - PromptMarket',
+    description: '浏览超过10,000+高质量的AI提示词。',
+    type: 'website',
+  },
+}
 
 export default async function PromptsPage({
   searchParams,

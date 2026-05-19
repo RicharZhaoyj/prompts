@@ -2,6 +2,32 @@ import Link from 'next/link'
 import { Star, Download, Heart, Share2, Copy, CheckCircle, Clock } from 'lucide-react'
 import { getPromptById } from '@/lib/prompts'
 import { notFound } from 'next/navigation'
+import { Metadata } from 'next'
+
+type Props = {
+  params: { id: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const prompt = await getPromptById(params.id)
+  
+  if (!prompt) {
+    return {
+      title: '提示词未找到 - PromptMarket',
+    }
+  }
+
+  return {
+    title: `${prompt.title} - PromptMarket`,
+    description: prompt.description,
+    keywords: prompt.tags?.join(', ') || '',
+    openGraph: {
+      title: prompt.title,
+      description: prompt.description,
+      images: [prompt.image_url || ''],
+    },
+  }
+}
 
 export default async function PromptDetailPage({
   params,
