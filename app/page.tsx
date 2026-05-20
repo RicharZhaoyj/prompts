@@ -2,20 +2,40 @@ import Link from 'next/link'
 import { Sparkles, TrendingUp, Users, Shield } from 'lucide-react'
 import { getFeaturedPrompts, getCategories } from '@/lib/prompts'
 import { Metadata } from 'next'
+import TrendingPrompts from './components/trending-prompts'
+import NewsletterSubscribe from './components/newsletter-subscribe'
 
 export const metadata: Metadata = {
-  title: 'PromptMarket - AI提示词商店',
-  description: '发现、购买、分享高质量的AI提示词。支持ChatGPT、Midjourney、Stable Diffusion等。加入创作者社区，开始赚钱！',
-  keywords: 'AI提示词, ChatGPT提示词, Midjourney提示词, 提示词商店, AI工具',
+  title: 'PromptMarket - AI提示词商店 | ChatGPT Midjourney Prompt',
+  description: '发现、购买、分享高质量的AI提示词。支持ChatGPT、Midjourney、Stable Diffusion、Claude等主流AI工具。加入创作者社区，变现你的AI提示词！',
+  keywords: 'AI提示词, ChatGPT提示词, Midjourney提示词, Stable Diffusion提示词, Claude提示词, 提示词商店, AI工具, 提示词模板, AI写作, AI绘画',
   openGraph: {
     title: 'PromptMarket - AI提示词商店',
-    description: '发现、购买、分享高质量的AI提示词。支持ChatGPT、Midjourney、Stable Diffusion等。',
+    description: '发现、购买、分享高质量的AI提示词。支持ChatGPT、Midjourney、Stable Diffusion等主流AI工具。',
     type: 'website',
+    url: 'https://prompts.link.cn',
+    siteName: 'PromptMarket',
+    locale: 'zh_CN',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'PromptMarket - AI提示词商店',
     description: '发现、购买、分享高质量的AI提示词。',
+    creator: '@promptmarket',
+  },
+  alternates: {
+    canonical: 'https://prompts.link.cn',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
@@ -23,8 +43,26 @@ export default async function Home() {
   const featuredPrompts = await getFeaturedPrompts()
   const categories = await getCategories()
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'PromptMarket',
+    url: 'https://prompts.link.cn',
+    description: '发现、购买、分享高质量的AI提示词。支持ChatGPT、Midjourney、Stable Diffusion、Claude等主流AI工具。',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://prompts.link.cn/prompts?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  }
+
   return (
-    <div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div>
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4 text-center">
@@ -154,6 +192,20 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Trending Prompts Section */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <TrendingPrompts />
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <NewsletterSubscribe />
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
@@ -170,5 +222,6 @@ export default async function Home() {
         </div>
       </section>
     </div>
+    </>
   )
 }
