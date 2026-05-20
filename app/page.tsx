@@ -4,6 +4,7 @@ import { getFeaturedPrompts, getCategories } from '@/lib/prompts'
 import { Metadata } from 'next'
 import TrendingPrompts from './components/trending-prompts'
 import NewsletterSubscribe from './components/newsletter-subscribe'
+import { StructuredData } from './components/structured-data'
 
 export const metadata: Metadata = {
   title: 'PromptMarket - AI提示词商店 | ChatGPT Midjourney Prompt',
