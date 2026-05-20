@@ -1,5 +1,22 @@
 import Link from 'next/link'
 import { Book, Code, Zap, Shield, MessageCircle, ExternalLink } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '帮助文档 - PromptMarket | AI提示词商店',
+  description: 'PromptMarket帮助文档，学习如何购买AI提示词、提交提示词、使用API，以及了解我们的服务条款和政策。',
+  keywords: 'PromptMarket文档, AI提示词使用指南, 提示词API文档',
+  openGraph: {
+    title: '帮助文档 - PromptMarket',
+    description: '学习如何使用PromptMarket，购买和出售AI提示词。',
+    type: 'website',
+    url: 'https://prompts.link.cn/docs',
+    siteName: 'PromptMarket',
+  },
+  alternates: {
+    canonical: 'https://prompts.link.cn/docs',
+  },
+}
 
 export default function DocsPage() {
   const docs = [
