@@ -2,6 +2,17 @@ import Link from "next/link"
 import { auth, signIn } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import { Github, Mail } from "lucide-react"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: '登录 - PromptMarket | AI提示词商店',
+  description: '登录PromptMarket，浏览和购买高质量的AI提示词，或提交您的提示词开始赚钱。',
+  keywords: '登录PromptMarket, AI提示词账户, 提示词卖家登录',
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 export default async function LoginPage() {
   const session = await auth()
