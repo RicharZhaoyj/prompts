@@ -29,7 +29,7 @@ export default async function LoginPage() {
             PromptMarket
           </Link>
           <h1 className="text-2xl font-bold">欢迎回来</h1>
-          <p className="text-muted-foreground mt-2">选择一种方式登录</p>
+          <p className="text-muted-foreground mt-2">选择一种方式登录或注册</p>
         </div>
 
         <div className="space-y-4">
@@ -54,10 +54,15 @@ export default async function LoginPage() {
           </form>
         </div>
 
-        <div className="mt-8 text-center text-sm text-muted-foreground">
-          还没有账号？
-          <Link href="/login" className="text-primary font-medium hover:underline ml-1">
-            立即注册
+        <div className="mt-6 p-4 bg-muted/50 rounded-lg">
+          <p className="text-sm text-muted-foreground text-center">
+            首次登录即自动创建账户，无需单独注册
+          </p>
+        </div>
+
+        <div className="mt-6 text-center text-sm text-muted-foreground">
+          <Link href="/docs" className="text-primary font-medium hover:underline">
+            了解更多关于账户的信息
           </Link>
         </div>
       </div>
