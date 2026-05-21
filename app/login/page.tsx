@@ -1,8 +1,9 @@
 import Link from "next/link"
-import { auth, signIn } from "@/lib/auth"
+import { auth } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import { Github, Mail } from "lucide-react"
 import { Metadata } from "next"
+import { handleSignIn } from "./actions"
 
 export const metadata: Metadata = {
   title: '登录 - PromptMarket | AI提示词商店',
@@ -32,12 +33,7 @@ export default async function LoginPage() {
         </div>
 
         <div className="space-y-4">
-          <form
-            action={async () => {
-              "use server"
-              await signIn("github")
-            }}
-          >
+          <form action={() => handleSignIn("github")}>
             <button
               type="submit"
               className="w-full flex items-center justify-center gap-3 py-3 border rounded-lg hover:bg-muted transition-colors"
@@ -47,12 +43,7 @@ export default async function LoginPage() {
             </button>
           </form>
 
-          <form
-            action={async () => {
-              "use server"
-              await signIn("google")
-            }}
-          >
+          <form action={() => handleSignIn("google")}>
             <button
               type="submit"
               className="w-full flex items-center justify-center gap-3 py-3 border rounded-lg hover:bg-muted transition-colors"
