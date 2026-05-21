@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Book, Code, Zap, Shield, MessageCircle, ExternalLink } from 'lucide-react'
 import { Metadata } from 'next'
+import { FAQSchema } from '@/app/components/faq-schema'
 
 export const metadata: Metadata = {
   title: '帮助文档 - PromptMarket | AI提示词商店',
@@ -17,6 +18,29 @@ export const metadata: Metadata = {
     canonical: 'https://prompts.link.cn/docs',
   },
 }
+
+const faqs = [
+  {
+    question: '我可以获得退款吗？',
+    answer: '是的，我们对所有购买提供30天退款保证。如果您对购买的提示词不满意，可以在购买后30天内申请全额退款。'
+  },
+  {
+    question: '如何成为卖家？',
+    answer: '只需通过提交表单提交您的第一个提示词即可。无需申请！我们会审核您的提交，并在24-48小时内给您反馈。'
+  },
+  {
+    question: '支持哪些AI工具？',
+    answer: '我们的提示词适用于ChatGPT、Claude、Midjourney、Stable Diffusion、DALL-E等主流AI工具。'
+  },
+  {
+    question: '提示词审核需要多长时间？',
+    answer: '我们通常在24-48小时内审核所有提交。审核通过后，您的提示词将立即上线销售。'
+  },
+  {
+    question: '我可以销售免费提示词吗？',
+    answer: '可以！我们鼓励创作者提供免费提示词来建立声誉。免费提示词同样需要审核，但优先级更高。'
+  }
+]
 
 export default function DocsPage() {
   const docs = [
@@ -67,6 +91,8 @@ export default function DocsPage() {
   ]
 
   return (
+    <>
+      <FAQSchema faqs={faqs} />
     <div className="min-h-screen">
       {/* Header */}
       <div className="bg-muted/50 py-12">
@@ -252,5 +278,6 @@ export default function DocsPage() {
         </section>
       </div>
     </div>
+    </>
   )
 }
