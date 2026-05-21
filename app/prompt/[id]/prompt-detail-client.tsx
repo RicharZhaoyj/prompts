@@ -5,6 +5,7 @@ import { Star, Download, Heart, Copy, CheckCircle, Clock } from 'lucide-react'
 import { useState } from 'react'
 import { useToast } from '@/app/components/toast'
 import SocialShare from '@/app/components/social-share'
+import { Breadcrumbs } from '@/app/components/breadcrumbs'
 
 type Prompt = {
   id: string
@@ -45,13 +46,12 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
       {/* Header */}
       <div className="bg-muted/50 py-8">
         <div className="container mx-auto px-4">
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <Link href="/prompts">Prompts</Link>
-            <span>/</span>
-            <span>{prompt.title}</span>
-          </nav>
+          <Breadcrumbs
+            items={[
+              { label: 'Prompts', href: '/prompts' },
+              { label: prompt.title, href: `/prompt/${prompt.id}` },
+            ]}
+          />
         </div>
       </div>
 
