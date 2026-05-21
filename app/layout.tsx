@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Navbar } from './components/navbar'
-import { GoogleAnalytics } from './components/GoogleAnalytics'
+import Analytics from './components/analytics'
 import { ToastProvider } from './components/toast'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body className={inter.className}>
-        <GoogleAnalytics />
+        <Analytics />
         <ToastProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
