@@ -2,12 +2,9 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { useSession, signOut } from "next-auth/react"
-import { User, LogOut, Menu, X } from "lucide-react"
+import { User, Menu, X } from "lucide-react"
 
 export function Navbar() {
-  const { data: session } = useSession()
-  const user = session?.user
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -39,39 +36,19 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          {user ? (
-            <div className="flex items-center gap-3">
-              <Link
-                href="/dashboard"
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                <User className="w-4 h-4" />
-                仪表盘
-              </Link>
-              <button
-                onClick={() => signOut()}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md border hover:bg-accent"
-              >
-                <LogOut className="w-4 h-4" />
-                退出
-              </button>
-            </div>
-          ) : (
-            <div className="flex items-center gap-3">
-              <Link
-                href="/login"
-                className="px-4 py-2 text-sm font-medium rounded-md border hover:bg-accent"
-              >
-                登录
-              </Link>
-              <Link
-                href="/login"
-                className="px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                开始使用
-              </Link>
-            </div>
-          )}
+          <Link
+            href="/login"
+            className="px-4 py-2 text-sm font-medium rounded-md border hover:bg-accent"
+          >
+            登录
+          </Link>
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90"
+          >
+            <User className="w-4 h-4" />
+            仪表盘
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -125,43 +102,20 @@ export function Navbar() {
             </Link>
             
             <div className="border-t pt-4 mt-4 space-y-2">
-              {user ? (
-                <>
-                  <Link
-                    href="/dashboard"
-                    className="block px-4 py-3 rounded-md bg-primary text-primary-foreground text-center"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    仪表盘
-                  </Link>
-                  <button
-                    onClick={() => {
-                      signOut()
-                      setIsMenuOpen(false)
-                    }}
-                    className="w-full px-4 py-3 rounded-md border text-center hover:bg-accent"
-                  >
-                    退出
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href="/login"
-                    className="block px-4 py-3 rounded-md border text-center hover:bg-accent"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    登录
-                  </Link>
-                  <Link
-                    href="/login"
-                    className="block px-4 py-3 rounded-md bg-primary text-primary-foreground text-center"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    开始使用
-                  </Link>
-                </>
-              )}
+              <Link
+                href="/login"
+                className="block px-4 py-3 rounded-md border text-center hover:bg-accent"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                登录
+              </Link>
+              <Link
+                href="/dashboard"
+                className="block px-4 py-3 rounded-md bg-primary text-primary-foreground text-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                仪表盘
+              </Link>
             </div>
           </div>
         </div>
