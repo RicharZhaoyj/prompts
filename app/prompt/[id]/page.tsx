@@ -34,23 +34,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: prompt.title,
       description: prompt.description,
-      type: 'product',
+      type: 'website',
       url: `https://prompts.link.cn/prompt/${prompt.id}`,
       siteName: 'PromptMarket',
-      images: [
+      images: prompt.image_url ? [
         {
           url: prompt.image_url,
           width: 1200,
           height: 630,
           alt: prompt.title,
         }
-      ],
+      ] : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: prompt.title,
       description: prompt.description,
-      images: [prompt.image_url],
+      images: prompt.image_url ? [prompt.image_url] : [],
       creator: '@promptmarket',
     },
     alternates: {
@@ -84,7 +84,7 @@ export default async function PromptDetailPage({
     '@type': 'Product',
     name: prompt.title,
     description: prompt.description,
-    image: prompt.image_url,
+    image: prompt.image_url || '',
     offers: {
       '@type': 'Offer',
       price: String(prompt.price),
@@ -104,7 +104,7 @@ export default async function PromptDetailPage({
 
   return (
     <>
-      <StructuredData type="product" data={productSchema} />
+      <StructuredData type="product" data={productSchema as any} />
       <PromptDetailClient prompt={prompt} />
     </>
   )
