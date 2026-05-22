@@ -1,24 +1,28 @@
+
+'use client'
+
 import Link from "next/link"
-import { auth } from "@/lib/auth"
-import { redirect } from "next/navigation"
+import { useSession, signIn } from "next-auth/react"
+import { useRouter } from "next/navigation"
 import { Github, Mail } from "lucide-react"
-import { Metadata } from "next"
-import { handleSignIn } from "./actions"
+import { useEffect } from "react"
 
-export const metadata: Metadata = {
-  title: '登录 - PromptMarket | AI提示词商店',
-  description: '登录PromptMarket，浏览和购买高质量的AI提示词，或提交您的提示词开始赚钱。',
-  keywords: '登录PromptMarket, AI提示词账户, 提示词卖家登录',
-  robots: {
-    index: false,
-    follow: true,
-  },
-}
+export default function LoginPage() {
+  const { data: session, status } = useSession()
+  const router = useRouter()
 
-export default async function LoginPage() {
-  const session = await auth()
-  if (session) {
-    redirect("/dashboard")
+  useEffect(() => {
+    if (session) {
+      router.push("/dashboard")
+    }
+  }, [session, router])
+
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    )
   }
 
   return (
@@ -33,25 +37,21 @@ export default async function LoginPage() {
         </div>
 
         <div className="space-y-4">
-          <form action={() => handleSignIn("github")}>
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center gap-3 py-3 border rounded-lg hover:bg-muted transition-colors"
-            >
-              <Github className="w-5 h-5" />
-              继续使用 GitHub
-            </button>
-          </form>
+          <button
+            onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
+            className="w-full flex items-center justify-center gap-3 py-3 border rounded-lg hover:bg-muted transition-colors"
+          >
+            <Github className="w-5 h-5" />
+            继续使用 GitHub
+          </button>
 
-          <form action={() => handleSignIn("google")}>
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center gap-3 py-3 border rounded-lg hover:bg-muted transition-colors"
-            >
-              <Mail className="w-5 h-5" />
-              继续使用 Google
-            </button>
-          </form>
+          <button
+            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+            className="w-full flex items-center justify-center gap-3 py-3 border rounded-lg hover:bg-muted transition-colors"
+          >
+            <Mail className="w-5 h-5" />
+            继续使用 Google
+          </button>
         </div>
 
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
