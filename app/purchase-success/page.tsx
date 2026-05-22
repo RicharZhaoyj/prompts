@@ -2,9 +2,9 @@
 
 import { useSearchParams, useRouter } from 'next/navigation'
 import { CheckCircle, ArrowRight, Copy, FileText } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 
-export default function PurchaseSuccessPage() {
+function PurchaseSuccessContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [copied, setCopied] = useState(false)
@@ -37,7 +37,6 @@ export default function PurchaseSuccessPage() {
     <div className="min-h-screen bg-muted/30 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
-          {/* Success Icon */}
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-green-500" />
@@ -48,7 +47,6 @@ export default function PurchaseSuccessPage() {
             </p>
           </div>
 
-          {/* Prompt Card */}
           <div className="bg-background border rounded-xl overflow-hidden mb-8">
             <div className="p-6">
               <div className="flex items-start gap-4">
@@ -64,7 +62,6 @@ export default function PurchaseSuccessPage() {
                 </div>
               </div>
 
-              {/* Prompt Content */}
               <div className="mt-6 p-4 bg-muted rounded-lg">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm font-medium">Prompt Content</span>
@@ -90,7 +87,6 @@ export default function PurchaseSuccessPage() {
             </div>
           </div>
 
-          {/* Quick Actions */}
           <div className="space-y-3">
             <button
               onClick={() => router.push('/prompts')}
@@ -109,5 +105,17 @@ export default function PurchaseSuccessPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function PurchaseSuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <PurchaseSuccessContent />
+    </Suspense>
   )
 }
