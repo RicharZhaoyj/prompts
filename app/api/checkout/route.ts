@@ -1,10 +1,12 @@
+
 import { NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { getPromptById } from '@/lib/prompts'
-import { auth } from '@/lib/auth'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '@/lib/auth'
 
 export async function POST(request: Request) {
-  const session = await auth()
+  const session = await getServerSession(authOptions)
   
   if (!session || !session.user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -43,7 +45,7 @@ export async function POST(request: Request) {
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/prompt/${promptId}`,
       metadata: {
         promptId: prompt.id,
-        userId: session.user.id || '',
+        userId: (session.user as any).id || '',
       },
     })
 
