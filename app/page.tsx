@@ -1,10 +1,20 @@
 import Link from 'next/link'
-import { Sparkles, TrendingUp, Users, Shield } from 'lucide-react'
+import { Sparkles, TrendingUp, Users, Shield, RefreshCw } from 'lucide-react'
 import { getFeaturedPrompts, getCategories } from '@/lib/prompts'
 import { Metadata } from 'next'
 import TrendingPrompts from './components/trending-prompts'
 import NewsletterSubscribe from './components/newsletter-subscribe'
 import { StructuredData } from './components/structured-data'
+
+const LAST_UPDATED = new Date().toLocaleString('zh-CN', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: false,
+})
 
 export const metadata: Metadata = {
   title: 'PromptMarket - AI提示词商店 | ChatGPT Midjourney Prompt',
@@ -64,6 +74,16 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div>
+      {/* Update Time Banner */}
+      <div className="bg-muted/30 border-b">
+        <div className="container mx-auto px-4 py-2">
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+            <RefreshCw className="w-3 h-3" />
+            <span>最后更新: {LAST_UPDATED}</span>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4 text-center">
