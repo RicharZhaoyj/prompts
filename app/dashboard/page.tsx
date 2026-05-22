@@ -1,22 +1,12 @@
 import Link from "next/link"
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/lib/auth"
-import { redirect } from "next/navigation"
 import { LayoutDashboard, FileText, Settings, Heart, Download } from "lucide-react"
 
-export default async function DashboardPage() {
-  const session = await getServerSession(authOptions)
-  if (!session) {
-    redirect("/login")
-  }
-
-  const user = session.user
-
+export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-muted/30">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold">欢迎回来，{user?.name}！</h1>
+          <h1 className="text-3xl font-bold">欢迎回来！</h1>
           <p className="text-muted-foreground mt-2">管理你的账户和提示词</p>
         </div>
 
@@ -26,13 +16,11 @@ export default async function DashboardPage() {
             <div className="bg-background border rounded-lg p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-primary font-semibold text-xl">
-                    {user?.name?.charAt(0) || "U"}
-                  </span>
+                  <span className="text-primary font-semibold text-xl">U</span>
                 </div>
                 <div>
-                  <p className="font-medium">{user?.name}</p>
-                  <p className="text-sm text-muted-foreground">{user?.email}</p>
+                  <p className="font-medium">用户</p>
+                  <p className="text-sm text-muted-foreground">user@example.com</p>
                 </div>
               </div>
               
@@ -45,32 +33,18 @@ export default async function DashboardPage() {
                   仪表盘
                 </Link>
                 <Link
-                  href="/dashboard/prompts"
+                  href="/prompts"
                   className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground"
                 >
                   <FileText className="w-5 h-5" />
-                  我的提示词
+                  浏览提示词
                 </Link>
                 <Link
-                  href="/dashboard/purchases"
+                  href="/submit"
                   className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground"
                 >
                   <Download className="w-5 h-5" />
-                  购买记录
-                </Link>
-                <Link
-                  href="/dashboard/saved"
-                  className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground"
-                >
-                  <Heart className="w-5 h-5" />
-                  收藏夹
-                </Link>
-                <Link
-                  href="/dashboard/settings"
-                  className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground"
-                >
-                  <Settings className="w-5 h-5" />
-                  设置
+                  提交提示词
                 </Link>
               </nav>
             </div>
