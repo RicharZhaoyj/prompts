@@ -1,30 +1,17 @@
+
 'use client'
 
 import Link from 'next/link'
 import { Star, Download, Heart, Copy, CheckCircle, Clock } from 'lucide-react'
 import { useState } from 'react'
 import { useToast } from '@/app/components/toast'
-import SocialShare from '@/app/components/social-share'
+import { SocialShare } from '@/app/components/social-share'
 import { Breadcrumbs } from '@/app/components/breadcrumbs'
-
-type Prompt = {
-  id: string
-  title: string
-  description: string
-  content: string
-  price: number
-  category: string
-  image_url: string
-  author_name: string
-  sales: number
-  rating: number
-  reviews: number
-  tags?: string[]
-}
+import type { Prompt } from '@/lib/types'
 
 export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
   const [copied, setCopied] = useState(false)
-  const showToast = useToast()
+  const { showToast } = useToast()
 
   const handleCopyPrompt = async () => {
     try {
@@ -43,7 +30,6 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
       <div className="bg-muted/50 py-8">
         <div className="container mx-auto px-4">
           <Breadcrumbs
@@ -57,9 +43,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
           <div className="lg:col-span-2">
-            {/* Title Section */}
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <span className="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
@@ -92,16 +76,16 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
               </div>
             </div>
 
-            {/* Preview Image */}
-            <div className="mb-8">
-              <img
-                src={prompt.image_url}
-                alt={prompt.title}
-                className="w-full rounded-lg"
-              />
-            </div>
+            {prompt.image_url && (
+              <div className="mb-8">
+                <img
+                  src={prompt.image_url}
+                  alt={prompt.title}
+                  className="w-full rounded-lg"
+                />
+              </div>
+            )}
 
-            {/* Description */}
             <div className="mb-8">
               <h2 className="text-xl font-semibold mb-4">Description</h2>
               <div className="prose max-w-none text-muted-foreground">
@@ -121,7 +105,6 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
               </div>
             </div>
 
-            {/* Prompt Content */}
             <div className="mb-8">
               <h2 className="text-xl font-semibold mb-4">The Prompt</h2>
               <div className="bg-muted/50 border rounded-lg p-6 relative">
@@ -138,15 +121,14 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
               </div>
             </div>
 
-            {/* Social Share */}
             <div className="mb-8">
               <SocialShare 
                 title={prompt.title}
                 description={prompt.description}
+                url={`/prompt/${prompt.id}`}
               />
             </div>
 
-            {/* Reviews */}
             <div>
               <h2 className="text-xl font-semibold mb-4">Customer Reviews</h2>
               <div className="space-y-6">
@@ -186,7 +168,6 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
             </div>
           </div>
 
-          {/* Sidebar */}
           <aside className="lg:col-span-1">
             <div className="bg-background border rounded-lg p-6 sticky top-4">
               <div className="mb-6">
@@ -280,3 +261,4 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
     </div>
   )
 }
+
