@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { Sparkles, TrendingUp, Users, Shield, RefreshCw } from 'lucide-react'
 import { getFeaturedPrompts, getCategories } from '@/lib/prompts'
 import { Metadata } from 'next'
-import TrendingPrompts from './components/trending-prompts'
-import NewsletterSubscribe from './components/newsletter-subscribe'
+import { TrendingPrompts } from './components/trending-prompts'
+import { NewsletterSubscribe } from './components/newsletter-subscribe'
 import { StructuredData } from './components/structured-data'
 
 const LAST_UPDATED = new Date().toLocaleString('zh-CN', {
