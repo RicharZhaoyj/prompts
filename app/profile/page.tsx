@@ -1,17 +1,8 @@
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/lib/auth"
-import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import { User, Settings, Shield, Bell, LogOut, Edit, Plus, TrendingUp, DollarSign, Package } from 'lucide-react'
+import { User, Settings, Shield, Bell, Edit, Plus, TrendingUp, DollarSign, Package } from 'lucide-react'
 import { SAMPLE_PROMPTS } from '@/lib/prompts'
 
-export default async function ProfilePage() {
-  const session = await getServerSession(authOptions)
-
-  if (!session) {
-    redirect('/login')
-  }
-
+export default function ProfilePage() {
   const userPrompts = SAMPLE_PROMPTS.slice(0, 3)
   const totalSales = userPrompts.reduce((sum, p) => sum + p.sales, 0)
   const totalRevenue = userPrompts.reduce((sum, p) => sum + (p.sales * p.price * 0.8), 0)
@@ -23,13 +14,11 @@ export default async function ProfilePage() {
         <div className="bg-background border rounded-xl p-8 mb-8">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-              <span className="text-primary font-bold text-3xl">
-                {session.user?.name?.charAt(0) || 'U'}
-              </span>
+              <span className="text-primary font-bold text-3xl">U</span>
             </div>
             <div className="flex-1">
-              <h1 className="text-2xl font-bold mb-2">{session.user?.name}</h1>
-              <p className="text-muted-foreground mb-4">{session.user?.email}</p>
+              <h1 className="text-2xl font-bold mb-2">用户</h1>
+              <p className="text-muted-foreground mb-4">user@example.com</p>
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/dashboard"
@@ -94,25 +83,11 @@ export default async function ProfilePage() {
                   Profile
                 </Link>
                 <Link
-                  href="#"
+                  href="/prompts"
                   className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-accent"
                 >
                   <Settings className="w-4 h-4" />
-                  Settings
-                </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-accent"
-                >
-                  <Bell className="w-4 h-4" />
-                  Notifications
-                </Link>
-                <Link
-                  href="#"
-                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-accent"
-                >
-                  <Shield className="w-4 h-4" />
-                  Security
+                  Browse Prompts
                 </Link>
               </nav>
             </div>
