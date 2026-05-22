@@ -1,11 +1,12 @@
-import { auth } from '@/lib/auth'
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/lib/auth"
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { User, Settings, Shield, Bell, LogOut, Edit, Plus, TrendingUp, DollarSign, Package } from 'lucide-react'
 import { SAMPLE_PROMPTS } from '@/lib/prompts'
 
 export default async function ProfilePage() {
-  const session = await auth()
+  const session = await getServerSession(authOptions)
 
   if (!session) {
     redirect('/login')
