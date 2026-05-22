@@ -7,9 +7,6 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
-  experimental: {
-    optimizeCss: true,
-  },
 }
 
 module.exports = nextConfig
