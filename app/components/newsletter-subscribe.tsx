@@ -15,7 +15,7 @@ export function NewsletterSubscribe() {
 
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
       setStatus('error')
-      setMessage('Please enter a valid email address')
+      setMessage('请输入有效的邮箱地址')
       return
     }
 
@@ -30,15 +30,15 @@ export function NewsletterSubscribe() {
 
       if (response.ok) {
         setStatus('success')
-        setMessage('Welcome to our community! Check your email to confirm.')
+        setMessage('欢迎加入我们！请查收邮件确认。')
         setEmail('')
       } else {
         setStatus('error')
-        setMessage('Something went wrong. Please try again later.')
+        setMessage('出了点问题，请稍后再试。')
       }
     } catch (error) {
       setStatus('error')
-      setMessage('Something went wrong. Please try again later.')
+      setMessage('出了点问题，请稍后再试。')
     }
   }
 
@@ -51,10 +51,10 @@ export function NewsletterSubscribe() {
 
         <div className="flex-1">
           <h3 className="text-lg font-semibold mb-2">
-            Join our Newsletter
+            订阅我们的新闻通讯
           </h3>
           <p className="text-muted-foreground text-sm mb-4">
-            Get the latest AI prompts and productivity tips delivered to your inbox weekly.
+            每周获取最新的AI提示词和效率技巧。
           </p>
 
           {status === 'success' ? (
@@ -67,7 +67,7 @@ export function NewsletterSubscribe() {
               <div className="flex-1">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="输入你的邮箱"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-2 border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary"
@@ -83,7 +83,7 @@ export function NewsletterSubscribe() {
                 ) : (
                   <Send className="w-4 h-4" />
                 )}
-                <span className="hidden sm:inline">Subscribe</span>
+                <span className="hidden sm:inline">订阅</span>
               </button>
             </form>
           )}
