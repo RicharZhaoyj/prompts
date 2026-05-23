@@ -89,28 +89,28 @@ export default async function Home() {
         <div className="container mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" />
-            Over 10,000+ AI Prompts Available
+            超过 10,000+ 优质AI提示词
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Discover the Perfect <br />
-            <span className="text-primary">AI Prompt</span> for Your Needs
+            发现完美的 <br />
+            <span className="text-primary">AI提示词</span> 满足你的需求
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Buy, sell, and share high-quality AI prompts for ChatGPT, Midjourney, Stable Diffusion, and more.
-            Join our community of AI enthusiasts and creators.
+            购买、出售和分享高质量的AI提示词，适用于ChatGPT、Midjourney、Stable Diffusion等。
+            加入我们的AI爱好者和创作者社区。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/prompts"
               className="px-8 py-3 text-lg font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Browse Prompts
+              浏览提示词
             </Link>
             <Link
               href="/submit"
               className="px-8 py-3 text-lg font-medium rounded-lg border hover:bg-accent"
             >
-              Start Selling
+              开始销售
             </Link>
           </div>
         </div>
@@ -124,27 +124,27 @@ export default async function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Trending Prompts</h3>
+              <h3 className="text-lg font-semibold mb-2">热门提示词</h3>
               <p className="text-muted-foreground">
-                Discover the most popular and effective prompts curated by our community
+                发现我们社区精选的最受欢迎和最有效的提示词
               </p>
             </div>
             <div className="text-center p-6">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Creator Network</h3>
+              <h3 className="text-lg font-semibold mb-2">创作者网络</h3>
               <p className="text-muted-foreground">
-                Connect with talented prompt creators and monetize your expertise
+                与优秀的提示词创作者联系，将你的专业知识变现
               </p>
             </div>
             <div className="text-center p-6">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Quality Assured</h3>
+              <h3 className="text-lg font-semibold mb-2">质量保证</h3>
               <p className="text-muted-foreground">
-                All prompts are reviewed and tested to ensure maximum effectiveness
+                所有提示词都经过审核和测试，确保最大有效性
               </p>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default async function Home() {
       {/* Categories Section */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Browse by Category</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">按分类浏览</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {categories.map((category) => (
               <Link
@@ -164,7 +164,7 @@ export default async function Home() {
               >
                 <div className="text-3xl mb-2">{category.emoji}</div>
                 <h3 className="font-semibold mb-1">{category.name}</h3>
-                <p className="text-sm text-muted-foreground">{category.prompt_count} prompts</p>
+                <p className="text-sm text-muted-foreground">{category.prompt_count} 个提示词</p>
               </Link>
             ))}
           </div>
@@ -175,9 +175,9 @@ export default async function Home() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">Featured Prompts</h2>
+            <h2 className="text-3xl font-bold">精选提示词</h2>
             <Link href="/prompts" className="text-primary font-medium hover:underline">
-              View All →
+              查看全部 →
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -204,7 +204,7 @@ export default async function Home() {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-lg font-bold">${prompt.price}</span>
-                    <span className="text-sm text-muted-foreground">{prompt.sales} sold</span>
+                    <span className="text-sm text-muted-foreground">已售 {prompt.sales}</span>
                   </div>
                 </div>
               </Link>
@@ -230,15 +230,15 @@ export default async function Home() {
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Selling?</h2>
+          <h2 className="text-3xl font-bold mb-4">准备好开始销售了吗？</h2>
           <p className="text-xl mb-8 opacity-90">
-            Join thousands of prompt creators and start earning today
+            加入数千名提示词创作者的行列，今天就开始赚钱
           </p>
           <Link
             href="/submit"
             className="inline-block px-8 py-3 bg-background text-foreground font-medium rounded-lg hover:bg-accent"
           >
-            Submit Your First Prompt
+            提交你的第一个提示词
           </Link>
         </div>
       </section>
