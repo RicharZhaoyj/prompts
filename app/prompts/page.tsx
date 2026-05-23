@@ -29,9 +29,9 @@ export default async function PromptsPage({
       {/* Header */}
       <div className="bg-muted/50 py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold mb-4">Browse AI Prompts</h1>
+          <h1 className="text-3xl font-bold mb-4">浏览AI提示词</h1>
           <p className="text-muted-foreground">
-            Discover over 10,000+ high-quality prompts for ChatGPT, Midjourney, and more
+            发现超过10,000+高质量的提示词，适用于ChatGPT、Midjourney等
           </p>
         </div>
       </div>
@@ -42,23 +42,23 @@ export default async function PromptsPage({
           <aside className="lg:w-64 flex-shrink-0">
             <div className="bg-background border rounded-lg p-6 sticky top-4">
               <div className="mb-6">
-                <label className="text-sm font-medium mb-2 block">Search</label>
+                <label className="text-sm font-medium mb-2 block">搜索</label>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <input
                     type="text"
-                    placeholder="Search prompts..."
+                    placeholder="搜索提示词..."
                     className="w-full pl-10 pr-4 py-2 border rounded-md text-sm"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label className="text-sm font-medium mb-2 block">Category</label>
+                <label className="text-sm font-medium mb-2 block">分类</label>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" className="rounded" />
-                    All
+                    全部
                   </label>
                   {categories.map((cat) => (
                     <label key={cat.id} className="flex items-center gap-2 text-sm">
@@ -70,15 +70,15 @@ export default async function PromptsPage({
               </div>
 
               <div className="mb-6">
-                <label className="text-sm font-medium mb-2 block">Price Range</label>
+                <label className="text-sm font-medium mb-2 block">价格范围</label>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" className="rounded" />
-                    Free
+                    免费
                   </label>
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" className="rounded" />
-                    Under $10
+                    $10 以下
                   </label>
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" className="rounded" />
@@ -86,13 +86,13 @@ export default async function PromptsPage({
                   </label>
                   <label className="flex items-center gap-2 text-sm">
                     <input type="checkbox" className="rounded" />
-                    Over $50
+                    $50 以上
                   </label>
                 </div>
               </div>
 
               <div className="mb-6">
-                <label className="text-sm font-medium mb-2 block">Rating</label>
+                <label className="text-sm font-medium mb-2 block">评分</label>
                 <div className="space-y-2">
                   {[4, 3, 2, 1].map((star) => (
                     <label key={star} className="flex items-center gap-2 text-sm">
@@ -106,7 +106,7 @@ export default async function PromptsPage({
               </div>
 
               <button className="w-full py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90">
-                Apply Filters
+                应用筛选
               </button>
             </div>
           </aside>
@@ -115,15 +115,15 @@ export default async function PromptsPage({
           <main className="flex-1">
             {/* Sort & Results */}
             <div className="flex items-center justify-between mb-6">
-              <p className="text-sm text-muted-foreground">Showing {prompts.length} results</p>
+              <p className="text-sm text-muted-foreground">显示 {prompts.length} 个结果</p>
               <div className="flex items-center gap-2">
-                <span className="text-sm">Sort by:</span>
+                <span className="text-sm">排序:</span>
                 <select className="border rounded-md px-3 py-1 text-sm">
-                  <option>Popular</option>
-                  <option>Newest</option>
-                  <option>Price: Low to High</option>
-                  <option>Price: High to Low</option>
-                  <option>Rating</option>
+                  <option>热门</option>
+                  <option>最新</option>
+                  <option>价格: 低到高</option>
+                  <option>价格: 高到低</option>
+                  <option>评分</option>
                 </select>
               </div>
             </div>
@@ -156,14 +156,14 @@ export default async function PromptsPage({
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                         {prompt.rating}
                       </span>
-                      <span className="text-sm text-muted-foreground">({prompt.reviews} reviews)</span>
+                      <span className="text-sm text-muted-foreground">({prompt.reviews} 条评价)</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
                         <span className="text-lg font-bold">${prompt.price}</span>
-                        <span className="text-sm text-muted-foreground ml-2">{prompt.sales} sold</span>
+                        <span className="text-sm text-muted-foreground ml-2">已售 {prompt.sales}</span>
                       </div>
-                      <span className="text-xs text-muted-foreground">by {prompt.author_name}</span>
+                      <span className="text-xs text-muted-foreground">作者: {prompt.author_name}</span>
                     </div>
                   </div>
                 </Link>
@@ -173,7 +173,7 @@ export default async function PromptsPage({
             {/* Pagination */}
             <div className="flex items-center justify-center gap-2 mt-12">
               <button className="px-4 py-2 border rounded-md text-sm font-medium hover:bg-accent disabled:opacity-50" disabled>
-                Previous
+                上一页
               </button>
               <button className="px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium">
                 1
@@ -189,7 +189,7 @@ export default async function PromptsPage({
                 102
               </button>
               <button className="px-4 py-2 border rounded-md text-sm font-medium hover:bg-accent">
-                Next
+                下一页
               </button>
             </div>
           </main>
