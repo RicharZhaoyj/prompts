@@ -24,14 +24,14 @@ export default function ProfilePage() {
                   href="/dashboard"
                   className="px-4 py-2 border rounded-md hover:bg-accent text-sm"
                 >
-                  View Dashboard
+                  查看仪表盘
                 </Link>
                 <Link
                   href="/submit"
                   className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 text-sm flex items-center gap-2"
                 >
                   <Plus className="w-4 h-4" />
-                  New Prompt
+                  新提示词
                 </Link>
               </div>
             </div>
@@ -45,7 +45,7 @@ export default function ProfilePage() {
               <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                 <Package className="w-5 h-5 text-blue-600" />
               </div>
-              <span className="text-muted-foreground text-sm">Prompts</span>
+              <span className="text-muted-foreground text-sm">提示词</span>
             </div>
             <div className="text-3xl font-bold">{userPrompts.length}</div>
           </div>
@@ -54,7 +54,7 @@ export default function ProfilePage() {
               <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-5 h-5 text-green-600" />
               </div>
-              <span className="text-muted-foreground text-sm">Sales</span>
+              <span className="text-muted-foreground text-sm">销售</span>
             </div>
             <div className="text-3xl font-bold">{totalSales}</div>
           </div>
@@ -63,7 +63,7 @@ export default function ProfilePage() {
               <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                 <DollarSign className="w-5 h-5 text-yellow-600" />
               </div>
-              <span className="text-muted-foreground text-sm">Revenue</span>
+              <span className="text-muted-foreground text-sm">收入</span>
             </div>
             <div className="text-3xl font-bold">${totalRevenue.toFixed(2)}</div>
           </div>
@@ -73,21 +73,21 @@ export default function ProfilePage() {
           {/* Settings Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-background border rounded-xl p-4">
-              <h3 className="font-semibold mb-4">Account</h3>
+              <h3 className="font-semibold mb-4">账户</h3>
               <nav className="space-y-1">
                 <Link
                   href="/profile"
                   className="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary"
                 >
                   <User className="w-4 h-4" />
-                  Profile
+                  个人资料
                 </Link>
                 <Link
                   href="/prompts"
                   className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-accent"
                 >
                   <Settings className="w-4 h-4" />
-                  Browse Prompts
+                  浏览提示词
                 </Link>
               </nav>
             </div>
@@ -98,24 +98,24 @@ export default function ProfilePage() {
             {/* My Prompts */}
             <div className="bg-background border rounded-xl p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold">My Prompts</h2>
+                <h2 className="text-xl font-bold">我的提示词</h2>
                 <Link
                   href="/submit"
                   className="text-primary hover:underline text-sm"
                 >
-                  + Add New
+                  + 添加新
                 </Link>
               </div>
 
               {userPrompts.length === 0 ? (
                 <div className="text-center py-12 text-muted-foreground">
                   <Package className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                  <p>No prompts yet</p>
+                  <p>还没有提示词</p>
                   <Link
                     href="/submit"
                     className="text-primary hover:underline mt-2 inline-block"
                   >
-                    Create your first prompt
+                    创建你的第一个提示词
                   </Link>
                 </div>
               ) : (
@@ -138,7 +138,7 @@ export default function ProfilePage() {
                           <span className="font-bold">${prompt.price}</span>
                         </div>
                         <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                          <span>{prompt.sales} sales</span>
+                          <span>{prompt.sales} 售出</span>
                           <span>⭐ {prompt.rating}</span>
                         </div>
                       </div>
@@ -150,7 +150,7 @@ export default function ProfilePage() {
 
             {/* Quick Actions */}
             <div className="bg-background border rounded-xl p-6">
-              <h2 className="text-xl font-bold mb-4">Quick Actions</h2>
+              <h2 className="text-xl font-bold mb-4">快速操作</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Link
                   href="/submit"
@@ -160,8 +160,8 @@ export default function ProfilePage() {
                     <Plus className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium">Create Prompt</h3>
-                    <p className="text-sm text-muted-foreground">Share your knowledge</p>
+                    <h3 className="font-medium">创建提示词</h3>
+                    <p className="text-sm text-muted-foreground">分享你的知识</p>
                   </div>
                 </Link>
                 <Link
@@ -172,8 +172,8 @@ export default function ProfilePage() {
                     <Edit className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-medium">Browse Market</h3>
-                    <p className="text-sm text-muted-foreground">Find inspiration</p>
+                    <h3 className="font-medium">浏览市场</h3>
+                    <p className="text-sm text-muted-foreground">寻找灵感</p>
                   </div>
                 </Link>
               </div>
