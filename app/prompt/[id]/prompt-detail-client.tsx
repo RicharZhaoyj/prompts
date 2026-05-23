@@ -17,10 +17,10 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
     try {
       await navigator.clipboard.writeText(prompt.content)
       setCopied(true)
-      showToast('Prompt copied to clipboard!', 'success')
+      showToast('提示词已复制到剪贴板！', 'success')
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      showToast('Failed to copy', 'error')
+      showToast('复制失败', 'error')
     }
   }
 
@@ -34,7 +34,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
         <div className="container mx-auto px-4">
           <Breadcrumbs
             items={[
-              { label: 'Prompts', href: '/prompts' },
+              { label: '提示词', href: '/prompts' },
               { label: prompt.title, href: `/prompt/${prompt.id}` },
             ]}
           />
@@ -51,9 +51,9 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                 </span>
                 <span className="flex items-center gap-1 text-sm">
                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  {prompt.rating} ({prompt.reviews} reviews)
+                  {prompt.rating} ({prompt.reviews} 条评价)
                 </span>
-                <span className="text-sm text-muted-foreground">{prompt.sales} sold</span>
+                <span className="text-sm text-muted-foreground">已售出 {prompt.sales}</span>
               </div>
               <h1 className="text-3xl font-bold mb-4">{prompt.title}</h1>
               <div className="flex items-center gap-4">
@@ -70,7 +70,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                 <div className="flex items-center gap-4 ml-auto">
                   <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
                     <Heart className="w-4 h-4" />
-                    Save
+                    收藏
                   </button>
                 </div>
               </div>
@@ -87,26 +87,26 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
             )}
 
             <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">Description</h2>
+              <h2 className="text-xl font-semibold mb-4">描述</h2>
               <div className="prose max-w-none text-muted-foreground">
                 <p>{prompt.description}</p>
-                <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">What You'll Get:</h3>
+                <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">您将获得：</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Complete, well-tested prompt</li>
-                  <li>Example usage patterns</li>
-                  <li>Customization tips</li>
+                  <li>完整且经过测试的提示词</li>
+                  <li>使用示例</li>
+                  <li>自定义建议</li>
                 </ul>
-                <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">How to Use:</h3>
+                <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">如何使用：</h3>
                 <ol className="list-decimal pl-6 space-y-2">
-                  <li>Copy the prompt from below</li>
-                  <li>Paste it into your preferred AI tool</li>
-                  <li>Customize the variables</li>
+                  <li>从下方复制提示词</li>
+                  <li>粘贴到您喜欢的AI工具中</li>
+                  <li>自定义变量</li>
                 </ol>
               </div>
             </div>
 
             <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">The Prompt</h2>
+              <h2 className="text-xl font-semibold mb-4">提示词内容</h2>
               <div className="bg-muted/50 border rounded-lg p-6 relative">
                 <pre className="whitespace-pre-wrap text-sm font-mono">
                   {prompt.content}
@@ -116,7 +116,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                   className="absolute top-4 right-4 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium flex items-center gap-2 hover:bg-primary/90"
                 >
                   <Copy className="w-4 h-4" />
-                  {copied ? 'Copied!' : 'Copy Prompt'}
+                  {copied ? '已复制！' : '复制提示词'}
                 </button>
               </div>
             </div>
@@ -130,20 +130,20 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
             </div>
 
             <div>
-              <h2 className="text-xl font-semibold mb-4">Customer Reviews</h2>
+              <h2 className="text-xl font-semibold mb-4">用户评价</h2>
               <div className="space-y-6">
                 {[
                   {
-                    name: 'John D.',
+                    name: '张三',
                     rating: 5,
-                    date: '2 weeks ago',
-                    text: 'This prompt has completely transformed my workflow!',
+                    date: '2周前',
+                    text: '这个提示词彻底改变了我的工作流程！',
                   },
                   {
-                    name: 'Maria S.',
+                    name: '李四',
                     rating: 5,
-                    date: '1 month ago',
-                    text: 'Excellent quality. Highly recommend!',
+                    date: '1个月前',
+                    text: '质量一流，强烈推荐！',
                   },
                 ].map((review, index) => (
                   <div key={index} className="border-b pb-6 last:border-0">
@@ -172,7 +172,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
             <div className="bg-background border rounded-lg p-6 sticky top-4">
               <div className="mb-6">
                 <div className="text-3xl font-bold mb-2">${prompt.price}</div>
-                <p className="text-sm text-muted-foreground">One-time purchase, lifetime access</p>
+                <p className="text-sm text-muted-foreground">一次性购买，终身使用</p>
               </div>
 
               <button
@@ -180,7 +180,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                 className="w-full py-3 bg-primary text-primary-foreground rounded-md font-medium mb-4 hover:bg-primary/90 flex items-center justify-center gap-2"
               >
                 <Clock className="w-5 h-5" />
-                Notify Me When Available
+                上线时通知我
               </button>
 
               <div className="text-center text-sm text-muted-foreground mb-6">
@@ -190,48 +190,48 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
 
               <button className="w-full py-3 border rounded-md font-medium mb-6 hover:bg-accent flex items-center justify-center gap-2">
                 <Heart className="w-5 h-5" />
-                Add to Wishlist
+                加入愿望清单
               </button>
 
               <div className="space-y-4 text-sm">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Instant digital delivery</span>
+                  <span>即时数字交付</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Lifetime access</span>
+                  <span>终身访问权限</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>Free updates</span>
+                  <span>免费更新</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>30-day money-back guarantee</span>
+                  <span>30天退款保证</span>
                 </div>
               </div>
 
               <hr className="my-6" />
 
               <div>
-                <h3 className="font-semibold mb-3">Prompt Details</h3>
+                <h3 className="font-semibold mb-3">提示词详情</h3>
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Category</dt>
+                    <dt className="text-muted-foreground">分类</dt>
                     <dd>{prompt.category}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">AI Model</dt>
+                    <dt className="text-muted-foreground">AI模型</dt>
                     <dd>ChatGPT / Claude</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Format</dt>
-                    <dd>Text</dd>
+                    <dt className="text-muted-foreground">格式</dt>
+                    <dd>文本</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">Updated</dt>
-                    <dd>Recently</dd>
+                    <dt className="text-muted-foreground">更新时间</dt>
+                    <dd>最近</dd>
                   </div>
                 </dl>
               </div>
@@ -239,7 +239,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
               <hr className="my-6" />
 
               <div>
-                <h3 className="font-semibold mb-3">Author Stats</h3>
+                <h3 className="font-semibold mb-3">作者信息</h3>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                     <span className="text-primary font-bold text-lg">
@@ -249,7 +249,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                   <div>
                     <p className="font-medium">{prompt.author_name}</p>
                     <p className="text-sm text-muted-foreground">
-                      6 prompts · {prompt.sales * 2} sales
+                      6个提示词 · {prompt.sales * 2}次销售
                     </p>
                   </div>
                 </div>
