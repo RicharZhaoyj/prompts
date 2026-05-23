@@ -9,7 +9,7 @@ export async function TrendingPrompts() {
     <div className="bg-background border rounded-xl p-6">
       <div className="flex items-center gap-2 mb-6">
         <Trophy className="w-5 h-5 text-yellow-500" />
-        <h2 className="text-lg font-semibold">Trending Prompts</h2>
+        <h2 className="text-lg font-semibold">热门提示词</h2>
       </div>
 
       <div className="space-y-4">
@@ -52,7 +52,7 @@ export async function TrendingPrompts() {
         href="/prompts"
         className="mt-6 block text-center text-sm text-primary hover:underline"
       >
-        View All Prompts →
+        查看所有提示词 →
       </Link>
     </div>
   )
