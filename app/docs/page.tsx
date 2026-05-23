@@ -46,46 +46,46 @@ export default function DocsPage() {
   const docs = [
     {
       icon: Book,
-      title: 'Getting Started',
-      description: 'Learn the basics of PromptMarket and how to buy your first prompt',
+      title: '开始使用',
+      description: '了解PromptMarket的基本知识以及如何购买您的第一个提示词',
       links: [
-        { label: 'Quick Start Guide', href: '#' },
-        { label: 'Creating an Account', href: '#' },
-        { label: 'Making Your First Purchase', href: '#' },
-        { label: 'Using Prompts Effectively', href: '#' },
+        { label: '快速开始指南', href: '#' },
+        { label: '创建账户', href: '#' },
+        { label: '完成首次购买', href: '#' },
+        { label: '有效使用提示词', href: '#' },
       ],
     },
     {
       icon: Code,
-      title: 'For Developers',
-      description: 'API documentation and integration guides for developers',
+      title: '开发者专区',
+      description: 'API文档和开发者集成指南',
       links: [
-        { label: 'API Overview', href: '#' },
-        { label: 'Authentication', href: '#' },
-        { label: 'Rate Limits', href: '#' },
-        { label: 'SDKs & Libraries', href: '#' },
+        { label: 'API概览', href: '#' },
+        { label: '身份验证', href: '#' },
+        { label: '速率限制', href: '#' },
+        { label: 'SDK和库', href: '#' },
       ],
     },
     {
       icon: Zap,
-      title: 'Creating Prompts',
-      description: 'Guide to creating and selling high-quality prompts',
+      title: '创建提示词',
+      description: '创建和销售高质量提示词的指南',
       links: [
-        { label: 'Prompt Writing Best Practices', href: '#' },
-        { label: 'Pricing Your Prompts', href: '#' },
-        { label: 'Submission Guidelines', href: '#' },
-        { label: 'Marketing Your Work', href: '#' },
+        { label: '提示词撰写最佳实践', href: '#' },
+        { label: '为提示词定价', href: '#' },
+        { label: '提交指南', href: '#' },
+        { label: '营销您的作品', href: '#' },
       ],
     },
     {
       icon: Shield,
-      title: 'Trust & Safety',
-      description: 'Policies, terms, and safety guidelines',
+      title: '信任与安全',
+      description: '政策、条款和安全指南',
       links: [
-        { label: 'Terms of Service', href: '#' },
-        { label: 'Privacy Policy', href: '#' },
-        { label: 'Refund Policy', href: '#' },
-        { label: 'Content Guidelines', href: '#' },
+        { label: '服务条款', href: '#' },
+        { label: '隐私政策', href: '#' },
+        { label: '退款政策', href: '#' },
+        { label: '内容规范', href: '#' },
       ],
     },
   ]
@@ -97,9 +97,9 @@ export default function DocsPage() {
       {/* Header */}
       <div className="bg-muted/50 py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold mb-4">Documentation</h1>
+          <h1 className="text-3xl font-bold mb-4">帮助文档</h1>
           <p className="text-muted-foreground">
-            Everything you need to know about PromptMarket
+            关于PromptMarket，您需要知道的一切
           </p>
         </div>
       </div>
@@ -109,18 +109,18 @@ export default function DocsPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           <a href="#getting-started" className="p-6 bg-primary/5 border rounded-lg hover:border-primary transition-colors">
             <Book className="w-8 h-8 text-primary mb-3" />
-            <h3 className="font-semibold mb-1">Quick Start</h3>
-            <p className="text-sm text-muted-foreground">Get up and running in minutes</p>
+            <h3 className="font-semibold mb-1">快速开始</h3>
+            <p className="text-sm text-muted-foreground">几分钟内开始使用</p>
           </a>
           <a href="#api" className="p-6 bg-primary/5 border rounded-lg hover:border-primary transition-colors">
             <Code className="w-8 h-8 text-primary mb-3" />
-            <h3 className="font-semibold mb-1">API Reference</h3>
-            <p className="text-sm text-muted-foreground">Build with our API</p>
+            <h3 className="font-semibold mb-1">API文档</h3>
+            <p className="text-sm text-muted-foreground">使用我们的API构建</p>
           </a>
           <a href="#support" className="p-6 bg-primary/5 border rounded-lg hover:border-primary transition-colors">
             <MessageCircle className="w-8 h-8 text-primary mb-3" />
-            <h3 className="font-semibold mb-1">Get Support</h3>
-            <p className="text-sm text-muted-foreground">Contact our team</p>
+            <h3 className="font-semibold mb-1">获取支持</h3>
+            <p className="text-sm text-muted-foreground">联系我们的团队</p>
           </a>
         </div>
 
@@ -155,48 +155,46 @@ export default function DocsPage() {
 
         {/* Getting Started Section */}
         <section id="getting-started" className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Getting Started</h2>
+          <h2 className="text-2xl font-bold mb-6">开始使用</h2>
           
           <div className="space-y-6">
             <div className="bg-background border rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-3">What is PromptMarket?</h3>
+              <h3 className="text-lg font-semibold mb-3">什么是PromptMarket？</h3>
               <p className="text-muted-foreground mb-4">
-                PromptMarket is a marketplace for AI prompts where creators can sell their prompts and 
-                buyers can discover high-quality, tested prompts for various AI tools including ChatGPT, 
-                Midjourney, Stable Diffusion, and more.
+                PromptMarket是一个AI提示词市场，创作者可以在这里出售他们的提示词，
+                买家可以发现用于各种AI工具（包括ChatGPT、Midjourney、Stable Diffusion等）的高质量、经过测试的提示词。
               </p>
               <p className="text-muted-foreground">
-                Whether you're looking to boost your productivity, enhance your creative projects, or 
-                monetize your AI expertise, PromptMarket provides the platform and tools you need.
+                无论您是想提高工作效率、增强创意项目，还是将您的AI专业知识变现，
+                PromptMarket都为您提供所需的平台和工具。
               </p>
             </div>
 
             <div className="bg-background border rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-3">How to Buy Prompts</h3>
+              <h3 className="text-lg font-semibold mb-3">如何购买提示词</h3>
               <ol className="list-decimal pl-6 space-y-3 text-muted-foreground">
-                <li>Create a free account or sign in</li>
-                <li>Browse or search for prompts using our categories and filters</li>
-                <li>Click on a prompt to view details, previews, and reviews</li>
-                <li>Click "Buy Now" and complete the payment securely via Stripe</li>
-                <li>Access your purchased prompts in your dashboard</li>
-                <li>Copy the prompt and use it in your preferred AI tool</li>
+                <li>创建免费账户或登录</li>
+                <li>使用我们的分类和筛选功能浏览或搜索提示词</li>
+                <li>点击提示词查看详情、预览和评价</li>
+                <li>点击"立即购买"并通过Stripe安全支付</li>
+                <li>在您的仪表板中访问已购买的提示词</li>
+                <li>复制提示词并在您喜欢的AI工具中使用</li>
               </ol>
             </div>
 
             <div className="bg-background border rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-3">How to Sell Prompts</h3>
+              <h3 className="text-lg font-semibold mb-3">如何销售提示词</h3>
               <ol className="list-decimal pl-6 space-y-3 text-muted-foreground">
-                <li>Create a seller account (free to join)</li>
-                <li>Prepare your prompt following our submission guidelines</li>
-                <li>Submit your prompt with title, description, category, and price</li>
-                <li>Our team reviews submissions within 48 hours</li>
-                <li>Once approved, your prompt goes live on the marketplace</li>
-                <li>Track your sales and earnings in your seller dashboard</li>
+                <li>创建卖家账户（免费加入）</li>
+                <li>按照我们的提交指南准备您的提示词</li>
+                <li>提交您的提示词，包括标题、描述、分类和价格</li>
+                <li>我们的团队会在48小时内审核提交内容</li>
+                <li>审核通过后，您的提示词将在市场上发布</li>
+                <li>在您的卖家仪表板中跟踪销售和收入</li>
               </ol>
               <div className="mt-4 p-4 bg-muted/50 rounded-lg">
                 <p className="text-sm">
-                  <strong>Seller Tip:</strong> Prompts that include clear usage instructions, 
-                  examples, and variable placeholders tend to perform better!
+                  <strong>卖家提示:</strong> 包含清晰使用说明、示例和变量占位符的提示词通常表现更好！
                 </p>
               </div>
             </div>
@@ -205,7 +203,7 @@ export default function DocsPage() {
 
         {/* API Section */}
         <section id="api" className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">API Documentation</h2>
+          <h2 className="text-2xl font-bold mb-6">API文档</h2>
           
           <div className="bg-background border rounded-lg p-6">
             <div className="flex items-center justify-between mb-4">
@@ -213,63 +211,63 @@ export default function DocsPage() {
               <span className="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full">v1.0</span>
             </div>
             <p className="text-muted-foreground mb-4">
-              Our API allows you to programmatically access prompts, user data, and transactions.
-              Perfect for building integrations or custom applications.
+              我们的API允许您以编程方式访问提示词、用户数据和交易。
+              非常适合构建集成或自定义应用程序。
             </p>
             <div className="bg-muted/50 rounded-lg p-4 font-mono text-sm">
-              <p className="text-muted-foreground">Base URL:</p>
-              <p className="text-foreground">https://api.promptmarket.com/v1</p>
+              <p className="text-muted-foreground">基础URL:</p>
+              <p className="text-foreground">https://api.prompts.link.cn/v1</p>
             </div>
             <div className="mt-4">
-              <h4 className="font-medium mb-2">Available Endpoints:</h4>
+              <h4 className="font-medium mb-2">可用的接口:</h4>
               <ul className="space-y-1 text-sm text-muted-foreground">
-                <li>• <code className="bg-muted px-1 rounded">GET /prompts</code> - List all prompts</li>
-                <li>• <code className="bg-muted px-1 rounded">GET /prompts/:id</code> - Get prompt details</li>
-                <li>• <code className="bg-muted px-1 rounded">GET /categories</code> - List categories</li>
-                <li>• <code className="bg-muted px-1 rounded">GET /users/:id</code> - Get user profile</li>
+                <li>• <code className="bg-muted px-1 rounded">GET /prompts</code> - 列出所有提示词</li>
+                <li>• <code className="bg-muted px-1 rounded">GET /prompts/:id</code> - 获取提示词详情</li>
+                <li>• <code className="bg-muted px-1 rounded">GET /categories</code> - 列出分类</li>
+                <li>• <code className="bg-muted px-1 rounded">GET /users/:id</code> - 获取用户资料</li>
               </ul>
             </div>
             <a href="#" className="inline-flex items-center gap-2 text-primary hover:underline mt-4">
-              View Full API Documentation <ExternalLink className="w-4 h-4" />
+              查看完整API文档 <ExternalLink className="w-4 h-4" />
             </a>
           </div>
         </section>
 
         {/* Support Section */}
         <section id="support" className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Support</h2>
+          <h2 className="text-2xl font-bold mb-6">支持</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-background border rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
+              <h3 className="text-lg font-semibold mb-3">联系我们</h3>
               <p className="text-muted-foreground mb-4">
-                Have questions or need help? Our support team is here for you.
+                有问题或需要帮助？我们的支持团队随时为您服务。
               </p>
               <div className="space-y-2 text-sm">
-                <p><strong>Email:</strong> support@promptmarket.com</p>
-                <p><strong>Response Time:</strong> Usually within 24 hours</p>
+                <p><strong>邮箱:</strong> support@prompts.link.cn</p>
+                <p><strong>响应时间:</strong> 通常在24小时内</p>
               </div>
             </div>
 
             <div className="bg-background border rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-3">FAQ</h3>
+              <h3 className="text-lg font-semibold mb-3">常见问题</h3>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-medium mb-1">Can I get a refund?</h4>
+                  <h4 className="font-medium mb-1">我可以获得退款吗？</h4>
                   <p className="text-sm text-muted-foreground">
-                    Yes, we offer a 30-day money-back guarantee on all purchases.
+                    是的，我们对所有购买提供30天退款保证。
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">How do I become a seller?</h4>
+                  <h4 className="font-medium mb-1">如何成为卖家？</h4>
                   <p className="text-sm text-muted-foreground">
-                    Simply submit your first prompt through the submission form. No application required!
+                    只需通过提交表单提交您的第一个提示词即可。无需申请！
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">What AI tools are supported?</h4>
+                  <h4 className="font-medium mb-1">支持哪些AI工具？</h4>
                   <p className="text-sm text-muted-foreground">
-                    Our prompts work with ChatGPT, Claude, Midjourney, Stable Diffusion, DALL-E, and more.
+                    我们的提示词适用于ChatGPT、Claude、Midjourney、Stable Diffusion、DALL-E等。
                   </p>
                 </div>
               </div>
