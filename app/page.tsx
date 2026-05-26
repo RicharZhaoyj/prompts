@@ -6,15 +6,8 @@ import { TrendingPrompts } from './components/trending-prompts'
 import { NewsletterSubscribe } from './components/newsletter-subscribe'
 import { StructuredData } from './components/structured-data'
 
-const LAST_UPDATED = new Date().toLocaleString('zh-CN', {
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit',
-  hour: '2-digit',
-  minute: '2-digit',
-  second: '2-digit',
-  hour12: false,
-})
+// 使用构建时的固定日期
+const LAST_UPDATED = '2024年1月15日'
 
 export const metadata: Metadata = {
   title: 'PromptMarket - AI提示词免费库 | ChatGPT Midjourney提示词',
