@@ -362,18 +362,376 @@ export const SAMPLE_PROMPTS: Prompt[] = [
     tags: ['商业', '初创', '计划', '战略'],
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
+
+  {
+    id: '17',
+    title: '工作总结专家',
+    description: '写高质量的年终总结、季度总结',
+    content: `您是一位资深HR和职场导师，请帮我写一份专业的工作总结：
+
+**时间周期：** [季度/年度]
+**主要工作：** [列出主要工作项目]
+**主要成果：** [列出取得的成果]
+**遇到的挑战：** [描述遇到的挑战]
+**未来计划：** [描述未来的目标]
+
+要求：
+1. 结构清晰，逻辑分明
+2. 用数据说话，量化成果
+3. 语言专业但不浮夸
+4. 突出贡献和成长
+5. 结尾展望未来
+
+请开始撰写！`,
+    category: '写作',
+    price: 0,
+    rating: 4.7,
+    reviews: 34,
+    sales: 231,
+    author_id: 'user-1',
+    author_name: '内容创作者小王',
+    image_url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
+    tags: ['总结', '职场', '写作', '汇报'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   },
+  {
+    id: '18',
+    title: '邮件回复助手',
+    description: '帮你写各种工作邮件和回复',
+    content: `您是一位资深职场人士，请帮我回复这封邮件：
+
+**邮件主题：** [邮件主题]
+**邮件内容：** [邮件内容]
+**我的意图：** [我想要如何回复]
+**语气要求：** [专业/友好/简洁/详细]
+
+要求：
+1. 礼貌且专业
+2. 回应到位，不跑题
+3. 语气符合场景
+4. 语言简洁明了
+
+请写一封合适的回复！`,
+    category: '写作',
+    price: 0,
+    rating: 4.6,
+    reviews: 28,
+    sales: 198,
+    author_id: 'user-1',
+    author_name: '内容创作者小王',
+    image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
+    tags: ['邮件', '职场', '沟通', '写作'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '19',
+    title: '面试回答教练',
+    description: '准备高质量的面试问题回答',
+    content: `您是一位资深HR面试官，请帮我准备面试回答：
+
+**面试岗位：** [岗位名称]
+**面试问题：** [具体问题]
+**我的情况：** [我的经历/背景]
+
+要求：
+1. STAR法则回答
+2. 具体、真实、有细节
+3. 突出能力和成果
+4. 语言简洁有力
+
+请帮我准备一个高质量的回答！`,
+    category: '职场',
+    price: 0,
+    rating: 4.8,
+    reviews: 56,
+    sales: 378,
+    author_id: 'user-5',
+    author_name: '创业导师老李',
+    image_url: 'https://images.unsplash.com/photo-1521737604893-d14cc237f1cf?w=400&h=300&fit=crop',
+    tags: ['面试', '职场', '求职', '工作'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '20',
+    title: '简历优化专家',
+    description: '优化简历，突出亮点',
+    content: `您是一位资深HR，请帮我优化简历：
+
+**目标岗位：** [岗位名称]
+**我的简历：** [简历内容]
+
+要求：
+1. 用数据说话
+2. 突出关键技能
+3. 经历描述更专业
+4. 用动宾结构
+5. 简洁有力
+
+请帮我优化简历！`,
+    category: '职场',
+    price: 0,
+    rating: 4.9,
+    reviews: 78,
+    sales: 512,
+    author_id: 'user-5',
+    author_name: '创业导师老李',
+    image_url: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=300&fit=crop',
+    tags: ['简历', '求职', '职场', '工作'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '21',
+    title: '前端Bug解决专家',
+    description: '帮你分析和解决前端各种问题',
+    content: `您是一位资深前端工程师，有10年经验。
+
+**问题描述：** [描述你遇到的问题]
+**错误信息：** [错误信息]
+**我的代码：** [相关代码]
+**尝试过的方案：** [已经试过什么]
+
+请帮我：
+1. 分析问题原因
+2. 给出具体解决方案
+3. 解释为什么会出现这个问题
+4. 如何避免类似问题
+
+请用中文详细解答！`,
+    category: '编程',
+    price: 0,
+    rating: 4.8,
+    reviews: 45,
+    sales: 267,
+    author_id: 'user-2',
+    author_name: '前端开发老张',
+    image_url: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&h=300&fit=crop',
+    tags: ['前端', '调试', 'JavaScript', 'React'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '22',
+    title: 'SQL查询生成器',
+    description: '帮你写复杂的SQL查询',
+    content: `您是一位资深DBA，请帮我写SQL：
+
+**数据库表结构：** [表结构描述]
+**查询需求：** [描述查询需求]
+**具体要求：** [性能/格式等]
+
+请提供：
+1. 完整的SQL查询
+2. 注释解释每一部分
+3. 如果有优化建议也请说明
+4. 如果有多种方案都列出来
+
+请帮我写SQL！`,
+    category: '编程',
+    price: 0,
+    rating: 4.7,
+    reviews: 38,
+    sales: 212,
+    author_id: 'user-8',
+    author_name: '全栈工程师大熊',
+    image_url: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop',
+    tags: ['SQL', '数据库', '查询', '数据'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '23',
+    title: 'AI绘画角色设计',
+    description: '创建动漫、游戏、角色插画',
+    content: `请帮我画一个角色：
+
+**角色类型：** [动漫/游戏/写实/卡通]
+**角色描述：** [性别、年龄、外貌、穿着、性格]
+**风格要求：** [风格描述]
+**画面氛围：** [氛围描述]
+
+提示词格式：
+[主体描述], [服装细节], [表情动作], [光影/天气], [艺术风格], [画面规格]
+
+示例：
+1个可爱的20岁女孩，紫色双马尾，蓝色水手服，开心地笑着，温暖的金色阳光，京都动画风格，4K，高细节
+
+请根据您的角色进行替换！`,
+    category: '图像生成',
+    price: 0,
+    rating: 4.9,
+    reviews: 65,
+    sales: 445,
+    author_id: 'user-3',
+    author_name: 'AI绘画达人阿明',
+    image_url: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop',
+    tags: ['角色', '动漫', '游戏', '绘画'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '24',
+    title: '社交媒体配图生成',
+    description: '生成适合小红书、朋友圈、公众号的配图',
+    content: `请帮我生成一张社交媒体配图：
+
+**主题：** [图片主题]
+**平台：** [小红书/朋友圈/公众号]
+**风格：** [简约/活泼/专业/创意]
+**主要元素：** [想要包含的元素]
+**色调：** [颜色偏好]
+
+提示词格式：
+[主题描述], [风格/色调], [构图], [艺术风格], [高规格]
+
+示例：
+极简设计海报，咖啡杯和书本，米色和棕色色调，居中构图，平面设计风格，4K
+
+请根据您的主题进行替换！`,
+    category: '图像生成',
+    price: 0,
+    rating: 4.8,
+    reviews: 52,
+    sales: 367,
+    author_id: 'user-7',
+    author_name: '数字艺术家阿杰',
+    image_url: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop',
+    tags: ['设计', '社交媒体', '配图', '图形'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '25',
+    title: '文案翻译专家',
+    description: '专业翻译，保持原意和风格',
+    content: `您是一位资深翻译专家，请帮我翻译：
+
+**原文：** [需要翻译的文本]
+**目标语言：** [中文→英文 / 英文→中文 / 其他]
+**风格要求：** [正式/口语/专业/文学]
+
+要求：
+1. 准确传达原意
+2. 符合目标语言习惯
+3. 风格一致
+4. 自然流畅
+
+请帮我翻译！`,
+    category: '写作',
+    price: 0,
+    rating: 4.7,
+    reviews: 41,
+    sales: 278,
+    author_id: 'user-11',
+    author_name: '小说作者小雪',
+    image_url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop',
+    tags: ['翻译', '语言', '写作', '沟通'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '26',
+    title: '小红书标题生成器',
+    description: '生成爆款小红书标题',
+    content: `您是一位小红书爆款文案专家，请帮我写标题：
+
+**内容主题：** [描述内容主题]
+**风格类型：** [种草/教程/干货/分享/测评]
+**目标人群：** [目标受众]
+
+要求：
+1. 包含数字/ emoji
+2. 有痛点或利益点
+3. 20-30字最佳
+4. 引人好奇或有价值
+
+请生成5-8个标题备选！`,
+    category: '营销',
+    price: 0,
+    rating: 4.9,
+    reviews: 89,
+    sales: 623,
+    author_id: 'user-4',
+    author_name: '营销策划小林',
+    image_url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop',
+    tags: ['小红书', '标题', '文案', '爆款'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '27',
+    title: '读书笔记生成器',
+    description: '帮你提炼书籍精华，整理读书笔记',
+    content: `您是一位阅读和学习专家，请帮我做读书笔记：
+
+**书名：** [书名]
+**作者：** [作者]
+**核心要点：** [我想记录/记住什么]
+
+要求：
+1. 提炼核心观点
+2. 分点清晰
+3. 结合个人感悟
+4. 可操作的行动建议
+
+请帮我整理读书笔记！`,
+    category: '教育',
+    price: 0,
+    rating: 4.8,
+    reviews: 54,
+    sales: 378,
+    author_id: 'user-10',
+    author_name: '数学老师王博士',
+    image_url: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop',
+    tags: ['读书', '学习', '笔记', '阅读'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '28',
+    title: '会议纪要整理',
+    description: '快速整理会议重点和行动项',
+    content: `您是一位资深的会议记录员，请帮我整理会议纪要：
+
+**会议主题：** [会议主题]
+**会议时间：** [时间]
+**参与人员：** [人员]
+**会议内容：** [会议内容/录音摘要]
+
+要求：
+1. 整理会议重点
+2. 明确行动项（负责人+时间）
+3. 清晰的决策记录
+4. 简洁明了
+
+请帮我整理会议纪要！`,
+    category: '生产力',
+    price: 0,
+    rating: 4.7,
+    reviews: 48,
+    sales: 323,
+    author_id: 'user-12',
+    author_name: '效率导师老周',
+    image_url: 'https://images.unsplash.com/photo-1544396821-4dd406738e29?w=400&h=300&fit=crop',
+    tags: ['会议', '效率', '工作', '整理'],
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+
 ];
 
 export const CATEGORIES: Category[] = [
-  { id: 'writing', name: '写作', emoji: '✍️', prompt_count: 89 },
-  { id: 'coding', name: '编程', emoji: '💻', prompt_count: 71 },
-  { id: 'image', name: '图像生成', emoji: '🎨', prompt_count: 156 },
-  { id: 'marketing', name: '营销', emoji: '📊', prompt_count: 65 },
+  { id: 'writing', name: '写作', emoji: '✍️', prompt_count: 121 },
+  { id: 'coding', name: '编程', emoji: '💻', prompt_count: 92 },
+  { id: 'image', name: '图像生成', emoji: '🎨', prompt_count: 187 },
+  { id: 'marketing', name: '营销', emoji: '📊', prompt_count: 83 },
   { id: 'business', name: '商业', emoji: '💼', prompt_count: 43 },
-  { id: 'education', name: '教育', emoji: '📚', prompt_count: 63 },
-  { id: 'creative', name: '创意', emoji: '✨', prompt_count: 58 },
-  { id: 'productivity', name: '生产力', emoji: '⚡', prompt_count: 89 },
+  { id: 'education', name: '教育', emoji: '📚', prompt_count: 82 },
+  { id: 'creative', name: '创意', emoji: '✨', prompt_count: 68 },
+  { id: 'productivity', name: '生产力', emoji: '⚡', prompt_count: 118 },
 ];
 
 export async function getPrompts(category?: string, search?: string): Promise<Prompt[]> {
