@@ -93,7 +93,7 @@ export default async function Home() {
         <div className="container mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" />
-            收录 1,000+ 精选AI提示词
+            收录 1,200+ 精选AI提示词
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             发现完美的 <br />
