@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getPrompts } from './lib/prompts'
+import { getPrompts } from '@/lib/prompts'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://prompts.link.cn'
