@@ -362,7 +362,7 @@ export const SAMPLE_PROMPTS: Prompt[] = [
     tags: ['商业', '初创', '计划', '战略'],
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
-
+  },
   {
     id: '17',
     title: '工作总结专家',
@@ -1306,7 +1306,7 @@ export const SAMPLE_PROMPTS: Prompt[] = [
 export const CATEGORIES: Category[] = [
   { id: 'writing', name: '写作', emoji: '✍️', prompt_count: 88 },
   { id: 'coding', name: '编程', emoji: '💻', prompt_count: 72 },
-  { id: 'image', name: '图像生成', emoji: '🎨', icon: '🎨', prompt_count: 115 },
+  { id: 'image', name: '图像生成', emoji: '🎨', prompt_count: 115 },
   { id: 'marketing', name: '营销', emoji: '📊', prompt_count: 78 },
   { id: 'business', name: '商业', emoji: '💼', prompt_count: 56 },
   { id: 'education', name: '教育', emoji: '📚', prompt_count: 68 },
