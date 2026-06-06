@@ -136,13 +136,13 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                   {
                     name: '张三',
                     rating: 5,
-                    date: '2周前',
+                    date: '2026年5月20日',
                     text: '这个提示词彻底改变了我的工作流程！',
                   },
                   {
                     name: '李四',
                     rating: 5,
-                    date: '1个月前',
+                    date: '2026年5月10日',
                     text: '质量一流，强烈推荐！',
                   },
                 ].map((review, index) => (
@@ -231,7 +231,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-muted-foreground">更新时间</dt>
-                    <dd>最近</dd>
+                    <dd>2026年6月</dd>
                   </div>
                 </dl>
               </div>
@@ -249,7 +249,7 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                   <div>
                     <p className="font-medium">{prompt.author_name}</p>
                     <p className="text-sm text-muted-foreground">
-                      6个提示词 · {prompt.sales * 2}次销售
+                      6个提示词 · {prompt.sales}次销售
                     </p>
                   </div>
                 </div>
