@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation'
 const blogPosts = {
   '10-chatgpt-tips': {
     title: '10个ChatGPT提示词技巧，让AI帮你事半功倍',
-    date: '2024-01-15',
+    date: '2026-06-01',
     category: 'ChatGPT',
     readTime: '5分钟',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
@@ -455,7 +455,7 @@ Midjourney提示词的核心是：
   },
   'prompt-engineering-best-practices': {
     title: '提示词工程最佳实践：如何写出高质量的AI提示词',
-    date: '2024-01-05',
+    date: '2026-05-20',
     category: '教程',
     readTime: '6分钟',
     image: 'https://images.unsplash.com/photo-1684163549237-41611c81a324?w=800',
