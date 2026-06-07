@@ -102,7 +102,7 @@ export default async function Home() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             全部免费使用！涵盖写作、编程、设计、营销等多个场景。
             <br />
-            无需注册，直接使用。帮助1000+用户提升工作效率。
+            无需注册，直接使用。帮助1,580+用户提升工作效率。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -142,7 +142,7 @@ export default async function Home() {
             <div className="flex items-center gap-3 justify-center">
               <Users className="w-6 h-6 text-purple-500" />
               <div className="text-sm">
-                <div className="font-semibold">1000+ 用户</div>
+                <div className="font-semibold">1,580+ 用户</div>
                 <div className="text-muted-foreground">正在使用我们的提示词</div>
               </div>
             </div>
