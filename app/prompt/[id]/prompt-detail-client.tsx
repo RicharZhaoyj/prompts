@@ -9,7 +9,15 @@ import { SocialShare } from '@/app/components/social-share'
 import { Breadcrumbs } from '@/app/components/breadcrumbs'
 import type { Prompt } from '@/lib/types'
 
-export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
+// 评论类型
+interface Review {
+  name: string
+  rating: number
+  date: string
+  text: string
+}
+
+export default function PromptDetailClient({ prompt, reviews = [] }: { prompt: Prompt; reviews?: Review[] }) {
   const [copied, setCopied] = useState(false)
   const { showToast } = useToast()
 
@@ -130,40 +138,10 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
             </div>
 
             <div>
-              <h2 className="text-xl font-semibold mb-4">用户评价</h2>
+              <h2 className="text-xl font-semibold mb-4">用户评价 ({prompt.reviews}条)</h2>
               <div className="space-y-6">
-                {[
-                  {
-                    name: '李明',
-                    rating: 5,
-                    date: '2026年5月28日',
-                    text: '这个提示词真的很实用！用它写的文章质量提高了很多，省了我不少时间。强烈推荐！',
-                  },
-                  {
-                    name: '王芳',
-                    rating: 5,
-                    date: '2026年5月22日',
-                    text: '一开始我还担心效果不好，结果超出预期。已经推荐给身边的朋友了。',
-                  },
-                  {
-                    name: '张伟',
-                    rating: 4,
-                    date: '2026年5月15日',
-                    text: '用了几次，效果稳定，每次都能获得高质量的输出。这个价格很值！',
-                  },
-                  {
-                    name: '刘洋',
-                    rating: 5,
-                    date: '2026年5月8日',
-                    text: '对新手很友好，即使不懂编程也能轻松使用。界面也很简洁明了。',
-                  },
-                  {
-                    name: '陈静',
-                    rating: 5,
-                    date: '2026年5月1日',
-                    text: '非常专业的提示词，生成的代码质量很高。已经是我工作中的必备工具了。',
-                  },
-                ].map((review, index) => (
+                {reviews.length > 0 ? (
+                  reviews.map((review, index) => (
                   <div key={index} className="border-b pb-6 last:border-0">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="font-medium">{review.name}</span>
@@ -181,7 +159,12 @@ export default function PromptDetailClient({ prompt }: { prompt: Prompt }) {
                     </div>
                     <p className="text-muted-foreground">{review.text}</p>
                   </div>
-                ))}
+                ))
+                ) : (
+                  <p className="text-muted-foreground text-center py-8">
+                    暂无评价，成为第一个评价的用户吧！
+                  </p>
+                )}
               </div>
             </div>
           </div>
