@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Star, CheckCircle, Clock } from 'lucide-react'
-import { getPromptById } from '@/lib/prompts'
+import { getPromptById, getPromptReviews } from '@/lib/prompts'
 import { Metadata } from 'next'
 import PromptDetailClient from './prompt-detail-client'
 import { StructuredData } from '@/app/components/structured-data'
@@ -70,14 +70,17 @@ export default async function PromptDetailPage({
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <p className="text-xl text-muted-foreground">Prompt not found</p>
+          <p className="text-xl text-muted-foreground">提示词未找到</p>
           <Link href="/prompts" className="text-primary hover:underline mt-4 inline-block">
-            Browse prompts
+            浏览提示词
           </Link>
         </div>
       </div>
     )
   }
+
+  // 获取该提示词的真实评论
+  const reviews = getPromptReviews(params.id)
 
   const productSchema = {
     '@context': 'https://schema.org',
@@ -98,14 +101,14 @@ export default async function PromptDetailPage({
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: String(prompt.rating),
-      reviewCount: String(prompt.sales),
+      reviewCount: String(prompt.reviews),
     },
   }
 
   return (
     <>
       <StructuredData type="product" data={productSchema as any} />
-      <PromptDetailClient prompt={prompt} />
+      <PromptDetailClient prompt={prompt} reviews={reviews} />
     </>
   )
 }
