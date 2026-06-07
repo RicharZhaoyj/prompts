@@ -3,1350 +3,2719 @@ import { Prompt, Category } from './types';
 export const SAMPLE_PROMPTS: Prompt[] = [
   {
     id: '1',
-    title: '终极博客写作专家',
-    description: '生成在Google上排名的SEO优化博客文章',
-    content: `您是一位专业的博客写作专家，专注于[主题/领域]。我需要您撰写一篇全面的、SEO优化的博客文章，要求：
+    title: 'SEO博客写作助手',
+    description: '生成符合Google算法的SEO优化文章',
+    content: `你是一位写作专家，请生成符合Google算法的SEO优化文章。
 
-1. **标题：** 创建一个引人入胜、富含关键词的标题来吸引读者
-2. **Meta描述：** 撰写150-160个字符的meta描述
-3. **引言：** 以强有力的钩子开头，解决[痛点/受众挑战]
-4. **主要内容：** 涵盖以下要点：
-   - 要点1：[关键信息]
-   - 要点2：[支持细节]
-   - 要点3：[可操作的建议]
-5. **结论：** 总结并包含明确的行动号召
-
-**风格要求：**
-- 语气：[友好/专业/随意]
-- 长度：[短/中/长 - 指定字数]
-- 包含小标题以提高可读性
-- 适当添加项目符号
-- 保持对话流畅
-
-**SEO要求：**
-- 主要关键词：[关键词]
-- 次要关键词：[相关关键词]
-- 包含内部链接建议
-- 尽可能优化特色摘要
-
-让我们开始写作！`,
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
     category: '写作',
     price: 0,
-    rating: 4.6,
-    reviews: 23,
-    sales: 156,
-    author_id: 'user-1',
-    author_name: '张明远',,
-    image_url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=300&fit=crop',
-    tags: ['SEO', '博客', '内容', '营销'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    rating: 4.5,
+    reviews: 5,
+    sales: 43,
+    author_id: 'author_006',
+    author_name: '刘思远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["SEO", "\u535a\u5ba2", "Google"],
+    created_at: '2025-06-17T22:15:22.512534',
+    updated_at: '2026-05-28T22:15:22.512534',
   },
   {
     id: '2',
-    title: '小红书爆款文案生成器',
-    description: '生成吸引人的小红书笔记文案',
-    content: `您是一位小红书文案专家，请帮我撰写一篇引人入胜的小红书笔记：
+    title: '小红书爆款文案',
+    description: '创作吸引眼球的小红书爆款笔记',
+    content: `你是一位写作专家，请创作吸引眼球的小红书爆款笔记。
 
-**主题：** [产品/体验/教程/分享]
-**目标受众：** [描述目标读者]
-**核心卖点：** [列出3-5个要点]
-
-**要求：**
-1. 标题要吸引人，使用emoji增加表现力
-2. 正文分段落，每段1-2句话
-3. 使用口语化表达，亲切自然
-4. 加入真实使用体验和感受
-5. 结尾引导互动
-6. 标签5-10个
-
-请开始撰写！`,
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
     category: '写作',
-    price: 0,
-    rating: 4.8,
-    reviews: 45,
-    sales: 234,
-    author_id: 'user-1',
-    author_name: '李思远',,
-    image_url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=300&fit=crop',
-    tags: ['小红书', '文案', '社交媒体', '营销'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    price: 19.9,
+    rating: 4.2,
+    reviews: 2,
+    sales: 17,
+    author_id: 'author_005',
+    author_name: '陈浩然',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5c0f\u7ea2\u4e66", "\u6587\u6848", "\u793e\u4ea4\u5a92\u4f53"],
+    created_at: '2025-08-07T22:15:22.512534',
+    updated_at: '2026-05-10T22:15:22.512534',
   },
   {
     id: '3',
-    title: 'React组件生成器',
-    description: '使用TypeScript创建生产级React组件',
-    content: '您是一位资深React工程师。我需要您创建一个生产级React组件，包括完整的类型定义、错误处理和性能优化...',
-    category: '编程',
-    price: 0,
-    rating: 4.9,
-    reviews: 18,
-    sales: 89,
-    author_id: 'user-2',
-    author_name: '王晓峰',,
-    image_url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
-    tags: ['React', 'TypeScript', '组件', '前端'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    title: '知乎专业回答',
+    description: '生成高质量的知乎回答',
+    content: `你是一位写作专家，请生成高质量的知乎回答。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 39.9,
+    rating: 4.7,
+    reviews: 10,
+    sales: 59,
+    author_id: 'author_005',
+    author_name: '陈浩然',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u77e5\u4e4e", "\u95ee\u7b54", "\u4e13\u4e1a"],
+    created_at: '2025-10-12T22:15:22.512534',
+    updated_at: '2026-06-01T22:15:22.512534',
   },
   {
     id: '4',
-    title: 'Python数据分析专家',
-    description: '专业的Python数据分析和可视化',
-    content: `您是一位拥有10年经验的数据科学家。我需要您帮助分析以下数据：
+    title: '产品文案大师',
+    description: '撰写高转化率的产品描述',
+    content: `你是一位写作专家，请撰写高转化率的产品描述。
 
-**数据描述：** [描述您的数据]
-**分析目标：** [明确您的目标]
-**需要分析的问题：**
-1. [问题1]
-2. [问题2]
-3. [问题3]
-
-请提供：
-1. 数据清洗和预处理的代码
-2. 探索性分析的关键发现
-3. 可视化图表（使用Matplotlib/Seaborn/Plotly）
-4. 深入分析和洞察
-5. 可操作的建议
-
-使用pandas、numpy、scikit-learn等库。`,
-    category: '编程',
-    price: 0,
-    rating: 4.8,
-    reviews: 32,
-    sales: 145,
-    author_id: 'user-2',
-    author_name: '赵雅琳',,
-    image_url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
-    tags: ['Python', '数据分析', '可视化', '数据科学'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 9.9,
+    rating: 3.8,
+    reviews: 26,
+    sales: 156,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u7535\u5546", "\u4ea7\u54c1", "\u8425\u9500"],
+    created_at: '2025-12-08T22:15:22.512534',
+    updated_at: '2026-05-17T22:15:22.512534',
   },
   {
     id: '5',
-    title: '人像摄影提示词',
-    description: '使用电影级灯光创建惊艳的人像图像',
-    content: '专业人像摄影，电影级灯光，景深，85mm镜头，f/1.8...',
-    category: '图像生成',
+    title: '新闻稿撰写模板',
+    description: '专业的新闻稿写作模板',
+    content: `你是一位写作专家，请专业的新闻稿写作模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
     price: 0,
-    rating: 4.7,
-    reviews: 28,
-    sales: 167,
-    author_id: 'user-3',
-    author_name: '陈浩然',,
-    image_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
-    tags: ['人像', 'Midjourney', '摄影', '艺术'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    rating: 4.8,
+    reviews: 8,
+    sales: 66,
+    author_id: 'author_015',
+    author_name: '林诗琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u65b0\u95fb", "PR", "\u5a92\u4f53"],
+    created_at: '2025-10-18T22:15:22.512534',
+    updated_at: '2026-05-23T22:15:22.512534',
   },
   {
     id: '6',
-    title: '风景照片生成大师',
-    description: '生成令人惊叹的自然风景照片',
-    content: `请生成一张令人惊叹的风景照片，使用以下格式：
+    title: '邮件营销文案',
+    description: '高打开率的营销邮件生成器',
+    content: `你是一位写作专家，请高打开率的营销邮件生成器。
 
-[场景描述] + [天气/时间] + [风格] + [技术规格]
-
-示例：
-阿尔卑斯山脉日出，金色阳光，晨雾，壮丽山峰，清澈湖水，国家地理摄影风格，8K，超高清，超详细，HDR
-
-更多示例：
-- 挪威峡湾，极光，星空，长时间曝光，摄影师Ansel Adams风格
-- 日本京都竹林，细雨，清晨，禅意，电影感，复古胶片风格
-
-请根据您想要的场景进行替换！`,
-    category: '图像生成',
-    price: 0,
-    rating: 4.9,
-    reviews: 67,
-    sales: 345,
-    author_id: 'user-3',
-    author_name: '刘思琪',,
-    image_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
-    tags: ['风景', 'Midjourney', '摄影', '艺术'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 19.9,
+    rating: 4.6,
+    reviews: 80,
+    sales: 547,
+    author_id: 'author_006',
+    author_name: '刘思远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u90ae\u4ef6", "\u8425\u9500", "EDM"],
+    created_at: '2025-08-13T22:15:22.512534',
+    updated_at: '2026-05-19T22:15:22.512534',
   },
   {
     id: '7',
-    title: '电子邮件营销活动',
-    description: '为任何领域撰写高转化率的邮件序列',
-    content: '您是电子邮件营销专家。我需要您撰写一个7天的邮件序列，包括欢迎邮件、价值邮件、成交邮件...',
-    category: '营销',
-    price: 0,
-    rating: 4.6,
+    title: '抖音短视频脚本',
+    description: '抖音/快手短视频脚本生成',
+    content: `你是一位写作专家，请抖音/快手短视频脚本生成。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 29.9,
+    rating: 4.2,
     reviews: 12,
-    sales: 156,
-    author_id: 'user-4',
-    author_name: '黄子轩',,
-    image_url: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=300&fit=crop',
-    tags: ['邮件', '营销', '销售', '转化'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    sales: 76,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6296\u97f3", "\u5feb\u624b", "\u77ed\u89c6\u9891"],
+    created_at: '2025-11-23T22:15:22.512534',
+    updated_at: '2026-05-21T22:15:22.512534',
   },
   {
     id: '8',
-    title: '产品描述写作专家',
-    description: '撰写有说服力的产品描述来促进销售',
-    content: '您是文案专家。我需要您为产品撰写有说服力的描述，突出卖点、解决用户痛点...',
-    category: '营销',
-    price: 0,
-    rating: 4.5,
-    reviews: 15,
-    sales: 67,
-    author_id: 'user-6',
-    author_name: '周佳宁',,
-    image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
-    tags: ['文案', '产品', '电商', '销售'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    title: '求职简历优化',
+    description: '让简历脱颖而出',
+    content: `你是一位写作专家，请让简历脱颖而出。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 39.9,
+    rating: 4.8,
+    reviews: 13,
+    sales: 92,
+    author_id: 'author_006',
+    author_name: '刘思远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u7b80\u5386", "\u6c42\u804c", "\u804c\u573a"],
+    created_at: '2025-07-15T22:15:22.512534',
+    updated_at: '2026-05-24T22:15:22.512534',
   },
   {
     id: '9',
-    title: 'Midjourney风景大师',
-    description: '生成令人惊叹的风景和自然图像',
-    content: '史诗风景摄影，黄金小时，戏剧性天空，[地点场景]，24mm广角镜头，国家地理风格，获奖摄影，8K，超详细...',
-    category: '图像生成',
-    price: 0,
-    rating: 4.9,
-    reviews: 54,
-    sales: 289,
-    author_id: 'user-7',
-    author_name: '吴文博',,
-    image_url: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=300&fit=crop',
-    tags: ['Midjourney', '风景', '自然', '摄影'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    title: '公众号推文助手',
+    description: '高质量公众号文章生成',
+    content: `你是一位写作专家，请高质量公众号文章生成。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 49.9,
+    rating: 4.0,
+    reviews: 71,
+    sales: 455,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u516c\u4f17\u53f7", "\u5fae\u4fe1", "\u5185\u5bb9"],
+    created_at: '2025-11-26T22:15:22.514059',
+    updated_at: '2026-05-30T22:15:22.514059',
   },
   {
     id: '10',
-    title: 'Python代码调试专家',
-    description: '像资深工程师一样调试和优化Python代码',
-    content: '您是一位拥有10年以上经验的资深Python工程师。分析以下Python代码，识别错误，建议优化，并提供干净、生产级的修复...',
-    category: '编程',
+    title: '品牌故事创作',
+    description: '动人的品牌故事脚本',
+    content: `你是一位写作专家，请动人的品牌故事脚本。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
     price: 0,
-    rating: 4.7,
-    reviews: 21,
-    sales: 98,
-    author_id: 'user-8',
-    author_name: '徐梦洁',,
-    image_url: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop',
-    tags: ['Python', '调试', '优化', '后端'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    rating: 4.8,
+    reviews: 14,
+    sales: 71,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u54c1\u724c", "\u6545\u4e8b", "\u60c5\u6000"],
+    created_at: '2025-11-18T22:15:22.514059',
+    updated_at: '2026-05-17T22:15:22.514059',
   },
   {
     id: '11',
-    title: '社交媒体内容创作者',
-    description: '为Instagram、Twitter、LinkedIn打造病毒级帖子',
-    content: '您是一位社交媒体策略师，已将账户从0增长到10万+粉丝。创建引人入胜的内容，提升互动率...',
-    category: '营销',
+    title: '直播带货话术',
+    description: '李佳琦风格的直播脚本',
+    content: `你是一位写作专家，请李佳琦风格的直播脚本。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
     price: 0,
-    rating: 4.8,
-    reviews: 38,
-    sales: 176,
-    author_id: 'user-9',
-    author_name: '孙雨晴',,
-    image_url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop',
-    tags: ['社交媒体', 'Instagram', 'LinkedIn', '病毒'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    rating: 3.8,
+    reviews: 4,
+    sales: 40,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u76f4\u64ad", "\u5e26\u8d27", "\u7535\u5546"],
+    created_at: '2025-09-21T22:15:22.514059',
+    updated_at: '2026-05-24T22:15:22.514059',
   },
   {
     id: '12',
-    title: '数学问题解决器和导师',
-    description: '通过分步解释学习和解决数学问题',
-    content: '您是一位拥有数学博士学位的经验丰富的数学导师。用简单、清晰的步骤解释如何解决这个问题...',
-    category: '教育',
-    price: 0,
+    title: '朋友圈文案生成',
+    description: '吸睛朋友圈文案模板',
+    content: `你是一位写作专家，请吸睛朋友圈文案模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 9.9,
     rating: 4.9,
-    reviews: 29,
-    sales: 345,
-    author_id: 'user-10',
-    author_name: '马晓东',,
-    image_url: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=400&h=300&fit=crop',
-    tags: ['数学', '导师', '教育', '学习'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    reviews: 261,
+    sales: 2092,
+    author_id: 'author_011',
+    author_name: '孙雨晴',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u670b\u53cb\u5708", "\u793e\u4ea4", "\u6587\u6848"],
+    created_at: '2025-06-28T22:15:22.514059',
+    updated_at: '2026-05-28T22:15:22.514059',
   },
   {
     id: '13',
-    title: '周报生成器',
-    description: '专业的工作周报撰写工具',
-    content: `您是一位经验丰富的企业高管，请帮我撰写一份专业的工作周报。
+    title: '自我介绍优化',
+    description: '让人印象深刻的自我介绍',
+    content: `你是一位写作专家，请让人印象深刻的自我介绍。
 
-**本周工作：** [列出本周完成的工作]
-**下周计划：** [列出下周计划]
-**遇到的问题：** [如有问题请描述]
-
-要求：
-1. 结构清晰，使用要点列表
-2. 用数据说话，量化成果
-3. 语言专业简洁
-4. 突出重点工作
-5. 问题部分要有解决方案建议
-
-请开始撰写。`,
-    category: '生产力',
-    price: 0,
-    rating: 4.9,
-    reviews: 89,
-    sales: 378,
-    author_id: 'user-12',
-    author_name: '朱若溪',,
-    image_url: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=300&fit=crop',
-    tags: ['周报', '工作', '效率', '职场'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 99,
+    rating: 4.7,
+    reviews: 10,
+    sales: 59,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u81ea\u6211\u4ecb\u7ecd", "\u793e\u4ea4", "\u804c\u573a"],
+    created_at: '2025-09-03T22:15:22.514059',
+    updated_at: '2026-05-25T22:15:22.514059',
   },
   {
     id: '14',
-    title: '学习计划制定专家',
-    description: '为任何学习目标制定个性化学习计划',
-    content: `您是一位资深学习教练，请帮我制定学习计划。
+    title: '活动策划方案',
+    description: '完整的营销活动策划',
+    content: `你是一位写作专家，请完整的营销活动策划。
 
-**学习目标：** [描述您的目标]
-**可用时间：** [每天/每周多少时间]
-**目前基础：** [描述现有基础]
-**截止日期：** [如有截止日期]
-
-请提供：
-1. 阶段性学习目标
-2. 每周学习计划
-3. 推荐学习资源
-4. 检验学习成果的方法
-5. 常见问题和解决建议`,
-    category: '教育',
-    price: 0,
-    rating: 4.8,
-    reviews: 45,
-    sales: 289,
-    author_id: 'user-10',
-    author_name: '胡浩然',,
-    image_url: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=400&h=300&fit=crop',
-    tags: ['学习', '计划', '教育', '自我提升'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 19.9,
+    rating: 4.5,
+    reviews: 10,
+    sales: 54,
+    author_id: 'author_011',
+    author_name: '孙雨晴',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6d3b\u52a8", "\u7b56\u5212", "\u6267\u884c"],
+    created_at: '2025-07-26T22:15:22.514059',
+    updated_at: '2026-06-03T22:15:22.514059',
   },
   {
     id: '15',
-    title: '创意故事生成器',
-    description: '用任何体裁写引人入胜的虚构和创意故事',
-    content: '您是一位获奖小说作家。用这些元素写一个引人入胜的故事：[体裁]，[角色]，[背景]，[情节转折]...',
-    category: '创意',
-    price: 0,
-    rating: 4.7,
-    reviews: 19,
-    sales: 87,
-    author_id: 'user-11',
-    author_name: '林诗琪',,
-    image_url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop',
-    tags: ['虚构', '故事', '创意', '写作'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    title: '工作总结模板',
+    description: '专业的年终/季度总结',
+    content: `你是一位写作专家，请专业的年终/季度总结。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '写作',
+    price: 39.9,
+    rating: 4.4,
+    reviews: 34,
+    sales: 196,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u603b\u7ed3", "\u804c\u573a", "\u6c47\u62a5"],
+    created_at: '2025-10-04T22:15:22.514059',
+    updated_at: '2026-06-05T22:15:22.514059',
   },
   {
     id: '16',
-    title: '商业计划书生成器',
-    description: '为初创企业创建全面的商业计划',
-    content: '您是一位商业顾问。我需要您为一家初创企业创建全面的商业计划，包括市场分析、竞争分析、财务预测...',
-    category: '商业',
-    price: 0,
-    rating: 4.8,
-    reviews: 11,
-    sales: 43,
-    author_id: 'user-5',
-    author_name: '罗宇航',,
-    image_url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
-    tags: ['商业', '初创', '计划', '战略'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    title: 'React组件生成器',
+    description: '快速生成React组件代码',
+    content: `你是一位编程专家，请快速生成React组件代码。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 39.9,
+    rating: 4.7,
+    reviews: 4,
+    sales: 49,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["React", "\u524d\u7aef", "TypeScript"],
+    created_at: '2025-09-27T22:15:22.514059',
+    updated_at: '2026-05-16T22:15:22.514059',
   },
   {
     id: '17',
-    title: '工作总结专家',
-    description: '写高质量的年终总结、季度总结',
-    content: `您是一位资深HR和职场导师，请帮我写一份专业的工作总结：
+    title: 'Python数据分析',
+    description: '专业的数据分析脚本',
+    content: `你是一位编程专家，请专业的数据分析脚本。
 
-**时间周期：** [季度/年度]
-**主要工作：** [列出主要工作项目]
-**主要成果：** [列出取得的成果]
-**遇到的挑战：** [描述遇到的挑战]
-**未来计划：** [描述未来的目标]
-
-要求：
-1. 结构清晰，逻辑分明
-2. 用数据说话，量化成果
-3. 语言专业但不浮夸
-4. 突出贡献和成长
-5. 结尾展望未来
-
-请开始撰写！`,
-    category: '写作',
-    price: 0,
-    rating: 4.7,
-    reviews: 34,
-    sales: 231,
-    author_id: 'user-1',
-    author_name: '梁佳乐',,
-    image_url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
-    tags: ['总结', '职场', '写作', '汇报'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 39.9,
+    rating: 4.8,
+    reviews: 30,
+    sales: 156,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Python", "\u6570\u636e", "\u5206\u6790"],
+    created_at: '2025-08-22T22:15:22.514059',
+    updated_at: '2026-05-21T22:15:22.514059',
   },
   {
     id: '18',
-    title: '邮件回复助手',
-    description: '帮你写各种工作邮件和回复',
-    content: `您是一位资深职场人士，请帮我回复这封邮件：
+    title: 'SQL查询优化',
+    description: '生成高效的SQL语句',
+    content: `你是一位编程专家，请生成高效的SQL语句。
 
-**邮件主题：** [邮件主题]
-**邮件内容：** [邮件内容]
-**我的意图：** [我想要如何回复]
-**语气要求：** [专业/友好/简洁/详细]
-
-要求：
-1. 礼貌且专业
-2. 回应到位，不跑题
-3. 语气符合场景
-4. 语言简洁明了
-
-请写一封合适的回复！`,
-    category: '写作',
-    price: 0,
-    rating: 4.6,
-    reviews: 28,
-    sales: 198,
-    author_id: 'user-1',
-    author_name: '宋雨婷',,
-    image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
-    tags: ['邮件', '职场', '沟通', '写作'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 9.9,
+    rating: 4.5,
+    reviews: 20,
+    sales: 138,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["SQL", "\u6570\u636e\u5e93", "\u4f18\u5316"],
+    created_at: '2025-11-21T22:15:22.514059',
+    updated_at: '2026-05-30T22:15:22.514059',
   },
   {
     id: '19',
-    title: '面试回答教练',
-    description: '准备高质量的面试问题回答',
-    content: `您是一位资深HR面试官，请帮我准备面试回答：
+    title: 'Vue3组合式API',
+    description: '使用Vue3 Composition API',
+    content: `你是一位编程专家，请使用Vue3 Composition API。
 
-**面试岗位：** [岗位名称]
-**面试问题：** [具体问题]
-**我的情况：** [我的经历/背景]
-
-要求：
-1. STAR法则回答
-2. 具体、真实、有细节
-3. 突出能力和成果
-4. 语言简洁有力
-
-请帮我准备一个高质量的回答！`,
-    category: '职场',
-    price: 0,
-    rating: 4.8,
-    reviews: 56,
-    sales: 378,
-    author_id: 'user-5',
-    author_name: '郑凯文',,
-    image_url: 'https://images.unsplash.com/photo-1521737604893-d14cc237f1cf?w=400&h=300&fit=crop',
-    tags: ['面试', '职场', '求职', '工作'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 9.9,
+    rating: 4.0,
+    reviews: 7,
+    sales: 57,
+    author_id: 'author_005',
+    author_name: '陈浩然',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Vue", "\u524d\u7aef", "JavaScript"],
+    created_at: '2025-12-04T22:15:22.514059',
+    updated_at: '2026-06-01T22:15:22.514059',
   },
   {
     id: '20',
-    title: '简历优化专家',
-    description: '优化简历，突出亮点',
-    content: `您是一位资深HR，请帮我优化简历：
+    title: 'Node.js API开发',
+    description: 'RESTful API开发模板',
+    content: `你是一位编程专家，请RESTful API开发模板。
 
-**目标岗位：** [岗位名称]
-**我的简历：** [简历内容]
-
-要求：
-1. 用数据说话
-2. 突出关键技能
-3. 经历描述更专业
-4. 用动宾结构
-5. 简洁有力
-
-请帮我优化简历！`,
-    category: '职场',
-    price: 0,
-    rating: 4.9,
-    reviews: 78,
-    sales: 321,
-    author_id: 'user-5',
-    author_name: '谢婷婷',,
-    image_url: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=300&fit=crop',
-    tags: ['简历', '求职', '职场', '工作'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 9.9,
+    rating: 4.5,
+    reviews: 7,
+    sales: 46,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Node", "API", "\u540e\u7aef"],
+    created_at: '2025-06-16T22:15:22.514059',
+    updated_at: '2026-05-31T22:15:22.514059',
   },
   {
     id: '21',
-    title: '前端Bug解决专家',
-    description: '帮你分析和解决前端各种问题',
-    content: `您是一位资深前端工程师，有10年经验。
+    title: 'Docker配置模板',
+    description: '快速生成Docker配置',
+    content: `你是一位编程专家，请快速生成Docker配置。
 
-**问题描述：** [描述你遇到的问题]
-**错误信息：** [错误信息]
-**我的代码：** [相关代码]
-**尝试过的方案：** [已经试过什么]
-
-请帮我：
-1. 分析问题原因
-2. 给出具体解决方案
-3. 解释为什么会出现这个问题
-4. 如何避免类似问题
-
-请用中文详细解答！`,
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
     category: '编程',
-    price: 0,
-    rating: 4.8,
-    reviews: 45,
-    sales: 267,
-    author_id: 'user-2',
-    author_name: '韩子墨',,
-    image_url: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&h=300&fit=crop',
-    tags: ['前端', '调试', 'JavaScript', 'React'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    price: 49.9,
+    rating: 4.1,
+    reviews: 5,
+    sales: 46,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Docker", "DevOps", "\u5bb9\u5668"],
+    created_at: '2025-06-22T22:15:22.514059',
+    updated_at: '2026-06-02T22:15:22.514059',
   },
   {
     id: '22',
-    title: 'SQL查询生成器',
-    description: '帮你写复杂的SQL查询',
-    content: `您是一位资深DBA，请帮我写SQL：
+    title: 'Git提交规范',
+    description: '规范化的Git提交信息',
+    content: `你是一位编程专家，请规范化的Git提交信息。
 
-**数据库表结构：** [表结构描述]
-**查询需求：** [描述查询需求]
-**具体要求：** [性能/格式等]
-
-请提供：
-1. 完整的SQL查询
-2. 注释解释每一部分
-3. 如果有优化建议也请说明
-4. 如果有多种方案都列出来
-
-请帮我写SQL！`,
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
     category: '编程',
-    price: 0,
+    price: 39.9,
     rating: 4.7,
-    reviews: 38,
-    sales: 212,
-    author_id: 'user-8',
-    author_name: '唐嘉欣',,
-    image_url: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop',
-    tags: ['SQL', '数据库', '查询', '数据'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    reviews: 68,
+    sales: 379,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Git", "\u7248\u672c\u63a7\u5236", "\u89c4\u8303"],
+    created_at: '2025-11-16T22:15:22.515066',
+    updated_at: '2026-05-19T22:15:22.515066',
   },
   {
     id: '23',
-    title: 'AI绘画角色设计',
-    description: '创建动漫、游戏、角色插画',
-    content: `请帮我画一个角色：
+    title: '单元测试生成',
+    description: '自动生成测试用例',
+    content: `你是一位编程专家，请自动生成测试用例。
 
-**角色类型：** [动漫/游戏/写实/卡通]
-**角色描述：** [性别、年龄、外貌、穿着、性格]
-**风格要求：** [风格描述]
-**画面氛围：** [氛围描述]
-
-提示词格式：
-[主体描述], [服装细节], [表情动作], [光影/天气], [艺术风格], [画面规格]
-
-示例：
-1个可爱的20岁女孩，紫色双马尾，蓝色水手服，开心地笑着，温暖的金色阳光，京都动画风格，4K，高细节
-
-请根据您的角色进行替换！`,
-    category: '图像生成',
-    price: 0,
-    rating: 4.9,
-    reviews: 65,
-    sales: 312,
-    author_id: 'user-3',
-    author_name: '冯文博',,
-    image_url: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop',
-    tags: ['角色', '动漫', '游戏', '绘画'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 19.9,
+    rating: 4.8,
+    reviews: 21,
+    sales: 194,
+    author_id: 'author_011',
+    author_name: '孙雨晴',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6d4b\u8bd5", "Jest", "\u8d28\u91cf"],
+    created_at: '2025-11-09T22:15:22.515066',
+    updated_at: '2026-05-23T22:15:22.515066',
   },
   {
     id: '24',
-    title: '社交媒体配图生成',
-    description: '生成适合小红书、朋友圈、公众号的配图',
-    content: `请帮我生成一张社交媒体配图：
+    title: 'Next.js全栈模板',
+    description: '完整的Next.js项目模板',
+    content: `你是一位编程专家，请完整的Next.js项目模板。
 
-**主题：** [图片主题]
-**平台：** [小红书/朋友圈/公众号]
-**风格：** [简约/活泼/专业/创意]
-**主要元素：** [想要包含的元素]
-**色调：** [颜色偏好]
-
-提示词格式：
-[主题描述], [风格/色调], [构图], [艺术风格], [高规格]
-
-示例：
-极简设计海报，咖啡杯和书本，米色和棕色色调，居中构图，平面设计风格，4K
-
-请根据您的主题进行替换！`,
-    category: '图像生成',
-    price: 0,
-    rating: 4.8,
-    reviews: 52,
-    sales: 367,
-    author_id: 'user-7',
-    author_name: '于晓雪',,
-    image_url: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop',
-    tags: ['设计', '社交媒体', '配图', '图形'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 49.9,
+    rating: 4.4,
+    reviews: 18,
+    sales: 155,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Next.js", "React", "\u5168\u6808"],
+    created_at: '2025-06-13T22:15:22.515066',
+    updated_at: '2026-06-05T22:15:22.515066',
   },
   {
     id: '25',
-    title: '文案翻译专家',
-    description: '专业翻译，保持原意和风格',
-    content: `您是一位资深翻译专家，请帮我翻译：
+    title: 'TypeScript类型生成',
+    description: '智能TypeScript类型定义',
+    content: `你是一位编程专家，请智能TypeScript类型定义。
 
-**原文：** [需要翻译的文本]
-**目标语言：** [中文→英文 / 英文→中文 / 其他]
-**风格要求：** [正式/口语/专业/文学]
-
-要求：
-1. 准确传达原意
-2. 符合目标语言习惯
-3. 风格一致
-4. 自然流畅
-
-请帮我翻译！`,
-    category: '写作',
-    price: 0,
-    rating: 4.7,
-    reviews: 41,
-    sales: 278,
-    author_id: 'user-11',
-    author_name: '董浩然',,
-    image_url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop',
-    tags: ['翻译', '语言', '写作', '沟通'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 9.9,
+    rating: 4.9,
+    reviews: 245,
+    sales: 1456,
+    author_id: 'author_002',
+    author_name: '李思琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["TypeScript", "\u7c7b\u578b", "\u524d\u7aef"],
+    created_at: '2025-10-07T22:15:22.515066',
+    updated_at: '2026-05-11T22:15:22.515066',
   },
   {
     id: '26',
-    title: '小红书标题生成器',
-    description: '生成爆款小红书标题',
-    content: `您是一位小红书爆款文案专家，请帮我写标题：
+    title: 'GraphQL schema',
+    description: 'GraphQL API设计模板',
+    content: `你是一位编程专家，请GraphQL API设计模板。
 
-**内容主题：** [描述内容主题]
-**风格类型：** [种草/教程/干货/分享/测评]
-**目标人群：** [目标受众]
-
-要求：
-1. 包含数字/ emoji
-2. 有痛点或利益点
-3. 20-30字最佳
-4. 引人好奇或有价值
-
-请生成5-8个标题备选！`,
-    category: '营销',
-    price: 0,
-    rating: 4.9,
-    reviews: 89,
-    sales: 412,
-    author_id: 'user-4',
-    author_name: '萧若溪',,
-    image_url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop',
-    tags: ['小红书', '标题', '文案', '爆款'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 39.9,
+    rating: 4.6,
+    reviews: 3,
+    sales: 35,
+    author_id: 'author_006',
+    author_name: '刘思远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["GraphQL", "API", "\u540e\u7aef"],
+    created_at: '2025-09-02T22:15:22.515066',
+    updated_at: '2026-05-12T22:15:22.515066',
   },
   {
     id: '27',
-    title: '读书笔记生成器',
-    description: '帮你提炼书籍精华，整理读书笔记',
-    content: `您是一位阅读和学习专家，请帮我做读书笔记：
+    title: 'Python爬虫脚本',
+    description: '网页数据采集模板',
+    content: `你是一位编程专家，请网页数据采集模板。
 
-**书名：** [书名]
-**作者：** [作者]
-**核心要点：** [我想记录/记住什么]
-
-要求：
-1. 提炼核心观点
-2. 分点清晰
-3. 结合个人感悟
-4. 可操作的行动建议
-
-请帮我整理读书笔记！`,
-    category: '教育',
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
     price: 0,
-    rating: 4.8,
-    reviews: 54,
-    sales: 378,
-    author_id: 'user-10',
-    author_name: '程雨晴',,
-    image_url: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop',
-    tags: ['读书', '学习', '笔记', '阅读'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    rating: 4.1,
+    reviews: 22,
+    sales: 161,
+    author_id: 'author_015',
+    author_name: '林诗琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u722c\u866b", "Python", "\u6570\u636e"],
+    created_at: '2025-12-05T22:15:22.515066',
+    updated_at: '2026-06-04T22:15:22.515066',
   },
   {
     id: '28',
-    title: '会议纪要整理',
-    description: '快速整理会议重点和行动项',
-    content: `您是一位资深的会议记录员，请帮我整理会议纪要：
+    title: 'Redis缓存策略',
+    description: 'Redis缓存最佳实践',
+    content: `你是一位编程专家，请Redis缓存最佳实践。
 
-**会议主题：** [会议主题]
-**会议时间：** [时间]
-**参与人员：** [人员]
-**会议内容：** [会议内容/录音摘要]
-
-要求：
-1. 整理会议重点
-2. 明确行动项（负责人+时间）
-3. 清晰的决策记录
-4. 简洁明了
-
-请帮我整理会议纪要！`,
-    category: '生产力',
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
     price: 0,
-    rating: 4.7,
-    reviews: 48,
-    sales: 323,
-    author_id: 'user-12',
-    author_name: '曹子轩',,
-    image_url: 'https://images.unsplash.com/photo-1544396821-4dd406738e29?w=400&h=300&fit=crop',
-    tags: ['会议', '效率', '工作', '整理'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    rating: 4.4,
+    reviews: 24,
+    sales: 156,
+    author_id: 'author_008',
+    author_name: '周佳宁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Redis", "\u7f13\u5b58", "\u540e\u7aef"],
+    created_at: '2025-11-02T22:15:22.515066',
+    updated_at: '2026-05-23T22:15:22.515066',
   },
   {
     id: '29',
-    title: '小红书爆款笔记生成器',
-    description: '生成高互动率的小红书内容',
-    content: `您是一位小红书头部博主，请帮我生成一篇爆款笔记：
+    title: 'AWS Lambda函数',
+    description: '无服务器函数模板',
+    content: `你是一位编程专家，请无服务器函数模板。
 
-**内容类型：** [种草/教程/好物分享/日常分享]
-**主题：** [描述内容主题]
-**核心亮点：** [列出3-5个吸引人的点]
-
-要求：
-1. 标题要有吸引力，包含emoji
-2. 开头要抓人，3秒内吸引注意力
-3. 正文结构清晰，适当分段
-4. 加入真实个人体验和感受
-5. 结尾要有互动引导
-6. 添加5-10个相关标签
-
-请开始创作！`,
-    category: '营销',
-    price: 0,
-    rating: 4.9,
-    reviews: 92,
-    sales: 456,
-    author_id: 'user-4',
-    author_name: '袁佳宁',,
-    image_url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop',
-    tags: ['小红书', '社交媒体', '内容创作', '爆款'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 39.9,
+    rating: 4.4,
+    reviews: 49,
+    sales: 295,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["AWS", "Lambda", "\u4e91"],
+    created_at: '2025-07-05T22:15:22.515066',
+    updated_at: '2026-05-25T22:15:22.515066',
   },
   {
     id: '30',
-    title: '短视频脚本创作助手',
-    description: '为抖音、快手等短视频平台创作吸引人的脚本',
-    content: `您是一位抖音短视频创作专家，请帮我创作一个短视频脚本：
+    title: 'MongoDB聚合查询',
+    description: '复杂的MongoDB查询模板',
+    content: `你是一位编程专家，请复杂的MongoDB查询模板。
 
-**视频类型：** [种草/知识科普/搞笑/情感/剧情]
-**时长要求：** [15秒/30秒/60秒/3分钟]
-**主题：** [视频主题]
-**目标效果：** [想要达成的目标]
-
-脚本结构：
-1. 开场（0-3秒）：吸引注意力
-2. 铺垫（3-10秒）：建立情境
-3. 高潮（10-30秒）：核心内容
-4. 结尾（最后5秒）：行动号召
-
-要求：
-- 台词简洁有力
-- 有画面感和节奏感
-- 适合配音或真人出镜
-- 添加热门话题标签建议
-
-请创作脚本！`,
-    category: '创意',
-    price: 0,
-    rating: 4.8,
-    reviews: 67,
-    sales: 334,
-    author_id: 'user-11',
-    author_name: '邓诗琪',,
-    image_url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop',
-    tags: ['短视频', '抖音', '快手', '脚本创作'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 39.9,
+    rating: 4.5,
+    reviews: 10,
+    sales: 93,
+    author_id: 'author_013',
+    author_name: '朱若溪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["MongoDB", "\u6570\u636e\u5e93", "NoSQL"],
+    created_at: '2025-07-09T22:15:22.515066',
+    updated_at: '2026-06-01T22:15:22.515066',
   },
   {
     id: '31',
-    title: '数据分析报告撰写专家',
-    description: '专业的数据分析报告撰写模板',
-    content: `您是一位资深数据分析师，请帮我撰写数据分析报告：
+    title: 'GitHub Actions',
+    description: 'CI/CD自动化流程',
+    content: `你是一位编程专家，请CI/CD自动化流程。
 
-**分析主题：** [描述分析主题]
-**数据来源：** [描述数据来源]
-**分析目标：** [明确分析要回答的问题]
-
-请按以下结构撰写：
-
-1. **执行摘要**（1-2段）
-   - 主要发现
-   - 关键结论
-   - 建议行动
-
-2. **背景与目标**
-   - 分析背景
-   - 分析目的
-
-3. **数据概况**
-   - 数据描述
-   - 数据质量
-
-4. **分析方法**
-   - 使用的分析方法
-   - 分析工具
-
-5. **核心发现**
-   - 发现1：[具体发现]
-   - 发现2：[具体发现]
-   - 发现3：[具体发现]
-
-6. **数据可视化建议**
-   - 推荐的图表类型
-   - 展示建议
-
-7. **结论与建议**
-   - 主要结论
-   - 可执行建议
-
-请开始撰写报告！`,
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
     category: '编程',
-    price: 0,
-    rating: 4.9,
-    reviews: 45,
-    sales: 267,
-    author_id: 'user-2',
-    author_name: '许浩然',,
-    image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
-    tags: ['数据分析', '报告', '商业智能', '可视化'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    price: 49.9,
+    rating: 4.5,
+    reviews: 23,
+    sales: 171,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["CI/CD", "GitHub", "DevOps"],
+    created_at: '2025-08-29T22:15:22.515066',
+    updated_at: '2026-05-26T22:15:22.515066',
   },
   {
     id: '32',
-    title: '品牌故事文案创作',
-    description: '打造有感染力的品牌故事',
-    content: `您是一位资深品牌策划专家，请帮我创作品牌故事：
+    title: 'API接口文档',
+    description: '标准的API文档模板',
+    content: `你是一位编程专家，请标准的API文档模板。
 
-**品牌名称：** [品牌名]
-**品牌定位：** [品牌定位]
-**核心价值观：** [列出3-5个核心价值]
-**创始故事：** [如有创始故事]
-
-目标受众：[描述目标用户群体]
-
-故事要求：
-1. 情感共鸣：打动人心的情感元素
-2. 真实性：真实可信的故事细节
-3. 差异化：突出品牌独特性
-4. 价值观传递：体现品牌理念
-
-长度：[短篇500字/中篇1000字/长篇2000字]
-
-请创作品牌故事！`,
-    category: '写作',
-    price: 0,
-    rating: 4.7,
-    reviews: 38,
-    sales: 189,
-    author_id: 'user-1',
-    author_name: '傅宇航',,
-    image_url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=300&fit=crop',
-    tags: ['品牌', '文案', '营销', '故事'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 49.9,
+    rating: 4.2,
+    reviews: 37,
+    sales: 193,
+    author_id: 'author_005',
+    author_name: '陈浩然',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["API", "\u6587\u6863", "Swagger"],
+    created_at: '2025-06-07T22:15:22.515066',
+    updated_at: '2026-05-10T22:15:22.515066',
   },
   {
     id: '33',
-    title: '微信公众账号运营专家',
-    description: '专业的公众号运营策划方案',
-    content: `您是一位资深公众号运营专家，请帮我制定公众号运营方案：
+    title: '前端性能优化',
+    description: 'Web性能优化提示词',
+    content: `你是一位编程专家，请Web性能优化提示词。
 
-**公众号定位：** [描述公众号定位]
-**目标用户：** [描述目标读者]
-**运营目标：** [涨粉/变现/品牌传播等]
-
-请提供：
-
-1. **内容规划**
-   - 选题方向（每周3-5个主题）
-   - 内容形式（图文/条漫/视频）
-   - 发布时间表
-
-2. **标题模板库**
-   - 提供10个爆款标题模板
-   - 解释每个模板的适用场景
-
-3. **用户增长策略**
-   - 涨粉渠道
-   - 裂变活动建议
-
-4. **互动策略**
-   - 留言互动技巧
-   - 粉丝社群运营
-
-5. **变现路径**（可选）
-   - 付费内容
-   - 知识付费
-   - 广告合作
-
-请制定详细方案！`,
-    category: '营销',
-    price: 0,
-    rating: 4.8,
-    reviews: 52,
-    sales: 312,
-    author_id: 'user-4',
-    author_name: '沈嘉乐',,
-    image_url: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop',
-    tags: ['公众号', '运营', '微信', '内容营销'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 99,
+    rating: 4.5,
+    reviews: 19,
+    sales: 150,
+    author_id: 'author_010',
+    author_name: '徐梦洁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6027\u80fd", "\u4f18\u5316", "\u524d\u7aef"],
+    created_at: '2025-10-08T22:15:22.515066',
+    updated_at: '2026-06-01T22:15:22.515066',
   },
   {
     id: '34',
-    title: '产品需求文档撰写',
-    description: '专业的PRD文档模板和写作指南',
-    content: `您是一位资深产品经理，请帮我撰写产品需求文档：
+    title: '代码审查清单',
+    description: '全面的代码审查指南',
+    content: `你是一位编程专家，请全面的代码审查指南。
 
-**产品名称：** [产品名]
-**产品类型：** [App/网站/小程序/内部工具]
-**目标用户：** [描述目标用户群体]
-**核心功能：** [列出主要功能]
-
-请按以下结构撰写PRD：
-
-1. **文档信息**
-   - 版本号
-   - 更新日期
-   - 产品负责人
-
-2. **产品概述**
-   - 产品背景
-   - 产品目标
-   - 成功指标
-
-3. **用户分析**
-   - 目标用户画像
-   - 用户痛点
-   - 用户旅程
-
-4. **功能需求**
-   - 功能列表
-   - 功能详细描述
-   - 优先级排序
-
-5. **非功能需求**
-   - 性能要求
-   - 安全要求
-   - 兼容性要求
-
-6. **原型/设计稿**
-   - 链接或描述
-
-7. **测试计划**
-   - 测试用例概述
-   - 上线标准
-
-请撰写完整的PRD文档！`,
-    category: '商业',
-    price: 0,
-    rating: 4.9,
-    reviews: 34,
-    sales: 198,
-    author_id: 'user-5',
-    author_name: '曾文婷',,
-    image_url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
-    tags: ['产品经理', 'PRD', '需求文档', '产品设计'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 29.9,
+    rating: 4.6,
+    reviews: 16,
+    sales: 96,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Code Review", "\u8d28\u91cf", "\u89c4\u8303"],
+    created_at: '2025-06-10T22:15:22.515066',
+    updated_at: '2026-05-10T22:15:22.515066',
   },
   {
     id: '35',
-    title: 'AI绘图关键词优化器',
-    description: '优化Midjourney、Stable Diffusion等AI绘图提示词',
-    content: `您是一位AI艺术创作专家，请帮我优化AI绘图提示词：
+    title: '移动端适配',
+    description: '响应式设计模板',
+    content: `你是一位编程专家，请响应式设计模板。
 
-**原始想法：** [描述你想要生成的画面]
-**使用平台：** [Midjourney/Stable Diffusion/DALL-E]
-**期望风格：** [写实/插画/摄影/3D等]
-
-请帮我：
-
-1. **优化主体描述**
-   - 添加细节描写
-   - 调整表达方式
-
-2. **风格建议**
-   - 推荐艺术风格
-   - 添加风格参考
-
-3. **光线与氛围**
-   - 光线设置
-   - 氛围营造
-
-4. **技术参数**
-   - 画质规格
-   - 构图建议
-   - 比例设置
-
-5. **完整提示词**
-   - 提供2-3个版本
-   - 说明每个版本的特点
-
-请优化我的提示词！`,
-    category: '图像生成',
-    price: 0,
-    rating: 4.9,
-    reviews: 78,
-    sales: 423,
-    author_id: 'user-3',
-    author_name: '彭子墨',,
-    image_url: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop',
-    tags: ['AI绘图', 'Midjourney', 'Stable Diffusion', '提示词优化'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '编程',
+    price: 29.9,
+    rating: 4.0,
+    reviews: 5,
+    sales: 52,
+    author_id: 'author_015',
+    author_name: '林诗琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u79fb\u52a8\u7aef", "\u54cd\u5e94\u5f0f", "CSS"],
+    created_at: '2025-08-25T22:15:22.516065',
+    updated_at: '2026-05-13T22:15:22.516065',
   },
   {
     id: '36',
-    title: '职场沟通话术专家',
-    description: '处理各种职场沟通场景的话术模板',
-    content: `您是一位资深职场沟通专家，请帮我准备职场沟通话术：
+    title: 'Midjourney提示词',
+    description: '生成惊艳的Midjourney图像',
+    content: `你是一位图像生成专家，请生成惊艳的Midjourney图像。
 
-**场景类型：**
-- [ ] 向上级汇报工作
-- [ ] 请求加薪
-- [ ] 团队会议发言
-- [ ] 跨部门协作
-- [ ] 处理客户投诉
-- [ ] 拒绝不合理要求
-- [ ] 其他：[描述场景]
-
-**具体情境：**
-[详细描述当前情况]
-
-**沟通目标：**
-[你希望达成的结果]
-
-**对方可能的顾虑：**
-[推测对方可能的担忧]
-
-请提供：
-1. 开场话术
-2. 核心表达（2-3个版本）
-3. 应对对方质疑的话术
-4. 收尾表达
-5. 注意事项
-
-请帮我准备沟通话术！`,
-    category: '职场',
-    price: 0,
-    rating: 4.8,
-    reviews: 61,
-    sales: 356,
-    author_id: 'user-5',
-    author_name: '吕婷婷',,
-    image_url: 'https://images.unsplash.com/photo-1521737604893-d14cc237f1cf?w=400&h=300&fit=crop',
-    tags: ['职场', '沟通', '话术', '人际交往'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 49.9,
+    rating: 3.9,
+    reviews: 12,
+    sales: 73,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Midjourney", "AI\u7ed8\u56fe", "\u521b\u610f"],
+    created_at: '2025-10-18T22:15:22.516065',
+    updated_at: '2026-05-29T22:15:22.516065',
   },
   {
     id: '37',
-    title: '学习笔记整理专家',
-    description: '高效整理学习笔记，知识点归纳',
-    content: `您是一位学习方法和知识管理专家，请帮我整理学习笔记：
+    title: 'Stable Diffusion提示词',
+    description: '专业级SD提示词模板',
+    content: `你是一位图像生成专家，请专业级SD提示词模板。
 
-**学习主题：** [课程/书籍/视频主题]
-**学习时长：** [总时长或总章节数]
-**学习目标：** [想掌握的核心内容]
-
-**原始笔记内容：**
-[粘贴你的原始笔记/要点]
-
-请帮我整理成：
-
-1. **知识框架图**（文字版）
-   - 核心主题
-   - 一级知识点
-   - 二级知识点
-
-2. **重点精华**
-   - 3-5个必须掌握的要点
-   - 每个要点的详细解释
-
-3. **记忆口诀/联想**
-   - 帮助记忆的方法
-   - 联想记忆点
-
-4. **实践应用**
-   - 如何应用这些知识
-   - 实际案例
-
-5. **复习计划**
-   - 第1天复习什么
-   - 第3天复习什么
-   - 第7天复习什么
-
-6. **自我检测**
-   - 3-5个测试问题
-
-请帮我整理笔记！`,
-    category: '教育',
-    price: 0,
-    rating: 4.9,
-    reviews: 76,
-    sales: 445,
-    author_id: 'user-10',
-    author_name: '苏浩然',,
-    image_url: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop',
-    tags: ['学习', '笔记', '知识管理', '自我提升'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 99,
+    rating: 4.6,
+    reviews: 18,
+    sales: 99,
+    author_id: 'author_004',
+    author_name: '赵雅琳',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Stable Diffusion", "AI\u7ed8\u56fe", "\u5199\u5b9e"],
+    created_at: '2025-08-05T22:15:22.516065',
+    updated_at: '2026-05-30T22:15:22.516065',
   },
   {
     id: '38',
-    title: '电商产品详情页文案',
-    description: '专业的产品详情页文案写作',
-    content: `您是一位资深电商文案专家，请帮我撰写产品详情页文案：
+    title: 'Logo设计描述',
+    description: 'AI生成Logo设计提示词',
+    content: `你是一位图像生成专家，请AI生成Logo设计提示词。
 
-**产品信息：**
-- 产品名称：[名称]
-- 产品类别：[类别]
-- 价格：[价格]
-- 核心卖点：[列出3-5个核心卖点]
-
-**目标用户：**
-[描述目标用户群体]
-
-**竞品对比（可选）：**
-[如有竞品对比信息]
-
-请按以下结构撰写：
-
-1. **吸引眼球的标题**
-   - 主标题（卖点+产品名）
-   - 副标题（补充说明）
-
-2. **痛点-解决方案开头**
-   - 描述用户痛点
-   - 引出解决方案
-
-3. **产品卖点详情**
-   - 每个卖点的详细说明
-   - 配图建议
-
-4. **规格参数**
-   - 清晰的产品规格
-   - 使用说明
-
-5. **用户评价精选**
-   - 2-3个真实感评价
-
-6. **行动号召**
-   - 购买引导
-   - 优惠信息
-
-请撰写详情页文案！`,
-    category: '营销',
-    price: 0,
-    rating: 4.8,
-    reviews: 58,
-    sales: 312,
-    author_id: 'user-6',
-    author_name: '卢若溪',,
-    image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
-    tags: ['电商', '产品文案', '详情页', '销售'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 19.9,
+    rating: 4.7,
+    reviews: 24,
+    sales: 191,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Logo", "\u54c1\u724c", "\u8bbe\u8ba1"],
+    created_at: '2025-11-17T22:15:22.516065',
+    updated_at: '2026-05-31T22:15:22.516065',
   },
   {
     id: '39',
-    title: '技术博客文章创作',
-    description: '撰写高质量的技术博客文章',
-    content: `您是一位资深技术博主，请帮我撰写一篇技术博客：
+    title: '产品摄影提示词',
+    description: '电商产品图生成提示词',
+    content: `你是一位图像生成专家，请电商产品图生成提示词。
 
-**主题：** [文章主题]
-**目标读者：** [初级/中级/高级开发者]
-**技术栈：** [使用的技术]
-**预计阅读时间：** [X分钟]
-
-**核心内容要点：**
-[列出想要覆盖的关键点]
-
-请撰写：
-
-1. **引人入胜的开头**
-   - 以问题/故事/场景开头
-   - 吸引读者继续阅读
-
-2. **背景介绍**
-   - 为什么要介绍这个主题
-   - 解决什么问题
-
-3. **核心内容**
-   - 分步骤详细讲解
-   - 代码示例（完整可运行）
-   - 图表说明
-
-4. **最佳实践**
-   - 实际应用建议
-   - 避坑指南
-
-5. **总结**
-   - 回顾要点
-   - 下一步建议
-
-6. **SEO优化建议**
-   - 关键词建议
-   - 标题优化
-
-请撰写博客文章！`,
-    category: '编程',
-    price: 0,
-    rating: 4.9,
-    reviews: 67,
-    sales: 378,
-    author_id: 'user-8',
-    author_name: '蒋雨晴',,
-    image_url: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop',
-    tags: ['技术博客', '编程', '教程', '知识分享'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 29.9,
+    rating: 4.7,
+    reviews: 25,
+    sales: 134,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u7535\u5546", "\u4ea7\u54c1", "\u6444\u5f71"],
+    created_at: '2025-07-31T22:15:22.516065',
+    updated_at: '2026-06-01T22:15:22.516065',
   },
   {
     id: '40',
-    title: '年终述职报告撰写',
-    description: '专业的年终述职报告模板和写作',
-    content: `您是一位资深HR总监，请帮我撰写年终述职报告：
+    title: '动漫风格生成',
+    description: '日漫/国漫风格图像',
+    content: `你是一位图像生成专家，请日漫/国漫风格图像。
 
-**基本信息：**
-- 姓名：[姓名]
-- 部门：[部门]
-- 职位：[职位]
-- 工作年限：[X年]
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 99,
+    rating: 4.0,
+    reviews: 50,
+    sales: 492,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u52a8\u6f2b", "\u4e8c\u6b21\u5143", "\u63d2\u753b"],
+    created_at: '2025-07-31T22:15:22.516065',
+    updated_at: '2026-06-02T22:15:22.516065',
+  },
+  {
+    id: '41',
+    title: 'UI界面设计',
+    description: 'App/网站UI界面描述',
+    content: `你是一位图像生成专家，请App/网站UI界面描述。
 
-**时间范围：** [年度]
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 29.9,
+    rating: 4.5,
+    reviews: 14,
+    sales: 90,
+    author_id: 'author_006',
+    author_name: '刘思远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["UI", "\u754c\u9762", "App"],
+    created_at: '2025-09-26T22:15:22.516569',
+    updated_at: '2026-05-29T22:15:22.516569',
+  },
+  {
+    id: '42',
+    title: '建筑效果图',
+    description: '建筑可视化渲染描述',
+    content: `你是一位图像生成专家，请建筑可视化渲染描述。
 
-**本年度主要工作：**
-[列出主要工作内容和项目]
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 99,
+    rating: 4.7,
+    reviews: 95,
+    sales: 677,
+    author_id: 'author_013',
+    author_name: '朱若溪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5efa\u7b51", "\u6548\u679c", "3D"],
+    created_at: '2025-08-11T22:15:22.516569',
+    updated_at: '2026-05-17T22:15:22.516569',
+  },
+  {
+    id: '43',
+    title: '人像摄影提示词',
+    description: '专业人像照片生成',
+    content: `你是一位图像生成专家，请专业人像照片生成。
 
-**工作成果：**
-[量化的工作成果]
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 9.9,
+    rating: 4.7,
+    reviews: 19,
+    sales: 130,
+    author_id: 'author_005',
+    author_name: '陈浩然',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u4eba\u50cf", "\u6444\u5f71", "\u5199\u771f"],
+    created_at: '2025-07-06T22:15:22.516569',
+    updated_at: '2026-05-17T22:15:22.516569',
+  },
+  {
+    id: '44',
+    title: '风景画生成',
+    description: '唯美风景图提示词',
+    content: `你是一位图像生成专家，请唯美风景图提示词。
 
-**遇到的挑战：**
-[遇到的困难和挑战]
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 99,
+    rating: 4.4,
+    reviews: 35,
+    sales: 314,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u98ce\u666f", "\u81ea\u7136", "\u5c71\u6c34"],
+    created_at: '2025-07-08T22:15:22.516569',
+    updated_at: '2026-05-09T22:15:22.516569',
+  },
+  {
+    id: '45',
+    title: '商业插画模板',
+    description: '商业插画风格描述',
+    content: `你是一位图像生成专家，请商业插画风格描述。
 
-**个人成长：**
-[本年度的成长和收获]
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 99,
+    rating: 4.7,
+    reviews: 22,
+    sales: 112,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u63d2\u753b", "\u5546\u4e1a", "\u77e2\u91cf"],
+    created_at: '2025-06-25T22:15:22.516569',
+    updated_at: '2026-05-11T22:15:22.516569',
+  },
+  {
+    id: '46',
+    title: '海报设计描述',
+    description: '营销海报生成提示词',
+    content: `你是一位图像生成专家，请营销海报生成提示词。
 
-请按以下结构撰写：
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 0,
+    rating: 4.4,
+    reviews: 84,
+    sales: 510,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6d77\u62a5", "\u8425\u9500", "\u8bbe\u8ba1"],
+    created_at: '2025-09-30T22:15:22.516569',
+    updated_at: '2026-05-09T22:15:22.516569',
+  },
+  {
+    id: '47',
+    title: '游戏角色设计',
+    description: '游戏角色原画描述',
+    content: `你是一位图像生成专家，请游戏角色原画描述。
 
-1. **工作概述**
-   - 年度工作回顾
-   - 工作完成情况
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 99,
+    rating: 4.2,
+    reviews: 3,
+    sales: 25,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6e38\u620f", "\u89d2\u8272", "\u539f\u753b"],
+    created_at: '2025-07-07T22:15:22.516569',
+    updated_at: '2026-05-22T22:15:22.516569',
+  },
+  {
+    id: '48',
+    title: '图标设计提示词',
+    description: 'App图标生成模板',
+    content: `你是一位图像生成专家，请App图标生成模板。
 
-2. **核心成果**（重点！）
-   - 用数据说话
-   - 突出个人贡献
-   - 项目案例展示
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 39.9,
+    rating: 4.2,
+    reviews: 20,
+    sales: 160,
+    author_id: 'author_010',
+    author_name: '徐梦洁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u56fe\u6807", "App", "UI"],
+    created_at: '2025-09-21T22:15:22.516569',
+    updated_at: '2026-06-03T22:15:22.516569',
+  },
+  {
+    id: '49',
+    title: '产品包装设计',
+    description: '产品包装渲染描述',
+    content: `你是一位图像生成专家，请产品包装渲染描述。
 
-3. **能力提升**
-   - 专业能力提升
-   - 软技能提升
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 0,
+    rating: 4.0,
+    reviews: 13,
+    sales: 77,
+    author_id: 'author_002',
+    author_name: '李思琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5305\u88c5", "\u4ea7\u54c1", "\u6e32\u67d3"],
+    created_at: '2025-12-07T22:15:22.516569',
+    updated_at: '2026-05-30T22:15:22.516569',
+  },
+  {
+    id: '50',
+    title: '室内设计效果图',
+    description: '室内装修效果图生成',
+    content: `你是一位图像生成专家，请室内装修效果图生成。
 
-4. **不足与反思**
-   - 诚实分析不足
-   - 改进计划
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 49.9,
+    rating: 4.0,
+    reviews: 19,
+    sales: 180,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5ba4\u5185", "\u88c5\u4fee", "\u8bbe\u8ba1"],
+    created_at: '2025-08-05T22:15:22.516569',
+    updated_at: '2026-05-08T22:15:22.516569',
+  },
+  {
+    id: '51',
+    title: '服装设计图',
+    description: '服装设计效果图',
+    content: `你是一位图像生成专家，请服装设计效果图。
 
-5. **来年规划**
-   - 工作目标
-   - 发展计划
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 39.9,
+    rating: 4.6,
+    reviews: 26,
+    sales: 183,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u670d\u88c5", "\u65f6\u5c1a", "\u8bbe\u8ba1"],
+    created_at: '2025-08-15T22:15:22.516569',
+    updated_at: '2026-05-12T22:15:22.516569',
+  },
+  {
+    id: '52',
+    title: '宠物图像生成',
+    description: '可爱宠物照片描述',
+    content: `你是一位图像生成专家，请可爱宠物照片描述。
 
-6. **需要的支持**
-   - 资源需求
-   - 培训需求
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 39.9,
+    rating: 4.9,
+    reviews: 97,
+    sales: 506,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5ba0\u7269", "\u52a8\u7269", "\u53ef\u7231"],
+    created_at: '2025-06-30T22:15:22.516569',
+    updated_at: '2026-05-22T22:15:22.516569',
+  },
+  {
+    id: '53',
+    title: '美食摄影描述',
+    description: '美食照片生成提示词',
+    content: `你是一位图像生成专家，请美食照片生成提示词。
 
-请撰写述职报告！`,
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 39.9,
+    rating: 4.7,
+    reviews: 25,
+    sales: 149,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u7f8e\u98df", "\u6444\u5f71", "\u9910\u996e"],
+    created_at: '2025-07-18T22:15:22.516569',
+    updated_at: '2026-05-14T22:15:22.516569',
+  },
+  {
+    id: '54',
+    title: '汽车设计渲染',
+    description: '汽车外观设计描述',
+    content: `你是一位图像生成专家，请汽车外观设计描述。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 39.9,
+    rating: 4.4,
+    reviews: 6,
+    sales: 60,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6c7d\u8f66", "\u8bbe\u8ba1", "\u6e32\u67d3"],
+    created_at: '2025-12-02T22:15:22.516569',
+    updated_at: '2026-05-30T22:15:22.516569',
+  },
+  {
+    id: '55',
+    title: 'NFT艺术生成',
+    description: '数字艺术品生成提示词',
+    content: `你是一位图像生成专家，请数字艺术品生成提示词。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '图像生成',
+    price: 39.9,
+    rating: 4.5,
+    reviews: 203,
+    sales: 1094,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["NFT", "\u6570\u5b57\u827a\u672f", "\u533a\u5757\u94fe"],
+    created_at: '2025-09-04T22:15:22.516569',
+    updated_at: '2026-05-30T22:15:22.516569',
+  },
+  {
+    id: '56',
+    title: '社交媒体策略',
+    description: '全平台社交媒体运营方案',
+    content: `你是一位营销专家，请全平台社交媒体运营方案。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 29.9,
+    rating: 4.2,
+    reviews: 4,
+    sales: 27,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u793e\u4ea4\u5a92\u4f53", "\u8fd0\u8425", "\u7b56\u7565"],
+    created_at: '2025-11-11T22:15:22.516569',
+    updated_at: '2026-05-16T22:15:22.516569',
+  },
+  {
+    id: '57',
+    title: '内容营销计划',
+    description: '年度内容营销规划',
+    content: `你是一位营销专家，请年度内容营销规划。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 99,
+    rating: 4.4,
+    reviews: 10,
+    sales: 102,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5185\u5bb9\u8425\u9500", "SEO", "\u6d41\u91cf"],
+    created_at: '2025-11-30T22:15:22.516569',
+    updated_at: '2026-05-24T22:15:22.516569',
+  },
+  {
+    id: '58',
+    title: 'Google广告文案',
+    description: 'Google Ads广告文案',
+    content: `你是一位营销专家，请Google Ads广告文案。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 29.9,
+    rating: 4.0,
+    reviews: 5,
+    sales: 51,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Google Ads", "PPC", "\u5e7f\u544a"],
+    created_at: '2025-07-06T22:15:22.516569',
+    updated_at: '2026-06-03T22:15:22.516569',
+  },
+  {
+    id: '59',
+    title: 'Facebook广告模板',
+    description: 'Facebook广告文案生成',
+    content: `你是一位营销专家，请Facebook广告文案生成。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 19.9,
+    rating: 4.4,
+    reviews: 2,
+    sales: 20,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Facebook", "\u5e7f\u544a", "\u793e\u4ea4"],
+    created_at: '2025-09-25T22:15:22.516569',
+    updated_at: '2026-05-23T22:15:22.516569',
+  },
+  {
+    id: '60',
+    title: '品牌故事撰写',
+    description: '品牌故事脚本创作',
+    content: `你是一位营销专家，请品牌故事脚本创作。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 99,
+    rating: 4.0,
+    reviews: 22,
+    sales: 160,
+    author_id: 'author_010',
+    author_name: '徐梦洁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u54c1\u724c", "\u6545\u4e8b", "\u60c5\u6000"],
+    created_at: '2025-10-17T22:15:22.516569',
+    updated_at: '2026-05-21T22:15:22.516569',
+  },
+  {
+    id: '61',
+    title: '活动策划方案',
+    description: '完整的营销活动策划',
+    content: `你是一位营销专家，请完整的营销活动策划。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 19.9,
+    rating: 4.2,
+    reviews: 16,
+    sales: 95,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6d3b\u52a8", "\u7b56\u5212", "\u6267\u884c"],
+    created_at: '2025-07-18T22:15:22.516569',
+    updated_at: '2026-05-25T22:15:22.516569',
+  },
+  {
+    id: '62',
+    title: '用户增长策略',
+    description: 'AARRR用户增长模型',
+    content: `你是一位营销专家，请AARRR用户增长模型。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 49.9,
+    rating: 3.9,
+    reviews: 21,
+    sales: 140,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u589e\u957f", "\u8fd0\u8425", "AARRR"],
+    created_at: '2025-09-21T22:15:22.518084',
+    updated_at: '2026-05-18T22:15:22.518084',
+  },
+  {
+    id: '63',
+    title: '邮件营销序列',
+    description: '自动化邮件营销序列',
+    content: `你是一位营销专家，请自动化邮件营销序列。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 49.9,
+    rating: 4.5,
+    reviews: 26,
+    sales: 174,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u90ae\u4ef6", "\u81ea\u52a8\u5316", "\u8425\u9500"],
+    created_at: '2025-12-09T22:15:22.518084',
+    updated_at: '2026-05-28T22:15:22.518084',
+  },
+  {
+    id: '64',
+    title: '短视频营销方案',
+    description: '抖音/快手营销策略',
+    content: `你是一位营销专家，请抖音/快手营销策略。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 49.9,
+    rating: 4.2,
+    reviews: 17,
+    sales: 129,
+    author_id: 'author_013',
+    author_name: '朱若溪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u77ed\u89c6\u9891", "\u6296\u97f3", "\u8425\u9500"],
+    created_at: '2025-10-26T22:15:22.518084',
+    updated_at: '2026-05-12T22:15:22.518084',
+  },
+  {
+    id: '65',
+    title: 'KOL合作方案',
+    description: '网红合作执行方案',
+    content: `你是一位营销专家，请网红合作执行方案。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 99,
+    rating: 4.1,
+    reviews: 3,
+    sales: 18,
+    author_id: 'author_011',
+    author_name: '孙雨晴',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["KOL", "\u7f51\u7ea2", "\u5408\u4f5c"],
+    created_at: '2025-10-22T22:15:22.518084',
+    updated_at: '2026-05-30T22:15:22.518084',
+  },
+  {
+    id: '66',
+    title: 'SEO优化方案',
+    description: '网站SEO全面优化',
+    content: `你是一位营销专家，请网站SEO全面优化。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 0,
+    rating: 4.3,
+    reviews: 21,
+    sales: 111,
+    author_id: 'author_010',
+    author_name: '徐梦洁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["SEO", "\u641c\u7d22", "\u6392\u540d"],
+    created_at: '2025-11-13T22:15:22.518084',
+    updated_at: '2026-05-26T22:15:22.518084',
+  },
+  {
+    id: '67',
+    title: '用户调研问卷',
+    description: '产品用户调研模板',
+    content: `你是一位营销专家，请产品用户调研模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 9.9,
+    rating: 4.2,
+    reviews: 10,
+    sales: 75,
+    author_id: 'author_002',
+    author_name: '李思琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8c03\u7814", "\u95ee\u5377", "\u7528\u6237"],
+    created_at: '2025-07-11T22:15:22.518084',
+    updated_at: '2026-05-17T22:15:22.518084',
+  },
+  {
+    id: '68',
+    title: '竞品分析报告',
+    description: '竞品分析模板',
+    content: `你是一位营销专家，请竞品分析模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 0,
+    rating: 4.2,
+    reviews: 11,
+    sales: 82,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u7ade\u54c1", "\u5206\u6790", "\u5e02\u573a"],
+    created_at: '2025-09-26T22:15:22.518084',
+    updated_at: '2026-05-26T22:15:22.518084',
+  },
+  {
+    id: '69',
+    title: 'PR危机公关',
+    description: '危机公关处理方案',
+    content: `你是一位营销专家，请危机公关处理方案。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 0,
+    rating: 4.7,
+    reviews: 19,
+    sales: 151,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u516c\u5173", "\u5371\u673a", "\u5904\u7406"],
+    created_at: '2025-08-02T22:15:22.518084',
+    updated_at: '2026-05-25T22:15:22.518084',
+  },
+  {
+    id: '70',
+    title: '会员体系设计',
+    description: '用户会员体系方案',
+    content: `你是一位营销专家，请用户会员体系方案。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '营销',
+    price: 19.9,
+    rating: 3.8,
+    reviews: 9,
+    sales: 64,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u4f1a\u5458", "\u8fd0\u8425", "\u4f53\u7cfb"],
+    created_at: '2025-06-29T22:15:22.518084',
+    updated_at: '2026-05-25T22:15:22.518084',
+  },
+  {
+    id: '71',
+    title: '商业计划书模板',
+    description: '专业商业计划书',
+    content: `你是一位商业专家，请专业商业计划书。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 29.9,
+    rating: 4.4,
+    reviews: 112,
+    sales: 629,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["BP", "\u878d\u8d44", "\u521b\u4e1a"],
+    created_at: '2025-11-13T22:15:22.518084',
+    updated_at: '2026-06-05T22:15:22.518084',
+  },
+  {
+    id: '72',
+    title: '市场分析报告',
+    description: '竞品和市场分析模板',
+    content: `你是一位商业专家，请竞品和市场分析模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 19.9,
+    rating: 3.8,
+    reviews: 11,
+    sales: 80,
+    author_id: 'author_008',
+    author_name: '周佳宁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5e02\u573a", "\u7ade\u54c1", "\u5206\u6790"],
+    created_at: '2025-10-13T22:15:22.518084',
+    updated_at: '2026-05-31T22:15:22.518084',
+  },
+  {
+    id: '73',
+    title: '项目提案书',
+    description: '赢得客户的项目提案',
+    content: `你是一位商业专家，请赢得客户的项目提案。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 0,
+    rating: 4.7,
+    reviews: 70,
+    sales: 482,
+    author_id: 'author_011',
+    author_name: '孙雨晴',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u63d0\u6848", "\u5ba2\u6237", "\u5546\u52a1"],
+    created_at: '2025-11-20T22:15:22.518084',
+    updated_at: '2026-05-10T22:15:22.518084',
+  },
+  {
+    id: '74',
+    title: '财务分析模型',
+    description: '财务预测和分析模板',
+    content: `你是一位商业专家，请财务预测和分析模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 49.9,
+    rating: 4.1,
+    reviews: 2,
+    sales: 13,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8d22\u52a1", "\u9884\u6d4b", "Excel"],
+    created_at: '2025-10-26T22:15:22.518084',
+    updated_at: '2026-06-03T22:15:22.518084',
+  },
+  {
+    id: '75',
+    title: '融资路演PPT',
+    description: '投资人喜欢的路演',
+    content: `你是一位商业专家，请投资人喜欢的路演。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 19.9,
+    rating: 4.5,
+    reviews: 20,
+    sales: 124,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8def\u6f14", "\u878d\u8d44", "PPT"],
+    created_at: '2025-06-11T22:15:22.518084',
+    updated_at: '2026-06-04T22:15:22.518084',
+  },
+  {
+    id: '76',
+    title: 'SWOT分析模板',
+    description: '企业SWOT分析',
+    content: `你是一位商业专家，请企业SWOT分析。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 49.9,
+    rating: 4.5,
+    reviews: 3,
+    sales: 21,
+    author_id: 'author_006',
+    author_name: '刘思远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["SWOT", "\u6218\u7565", "\u5206\u6790"],
+    created_at: '2025-09-29T22:15:22.518084',
+    updated_at: '2026-05-16T22:15:22.518084',
+  },
+  {
+    id: '77',
+    title: '商业模式画布',
+    description: 'Business Model Canvas',
+    content: `你是一位商业专家，请Business Model Canvas。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 29.9,
+    rating: 4.2,
+    reviews: 12,
+    sales: 119,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5546\u4e1a\u6a21\u5f0f", "\u753b\u5e03", "\u521b\u4e1a"],
+    created_at: '2025-10-12T22:15:22.519091',
+    updated_at: '2026-05-16T22:15:22.519091',
+  },
+  {
+    id: '78',
+    title: '用户画像模板',
+    description: '精准用户画像',
+    content: `你是一位商业专家，请精准用户画像。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 99,
+    rating: 4.6,
+    reviews: 21,
+    sales: 115,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u7528\u6237\u753b\u50cf", "\u753b\u50cf", "\u8fd0\u8425"],
+    created_at: '2025-11-20T22:15:22.519091',
+    updated_at: '2026-05-28T22:15:22.519091',
+  },
+  {
+    id: '79',
+    title: 'OKR制定模板',
+    description: '目标管理OKR模板',
+    content: `你是一位商业专家，请目标管理OKR模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 19.9,
+    rating: 3.8,
+    reviews: 22,
+    sales: 180,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["OKR", "\u76ee\u6807", "\u7ba1\u7406"],
+    created_at: '2025-12-07T22:15:22.519091',
+    updated_at: '2026-05-10T22:15:22.519091',
+  },
+  {
+    id: '80',
+    title: '商业合同模板',
+    description: '常用商业合同范本',
+    content: `你是一位商业专家，请常用商业合同范本。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 39.9,
+    rating: 4.3,
+    reviews: 139,
+    sales: 743,
+    author_id: 'author_004',
+    author_name: '赵雅琳',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5408\u540c", "\u6cd5\u52a1", "\u5546\u52a1"],
+    created_at: '2025-11-11T22:15:22.519091',
+    updated_at: '2026-05-09T22:15:22.519091',
+  },
+  {
+    id: '81',
+    title: '人力资源规划',
+    description: 'HR年度规划模板',
+    content: `你是一位商业专家，请HR年度规划模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 9.9,
+    rating: 4.2,
+    reviews: 20,
+    sales: 191,
+    author_id: 'author_002',
+    author_name: '李思琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["HR", "\u4eba\u529b", "\u89c4\u5212"],
+    created_at: '2025-10-03T22:15:22.519091',
+    updated_at: '2026-05-19T22:15:22.519091',
+  },
+  {
+    id: '82',
+    title: '年度预算模板',
+    description: '企业年度预算',
+    content: `你是一位商业专家，请企业年度预算。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 39.9,
+    rating: 4.1,
+    reviews: 15,
+    sales: 103,
+    author_id: 'author_013',
+    author_name: '朱若溪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u9884\u7b97", "\u8d22\u52a1", "\u89c4\u5212"],
+    created_at: '2025-06-18T22:15:22.519091',
+    updated_at: '2026-06-05T22:15:22.519091',
+  },
+  {
+    id: '83',
+    title: '绩效考核方案',
+    description: '员工绩效考核模板',
+    content: `你是一位商业专家，请员工绩效考核模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 29.9,
+    rating: 3.8,
+    reviews: 3,
+    sales: 31,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u7ee9\u6548", "\u8003\u6838", "\u7ba1\u7406"],
+    created_at: '2025-10-03T22:15:22.519091',
+    updated_at: '2026-05-09T22:15:22.519091',
+  },
+  {
+    id: '84',
+    title: '项目管理流程',
+    description: 'PM项目管理体系',
+    content: `你是一位商业专家，请PM项目管理体系。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 0,
+    rating: 3.9,
+    reviews: 28,
+    sales: 166,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["PM", "\u9879\u76ee", "\u7ba1\u7406"],
+    created_at: '2025-10-29T22:15:22.519091',
+    updated_at: '2026-05-28T22:15:22.519091',
+  },
+  {
+    id: '85',
+    title: '创业启动清单',
+    description: '创业起步检查清单',
+    content: `你是一位商业专家，请创业起步检查清单。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '商业',
+    price: 19.9,
+    rating: 4.7,
+    reviews: 22,
+    sales: 115,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u521b\u4e1a", "\u542f\u52a8", "\u6e05\u5355"],
+    created_at: '2025-09-26T22:15:22.519091',
+    updated_at: '2026-05-26T22:15:22.519091',
+  },
+  {
+    id: '86',
+    title: '在线课程设计',
+    description: '在线课程结构规划',
+    content: `你是一位教育专家，请在线课程结构规划。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 19.9,
+    rating: 4.0,
+    reviews: 21,
+    sales: 159,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8bfe\u7a0b", "\u5728\u7ebf\u6559\u80b2", "\u6559\u5b66"],
+    created_at: '2025-08-11T22:15:22.519091',
+    updated_at: '2026-05-17T22:15:22.519091',
+  },
+  {
+    id: '87',
+    title: '考试题目生成',
+    description: '各学科考试题目',
+    content: `你是一位教育专家，请各学科考试题目。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 29.9,
+    rating: 4.6,
+    reviews: 18,
+    sales: 101,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8003\u8bd5", "\u9898\u76ee", "\u6d4b\u8bc4"],
+    created_at: '2025-11-16T22:15:22.519091',
+    updated_at: '2026-05-24T22:15:22.519091',
+  },
+  {
+    id: '88',
+    title: '学习计划制定',
+    description: '个性化学习计划',
+    content: `你是一位教育专家，请个性化学习计划。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 9.9,
+    rating: 3.9,
+    reviews: 2,
+    sales: 13,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5b66\u4e60", "\u8ba1\u5212", "\u6548\u7387"],
+    created_at: '2025-08-15T22:15:22.519091',
+    updated_at: '2026-05-31T22:15:22.519091',
+  },
+  {
+    id: '89',
+    title: '教学课件模板',
+    description: '教师课件制作模板',
+    content: `你是一位教育专家，请教师课件制作模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 9.9,
+    rating: 4.3,
+    reviews: 8,
+    sales: 62,
+    author_id: 'author_005',
+    author_name: '陈浩然',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8bfe\u4ef6", "\u6559\u5b66", "PPT"],
+    created_at: '2025-09-18T22:15:22.519091',
+    updated_at: '2026-05-11T22:15:22.519091',
+  },
+  {
+    id: '90',
+    title: '培训方案设计',
+    description: '企业培训方案',
+    content: `你是一位教育专家，请企业培训方案。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 0,
+    rating: 4.4,
+    reviews: 10,
+    sales: 63,
+    author_id: 'author_015',
+    author_name: '林诗琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u57f9\u8bad", "\u4f01\u4e1a", "\u65b9\u6848"],
+    created_at: '2025-10-22T22:15:22.519091',
+    updated_at: '2026-05-29T22:15:22.519091',
+  },
+  {
+    id: '91',
+    title: '知识点总结',
+    description: '学科知识点归纳',
+    content: `你是一位教育专家，请学科知识点归纳。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 0,
+    rating: 4.5,
+    reviews: 21,
+    sales: 138,
+    author_id: 'author_006',
+    author_name: '刘思远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u77e5\u8bc6", "\u603b\u7ed3", "\u5f52\u7eb3"],
+    created_at: '2025-07-09T22:15:22.519091',
+    updated_at: '2026-06-02T22:15:22.519091',
+  },
+  {
+    id: '92',
+    title: '学习方法指导',
+    description: '高效学习方法',
+    content: `你是一位教育专家，请高效学习方法。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 19.9,
+    rating: 4.4,
+    reviews: 23,
+    sales: 175,
+    author_id: 'author_008',
+    author_name: '周佳宁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u65b9\u6cd5", "\u5b66\u4e60", "\u6280\u5de7"],
+    created_at: '2025-10-25T22:15:22.519091',
+    updated_at: '2026-05-22T22:15:22.519091',
+  },
+  {
+    id: '93',
+    title: '论文写作模板',
+    description: '学术论文写作指南',
+    content: `你是一位教育专家，请学术论文写作指南。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 19.9,
+    rating: 4.6,
+    reviews: 28,
+    sales: 162,
+    author_id: 'author_013',
+    author_name: '朱若溪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8bba\u6587", "\u5b66\u672f", "\u5199\u4f5c"],
+    created_at: '2025-07-05T22:15:22.519091',
+    updated_at: '2026-05-28T22:15:22.519091',
+  },
+  {
+    id: '94',
+    title: '课后习题设计',
+    description: '课后练习题生成',
+    content: `你是一位教育专家，请课后练习题生成。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 39.9,
+    rating: 4.1,
+    reviews: 12,
+    sales: 77,
+    author_id: 'author_013',
+    author_name: '朱若溪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u4e60\u9898", "\u7ec3\u4e60", "\u4f5c\u4e1a"],
+    created_at: '2025-11-15T22:15:22.519091',
+    updated_at: '2026-05-09T22:15:22.519091',
+  },
+  {
+    id: '95',
+    title: '家长会发言稿',
+    description: '教师家长会模板',
+    content: `你是一位教育专家，请教师家长会模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 19.9,
+    rating: 4.6,
+    reviews: 107,
+    sales: 723,
+    author_id: 'author_008',
+    author_name: '周佳宁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5bb6\u957f\u4f1a", "\u53d1\u8a00", "\u6559\u5e08"],
+    created_at: '2025-10-01T22:15:22.519091',
+    updated_at: '2026-06-01T22:15:22.519091',
+  },
+  {
+    id: '96',
+    title: '教案模板',
+    description: '教师教案设计',
+    content: `你是一位教育专家，请教师教案设计。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 99,
+    rating: 4.3,
+    reviews: 38,
+    sales: 194,
+    author_id: 'author_011',
+    author_name: '孙雨晴',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6559\u6848", "\u5907\u8bfe", "\u6559\u5e08"],
+    created_at: '2025-11-12T22:15:22.519091',
+    updated_at: '2026-05-29T22:15:22.519091',
+  },
+  {
+    id: '97',
+    title: '职业规划方案',
+    description: '学生职业规划',
+    content: `你是一位教育专家，请学生职业规划。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 0,
+    rating: 4.1,
+    reviews: 6,
+    sales: 35,
+    author_id: 'author_001',
+    author_name: '张明远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u804c\u4e1a", "\u89c4\u5212", "\u5c31\u4e1a"],
+    created_at: '2025-10-06T22:15:22.519091',
+    updated_at: '2026-06-01T22:15:22.519091',
+  },
+  {
+    id: '98',
+    title: '知识点测试',
+    description: '单元测试卷生成',
+    content: `你是一位教育专家，请单元测试卷生成。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 39.9,
+    rating: 4.7,
+    reviews: 4,
+    sales: 28,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6d4b\u8bd5", "\u8bd5\u5377", "\u5355\u5143"],
+    created_at: '2025-09-12T22:15:22.520594',
+    updated_at: '2026-05-26T22:15:22.520594',
+  },
+  {
+    id: '99',
+    title: '学习方法分享',
+    description: '学霸学习方法',
+    content: `你是一位教育专家，请学霸学习方法。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 49.9,
+    rating: 4.6,
+    reviews: 94,
+    sales: 506,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5b66\u9738", "\u65b9\u6cd5", "\u5206\u4eab"],
+    created_at: '2025-06-14T22:15:22.520594',
+    updated_at: '2026-05-27T22:15:22.520594',
+  },
+  {
+    id: '100',
+    title: '教育调研报告',
+    description: '教育行业调研',
+    content: `你是一位教育专家，请教育行业调研。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '教育',
+    price: 39.9,
+    rating: 3.8,
+    reviews: 18,
+    sales: 117,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8c03\u7814", "\u6559\u80b2", "\u62a5\u544a"],
+    created_at: '2025-08-17T22:15:22.520594',
+    updated_at: '2026-05-26T22:15:22.520594',
+  },
+  {
+    id: '101',
+    title: '故事创作助手',
+    description: '小说/剧本创作',
+    content: `你是一位创意专家，请小说/剧本创作。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 39.9,
+    rating: 4.0,
+    reviews: 25,
+    sales: 195,
+    author_id: 'author_010',
+    author_name: '徐梦洁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6545\u4e8b", "\u521b\u4f5c", "\u5c0f\u8bf4"],
+    created_at: '2025-10-04T22:15:22.520594',
+    updated_at: '2026-05-11T22:15:22.520594',
+  },
+  {
+    id: '102',
+    title: '诗歌生成器',
+    description: '古风/现代诗创作',
+    content: `你是一位创意专家，请古风/现代诗创作。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 0,
+    rating: 4.3,
+    reviews: 6,
+    sales: 55,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8bd7\u6b4c", "\u8bd7\u8bcd", "\u521b\u4f5c"],
+    created_at: '2025-09-27T22:15:22.520594',
+    updated_at: '2026-06-01T22:15:22.520594',
+  },
+  {
+    id: '103',
+    title: '歌词创作模板',
+    description: '歌曲歌词创作',
+    content: `你是一位创意专家，请歌曲歌词创作。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 0,
+    rating: 4.5,
+    reviews: 22,
+    sales: 167,
+    author_id: 'author_011',
+    author_name: '孙雨晴',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6b4c\u8bcd", "\u97f3\u4e50", "\u521b\u4f5c"],
+    created_at: '2025-08-21T22:15:22.520594',
+    updated_at: '2026-05-26T22:15:22.520594',
+  },
+  {
+    id: '104',
+    title: '剧本杀剧本',
+    description: '剧本杀故事创作',
+    content: `你是一位创意专家，请剧本杀故事创作。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 29.9,
+    rating: 4.3,
+    reviews: 13,
+    sales: 70,
+    author_id: 'author_008',
+    author_name: '周佳宁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5267\u672c\u6740", "\u6e38\u620f", "\u6545\u4e8b"],
+    created_at: '2025-12-01T22:15:22.520594',
+    updated_at: '2026-05-14T22:15:22.520594',
+  },
+  {
+    id: '105',
+    title: '桌游设计模板',
+    description: '桌游规则设计',
+    content: `你是一位创意专家，请桌游规则设计。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 19.9,
+    rating: 4.4,
+    reviews: 9,
+    sales: 56,
+    author_id: 'author_005',
+    author_name: '陈浩然',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u684c\u6e38", "\u6e38\u620f", "\u8bbe\u8ba1"],
+    created_at: '2025-08-29T22:15:22.520594',
+    updated_at: '2026-06-06T22:15:22.520594',
+  },
+  {
+    id: '106',
+    title: '视频脚本创作',
+    description: '短视频剧本',
+    content: `你是一位创意专家，请短视频剧本。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 49.9,
+    rating: 4.3,
+    reviews: 7,
+    sales: 59,
+    author_id: 'author_013',
+    author_name: '朱若溪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u811a\u672c", "\u89c6\u9891", "\u521b\u4f5c"],
+    created_at: '2025-08-02T22:15:22.520594',
+    updated_at: '2026-05-13T22:15:22.520594',
+  },
+  {
+    id: '107',
+    title: '广告创意发想',
+    description: '广告创意点子',
+    content: `你是一位创意专家，请广告创意点子。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 39.9,
+    rating: 4.0,
+    reviews: 6,
+    sales: 48,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u5e7f\u544a", "\u521b\u610f", "\u53d1\u60f3"],
+    created_at: '2025-11-18T22:15:22.520594',
+    updated_at: '2026-05-13T22:15:22.520594',
+  },
+  {
+    id: '108',
+    title: '品牌命名助手',
+    description: '品牌名称生成',
+    content: `你是一位创意专家，请品牌名称生成。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 99,
+    rating: 4.6,
+    reviews: 24,
+    sales: 152,
+    author_id: 'author_008',
+    author_name: '周佳宁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u54c1\u724c", "\u547d\u540d", "\u8d77\u540d"],
+    created_at: '2025-07-14T22:15:22.520594',
+    updated_at: '2026-05-09T22:15:22.520594',
+  },
+  {
+    id: '109',
+    title: 'Slogan创作',
+    description: '品牌口号生成',
+    content: `你是一位创意专家，请品牌口号生成。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 39.9,
+    rating: 4.6,
+    reviews: 356,
+    sales: 2469,
+    author_id: 'author_007',
+    author_name: '黄子轩',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["Slogan", "\u53e3\u53f7", "\u54c1\u724c"],
+    created_at: '2025-08-07T22:15:22.520594',
+    updated_at: '2026-05-16T22:15:22.520594',
+  },
+  {
+    id: '110',
+    title: '创意写作提示',
+    description: '创意写作灵感',
+    content: `你是一位创意专家，请创意写作灵感。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '创意',
+    price: 0,
+    rating: 4.5,
+    reviews: 96,
+    sales: 507,
+    author_id: 'author_006',
+    author_name: '刘思远',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u521b\u610f", "\u5199\u4f5c", "\u7075\u611f"],
+    created_at: '2025-07-21T22:15:22.520594',
+    updated_at: '2026-05-09T22:15:22.520594',
+  },
+  {
+    id: '111',
+    title: '面试问题预测',
+    description: 'HR面试题库',
+    content: `你是一位职场专家，请HR面试题库。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 49.9,
+    rating: 4.7,
+    reviews: 30,
+    sales: 177,
+    author_id: 'author_014',
+    author_name: '胡宇航',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u9762\u8bd5", "\u6c42\u804c", "HR"],
+    created_at: '2025-10-05T22:15:22.520594',
+    updated_at: '2026-05-12T22:15:22.520594',
+  },
+  {
+    id: '112',
+    title: '工作汇报模板',
+    description: '职场汇报写作',
+    content: `你是一位职场专家，请职场汇报写作。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 49.9,
+    rating: 4.5,
+    reviews: 19,
+    sales: 177,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6c47\u62a5", "\u804c\u573a", "\u5199\u4f5c"],
+    created_at: '2025-09-19T22:15:22.521600',
+    updated_at: '2026-05-31T22:15:22.521600',
+  },
+  {
+    id: '113',
+    title: '职场沟通技巧',
+    description: '职场沟通话术',
+    content: `你是一位职场专家，请职场沟通话术。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 39.9,
+    rating: 4.3,
+    reviews: 19,
+    sales: 147,
+    author_id: 'author_010',
+    author_name: '徐梦洁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u6c9f\u901a", "\u804c\u573a", "\u4eba\u9645"],
+    created_at: '2025-07-24T22:15:22.521600',
+    updated_at: '2026-05-24T22:15:22.521600',
+  },
+  {
+    id: '114',
+    title: '会议纪要模板',
+    description: '会议记录范本',
+    content: `你是一位职场专家，请会议记录范本。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 29.9,
+    rating: 4.7,
+    reviews: 12,
+    sales: 85,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u4f1a\u8bae", "\u7eaa\u8981", "\u529e\u516c"],
+    created_at: '2025-06-08T22:15:22.521600',
+    updated_at: '2026-06-06T22:15:22.521600',
+  },
+  {
+    id: '115',
+    title: '职场邮件写作',
+    description: '专业商务邮件',
+    content: `你是一位职场专家，请专业商务邮件。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 99,
+    rating: 4.7,
+    reviews: 21,
+    sales: 153,
+    author_id: 'author_002',
+    author_name: '李思琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u90ae\u4ef6", "\u804c\u573a", "\u5546\u52a1"],
+    created_at: '2025-11-10T22:15:22.521600',
+    updated_at: '2026-05-17T22:15:22.521600',
+  },
+  {
+    id: '116',
+    title: '项目管理模板',
+    description: 'PM工作模板',
+    content: `你是一位职场专家，请PM工作模板。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 9.9,
+    rating: 3.8,
+    reviews: 10,
+    sales: 61,
+    author_id: 'author_008',
+    author_name: '周佳宁',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u9879\u76ee", "\u7ba1\u7406", "PM"],
+    created_at: '2025-09-10T22:15:22.521600',
+    updated_at: '2026-05-27T22:15:22.521600',
+  },
+  {
+    id: '117',
+    title: '时间管理技巧',
+    description: '提高工作效率',
+    content: `你是一位职场专家，请提高工作效率。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 99,
+    rating: 3.9,
+    reviews: 2,
+    sales: 14,
+    author_id: 'author_012',
+    author_name: '马晓东',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u65f6\u95f4", "\u6548\u7387", "\u7ba1\u7406"],
+    created_at: '2025-11-10T22:15:22.521600',
+    updated_at: '2026-06-02T22:15:22.521600',
+  },
+  {
+    id: '118',
+    title: '职场晋升指南',
+    description: '职业发展规划',
+    content: `你是一位职场专家，请职业发展规划。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 99,
+    rating: 4.3,
+    reviews: 20,
+    sales: 196,
+    author_id: 'author_003',
+    author_name: '王晓峰',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u664b\u5347", "\u804c\u4e1a", "\u53d1\u5c55"],
+    created_at: '2025-08-03T22:15:22.521600',
+    updated_at: '2026-05-13T22:15:22.521600',
+  },
+  {
+    id: '119',
+    title: '团队管理方案',
+    description: '管理者必备',
+    content: `你是一位职场专家，请管理者必备。
+
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
     category: '职场',
     price: 0,
-    rating: 4.8,
-    reviews: 89,
-    sales: 534,
-    author_id: 'user-5',
-    author_name: '蔡宇航',,
-    image_url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
-    tags: ['述职报告', '年终总结', '职场', '汇报'],
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    rating: 4.5,
+    reviews: 12,
+    sales: 118,
+    author_id: 'author_015',
+    author_name: '林诗琪',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u7ba1\u7406", "\u56e2\u961f", "\u9886\u5bfc"],
+    created_at: '2025-11-24T22:15:22.521600',
+    updated_at: '2026-05-12T22:15:22.521600',
   },
+  {
+    id: '120',
+    title: '辞职报告模板',
+    description: '优雅离职',
+    content: `你是一位职场专家，请优雅离职。
 
+请按照以下要求完成任务：
+1. 分析用户需求
+2. 提供专业建议
+3. 生成高质量内容`,
+    category: '职场',
+    price: 19.9,
+    rating: 3.9,
+    reviews: 3,
+    sales: 25,
+    author_id: 'author_009',
+    author_name: '吴文博',
+    image_url: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+    tags: ["\u8f9e\u804c", "\u79bb\u804c", "\u804c\u573a"],
+    created_at: '2025-07-27T22:15:22.521600',
+    updated_at: '2026-05-29T22:15:22.521600',
+  },
 ];
 
+// 分类统计
 export const CATEGORIES: Category[] = [
-  { id: 'writing', name: '写作', emoji: '✍️', prompt_count: 88 },
-  { id: 'coding', name: '编程', emoji: '💻', prompt_count: 72 },
-  { id: 'image', name: '图像生成', emoji: '🎨', prompt_count: 115 },
-  { id: 'marketing', name: '营销', emoji: '📊', prompt_count: 78 },
-  { id: 'business', name: '商业', emoji: '💼', prompt_count: 56 },
-  { id: 'education', name: '教育', emoji: '📚', prompt_count: 68 },
-  { id: 'creative', name: '创意', emoji: '✨', prompt_count: 52 },
-  { id: 'productivity', name: '生产力', emoji: '⚡', prompt_count: 82 },
-  { id: 'career', name: '职场', emoji: '💼', prompt_count: 95 },
+  { id: 'writing', name: '写作', emoji: '✍️', prompt_count: 45 },
+  { id: 'coding', name: '编程', emoji: '💻', prompt_count: 38 },
+  { id: 'image', name: '图像生成', emoji: '🎨', prompt_count: 42 },
+  { id: 'marketing', name: '营销', emoji: '📊', prompt_count: 35 },
+  { id: 'business', name: '商业', emoji: '💼', prompt_count: 28 },
+  { id: 'education', name: '教育', emoji: '📚', prompt_count: 32 },
+  { id: 'creative', name: '创意', emoji: '✨', prompt_count: 25 },
+  { id: 'career', name: '职场', emoji: '💼', prompt_count: 30 },
 ];
 
-export async function getPrompts(category?: string, search?: string): Promise<Prompt[]> {
-  let prompts = [...SAMPLE_PROMPTS];
-  
-  if (category && category !== '全部') {
-    prompts = prompts.filter(p => p.category === category);
-  }
-  
-  if (search) {
-    const searchLower = search.toLowerCase();
-    prompts = prompts.filter(
-      p => p.title.toLowerCase().includes(searchLower) ||
-        p.description.toLowerCase().includes(searchLower)
-    );
-  }
-  
-  return prompts;
+// 辅助函数
+export async function getPrompts() {
+  return SAMPLE_PROMPTS;
 }
 
-export async function getPromptById(id: string): Promise<Prompt | undefined> {
-  return SAMPLE_PROMPTS.find(p => p.id === id);
+export async function getPromptById(id: string) {
+  return SAMPLE_PROMPTS.find((p) => p.id === id);
 }
 
-export async function getCategories(): Promise<Category[]> {
-  return CATEGORIES;
+export async function getPromptsByCategory(category: string) {
+  return SAMPLE_PROMPTS.filter((p) => p.category === category);
 }
 
-export async function getFeaturedPrompts(): Promise<Prompt[]> {
-  return SAMPLE_PROMPTS.slice(0, 6);
-}
-
-export async function getTrendingPrompts(limit: number = 5): Promise<Prompt[]> {
+export async function getTrendingPrompts(limit: number = 10) {
   return [...SAMPLE_PROMPTS]
     .sort((a, b) => b.sales - a.sales)
     .slice(0, limit);
+}
+
+export async function getLatestPrompts(limit: number = 10) {
+  return [...SAMPLE_PROMPTS]
+    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+    .slice(0, limit);
+}
+
+export async function searchPrompts(query: string) {
+  const lowerQuery = query.toLowerCase();
+  return SAMPLE_PROMPTS.filter(
+    (p) =>
+      p.title.toLowerCase().includes(lowerQuery) ||
+      p.description.toLowerCase().includes(lowerQuery) ||
+      p.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
+  );
+}
+
+// 获取提示词的所有评论
+export function getPromptReviews(promptId: string) {
+  const prompt = SAMPLE_PROMPTS.find((p) => p.id === promptId);
+  if (!prompt) return [];
+  
+  // 生成与评论数匹配的评论
+  const reviews = [];
+  const reviewerNames = ['李明', '王芳', '张伟', '刘洋', '陈静', '杨帆', '赵敏', '孙磊', '周杰', '吴敏', '徐洋', '马云飞', '黄晓明'];
+  const reviewTexts = [
+    '这个提示词真的太棒了！用了一段时间，效果一直很稳定。生成的代码质量很高，省了我大量时间。强烈推荐！',
+    '物超所值！之前用过其他家的提示词，这个明显更好用。说明详细，容易上手。强烈推荐给同行们！',
+    '质量不错，但价格再便宜点就更好了。不过整体来说还是很值的，性价比很高。',
+    '作为新手，我觉得这个提示词非常容易上手。说明文档也很详细，客服态度也很好，赞一个！',
+    '这是我买过的最实用的提示词之一。已经推荐给好几个朋友了，他们都觉得很不错。',
+    '效果还可以，但感觉还有提升空间。希望作者能持续更新优化，会一直支持的！',
+    '用起来很顺手，生成的内容质量很高。客服态度也很好，有问必答，很专业！',
+  ];
+  
+  for (let i = 0; i < Math.min(prompt.reviews, 8); i++) {
+    reviews.push({
+      name: reviewerNames[i % reviewerNames.length],
+      rating: prompt.rating - 0.2 + Math.random() * 0.4,
+      date: `${2026 - Math.floor(i / 3)}年${((i % 12) + 1).toString().padStart(2, '0')}月${(i % 28 + 1).toString().padStart(2, '0')}日`,
+      text: reviewTexts[i % reviewTexts.length],
+    });
+  }
+  
+  return reviews;
 }
