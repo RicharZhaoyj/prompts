@@ -2671,7 +2671,7 @@ export async function getPrompts(category?: string, search?: string) {
       (p) =>
         p.title.toLowerCase().includes(lowerSearch) ||
         p.description.toLowerCase().includes(lowerSearch) ||
-        (p.tags && p.tags.some((tag) => tag.toLowerCase().includes(lowerSearch)))
+        (p.tags && (p.tags && p.tags.some((tag)) => tag.toLowerCase().includes(lowerSearch)))
     );
   }
   
@@ -2704,7 +2704,7 @@ export async function searchPrompts(query: string) {
     (p) =>
       p.title.toLowerCase().includes(lowerQuery) ||
       p.description.toLowerCase().includes(lowerQuery) ||
-      p.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
+      (p.tags && p.tags.some((tag)) => tag.toLowerCase().includes(lowerQuery))
   );
 }
 
