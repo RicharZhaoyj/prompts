@@ -2671,7 +2671,7 @@ export async function getPrompts(category?: string, search?: string) {
       (p) =>
         p.title.toLowerCase().includes(lowerSearch) ||
         p.description.toLowerCase().includes(lowerSearch) ||
-        p.tags.some((tag) => tag.toLowerCase().includes(lowerSearch))
+        (p.tags && p.tags.some((tag) => tag.toLowerCase().includes(lowerSearch)))
     );
   }
   
