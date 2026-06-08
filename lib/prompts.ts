@@ -2656,8 +2656,26 @@ export const CATEGORIES: Category[] = [
 ];
 
 // 辅助函数
-export async function getPrompts() {
-  return SAMPLE_PROMPTS;
+export async function getPrompts(category?: string, search?: string) {
+  let prompts = [...SAMPLE_PROMPTS];
+  
+  // 按分类筛选
+  if (category) {
+    prompts = prompts.filter((p) => p.category === category);
+  }
+  
+  // 按搜索词筛选
+  if (search) {
+    const lowerSearch = search.toLowerCase();
+    prompts = prompts.filter(
+      (p) =>
+        p.title.toLowerCase().includes(lowerSearch) ||
+        p.description.toLowerCase().includes(lowerSearch) ||
+        p.tags.some((tag) => tag.toLowerCase().includes(lowerSearch))
+    );
+  }
+  
+  return prompts;
 }
 
 export async function getPromptById(id: string) {
