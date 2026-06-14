@@ -256,6 +256,89 @@ export default function PromptDetailClient({ prompt, reviews = [] }: { prompt: P
                 </div>
               </div>
             </div>
+
+            {/* 推荐配套工具 */}
+            <div className="bg-background border rounded-lg p-6 mt-6">
+              <h3 className="text-lg font-bold mb-1">推荐配套工具</h3>
+              <p className="text-xs text-gray-500 mb-4">搭配以下工具使用，效果更佳</p>
+              <div className="space-y-3">
+                <a
+                  href="https://tools.link.cn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
+                >
+                  <span className="text-2xl flex-shrink-0">💬</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">ChatGPT</div>
+                    <p className="text-xs text-gray-500 mt-0.5">强大的AI对话模型，适合各类文案创作</p>
+                  </div>
+                </a>
+                <a
+                  href="https://tools.link.cn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
+                >
+                  <span className="text-2xl flex-shrink-0">🖋️</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">Claude</div>
+                    <p className="text-xs text-gray-500 mt-0.5">Anthropic推出的AI助手，擅长长文本分析</p>
+                  </div>
+                </a>
+                <a
+                  href="https://tools.link.cn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
+                >
+                  <span className="text-2xl flex-shrink-0">🎨</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">Midjourney</div>
+                    <p className="text-xs text-gray-500 mt-0.5">高质量图像生成AI，适合创意设计</p>
+                  </div>
+                </a>
+                <a
+                  href="https://tools.link.cn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
+                >
+                  <span className="text-2xl flex-shrink-0">⚡</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">Cursor</div>
+                    <p className="text-xs text-gray-500 mt-0.5">AI代码编辑器，提升编程效率</p>
+                  </div>
+                </a>
+              </div>
+              <a
+                href="https://tools.link.cn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-4 pt-4 border-t border-gray-100 text-center text-sm text-blue-600 hover:text-blue-700 font-medium"
+              >
+                查看更多AI工具 →
+              </a>
+            </div>
+
+            {/* 相关AI新闻 */}
+            <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg p-6 mt-6 text-white">
+              <h3 className="font-bold text-lg mb-1">相关AI新闻</h3>
+              <p className="text-xs text-white/80 mb-4">了解行业最新动态</p>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 mb-4">
+                <p className="text-sm leading-relaxed">
+                  关注 {prompt.category} 领域的最新进展，获取第一手资讯和深度分析。
+                </p>
+              </div>
+              <a
+                href="https://ai.link.cn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-2.5 bg-white text-purple-600 font-semibold rounded-md hover:bg-gray-100 transition-colors text-sm text-center"
+              >
+                浏览AI热点资讯 →
+              </a>
+            </div>
           </aside>
         </div>
       </div>

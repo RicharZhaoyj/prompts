@@ -27,12 +27,19 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-5">
           <Link href="/" className="text-sm font-medium hover:text-primary">首页</Link>
           <Link href="/prompts" className="text-sm font-medium hover:text-primary">浏览</Link>
           <Link href="/blog" className="text-sm font-medium hover:text-primary">博客</Link>
           <Link href="/submit" className="text-sm font-medium hover:text-primary">提交</Link>
           <Link href="/docs" className="text-sm font-medium hover:text-primary">文档</Link>
+          <span className="h-4 w-px bg-border" />
+          <a href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-blue-600 hover:text-blue-700">
+            🛠️ AI工具
+          </a>
+          <a href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-purple-600 hover:text-purple-700">
+            📰 AI热点
+          </a>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
@@ -100,6 +107,24 @@ export function Navbar() {
             >
               文档
             </Link>
+            <a
+              href="https://tools.link.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-4 py-3 rounded-md hover:bg-accent text-sm text-blue-600"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              🛠️ AI工具推荐 ↗
+            </a>
+            <a
+              href="https://ai.link.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-4 py-3 rounded-md hover:bg-accent text-sm text-purple-600"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              📰 AI热点资讯 ↗
+            </a>
             
             <div className="border-t pt-4 mt-4 space-y-2">
               <Link

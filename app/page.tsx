@@ -307,6 +307,70 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* 姊妹站点联动 Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">探索更多AI资源</h2>
+            <p className="text-lg text-muted-foreground">发现精选AI工具和最新行业资讯，助力你的AI之旅</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* AI工具推荐卡片 */}
+            <a
+              href="https://tools.link.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-8 bg-background rounded-2xl border hover:border-blue-300 hover:shadow-xl transition-all"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                  <span className="text-3xl">🛠️</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+                    AI工具推荐
+                    <span className="text-sm text-muted-foreground group-hover:translate-x-1 transition-transform">→</span>
+                  </h3>
+                  <p className="text-muted-foreground mb-4">精选有评测的AI工具，让你快速找到最适合自己的生产力工具。</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded">工具评测</span>
+                    <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded">AI助手</span>
+                    <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded">推荐榜</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            {/* AI热点资讯卡片 */}
+            <a
+              href="https://ai.link.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-8 bg-background rounded-2xl border hover:border-purple-300 hover:shadow-xl transition-all"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition-colors">
+                  <span className="text-3xl">📰</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+                    AI热点资讯
+                    <span className="text-sm text-muted-foreground group-hover:translate-x-1 transition-transform">→</span>
+                  </h3>
+                  <p className="text-muted-foreground mb-4">了解AI行业最新动态和深度分析，第一时间掌握前沿资讯。</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs px-2 py-1 bg-purple-50 text-purple-700 rounded">行业动态</span>
+                    <span className="text-xs px-2 py-1 bg-purple-50 text-purple-700 rounded">技术趋势</span>
+                    <span className="text-xs px-2 py-1 bg-purple-50 text-purple-700 rounded">深度分析</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4 text-center">

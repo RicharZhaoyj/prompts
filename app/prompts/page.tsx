@@ -109,6 +109,38 @@ export default async function PromptsPage({
                 应用筛选
               </button>
             </div>
+
+            {/* 姊妹站点联动卡片 */}
+            <div className="mt-8 space-y-3">
+              <h3 className="text-sm font-semibold mb-3">🔗 更多AI资源</h3>
+              <a
+                href="https://tools.link.cn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 bg-blue-50 border border-blue-100 rounded-lg hover:border-blue-300 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-2xl">🛠️</span>
+                  <span className="font-semibold text-gray-900 text-sm group-hover:text-blue-700">AI工具推荐</span>
+                </div>
+                <p className="text-xs text-gray-600">精选有评测的AI工具</p>
+                <span className="mt-2 text-xs text-blue-600 font-medium">访问 tools.link.cn ↗</span>
+              </a>
+
+              <a
+                href="https://ai.link.cn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 bg-purple-50 border border-purple-100 rounded-lg hover:border-purple-300 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-2xl">📰</span>
+                  <span className="font-semibold text-gray-900 text-sm group-hover:text-purple-700">AI热点资讯</span>
+                </div>
+                <p className="text-xs text-gray-600">了解最新行业动态</p>
+                <span className="mt-2 text-xs text-purple-600 font-medium">访问 ai.link.cn ↗</span>
+              </a>
+            </div>
           </aside>
 
           {/* Main Content */}

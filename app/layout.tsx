@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 import './globals.css'
 import { Navbar } from './components/navbar'
 import Analytics from './components/analytics'
@@ -38,33 +39,33 @@ export default function RootLayout({
                       <span className="font-bold">PromptMarket</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      The marketplace for AI prompts. Discover, share, and monetize your prompts.
+                      AI提示词免费库，发现、分享、免费使用高质量的AI提示词。
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-4">Product</h3>
+                    <h3 className="font-semibold mb-4">产品</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li><a href="/prompts" className="hover:text-foreground">Browse Prompts</a></li>
-                      <li><a href="/submit" className="hover:text-foreground">Submit Prompt</a></li>
+                      <li><Link href="/prompts" className="hover:text-foreground">浏览提示词</Link></li>
+                      <li><Link href="/submit" className="hover:text-foreground">提交提示词</Link></li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-4">Resources</h3>
+                    <h3 className="font-semibold mb-4">资源</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li><a href="/docs" className="hover:text-foreground">Documentation</a></li>
-                      <li><a href="/blog" className="hover:text-foreground">Blog</a></li>
+                      <li><Link href="/docs" className="hover:text-foreground">文档</Link></li>
+                      <li><Link href="/blog" className="hover:text-foreground">博客</Link></li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-4">Company</h3>
+                    <h3 className="font-semibold mb-4">姊妹站点 ↗</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li><a href="/docs" className="hover:text-foreground">About</a></li>
-                      <li><a href="/docs" className="hover:text-foreground">Terms</a></li>
+                      <li><a href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">🛠️ AI工具推荐</a></li>
+                      <li><a href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">📰 AI热点资讯</a></li>
                     </ul>
                   </div>
                 </div>
                 <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-                  © 2024 PromptMarket. All rights reserved.
+                  © 2026 PromptMarket · <a href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">AI工具</a> · <a href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">AI热点</a>
                 </div>
               </div>
             </footer>
