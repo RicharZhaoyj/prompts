@@ -5,6 +5,7 @@ import './globals.css'
 import { Navbar } from './components/navbar'
 import Analytics from './components/analytics'
 import { ToastProvider } from './components/toast'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="zh-CN">
       <body className={inter.className}>
         <Analytics />
+        <VercelAnalytics />
         <ToastProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
