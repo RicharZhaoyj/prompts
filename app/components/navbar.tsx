@@ -33,12 +33,26 @@ export function Navbar() {
           <Link href="/blog" className="text-sm font-medium hover:text-primary">博客</Link>
           <Link href="/submit" className="text-sm font-medium hover:text-primary">提交</Link>
           <Link href="/docs" className="text-sm font-medium hover:text-primary">文档</Link>
-          <span className="h-4 w-px bg-border" />
-          <a href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-blue-600 hover:text-blue-700">
-            🛠️ AI工具
+          <span className="h-4 w-px bg-border mx-1" />
+          <a 
+            href="https://tools.link.cn" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 transition-all"
+          >
+            <span className="text-base">🛠️</span>
+            <span>AI工具</span>
+            <span className="text-xs opacity-60 group-hover:opacity-100">↗</span>
           </a>
-          <a href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-purple-600 hover:text-purple-700">
-            📰 AI热点
+          <a 
+            href="https://ai.link.cn" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-full bg-purple-50 text-purple-700 hover:bg-purple-100 border border-purple-200 transition-all"
+          >
+            <span className="text-base">📰</span>
+            <span>AI热点</span>
+            <span className="text-xs opacity-60 group-hover:opacity-100">↗</span>
           </a>
         </nav>
 
@@ -111,19 +125,19 @@ export function Navbar() {
               href="https://tools.link.cn"
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-4 py-3 rounded-md hover:bg-accent text-sm text-blue-600"
+              className="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-50 text-blue-700 text-sm font-medium border border-blue-200"
               onClick={() => setIsMenuOpen(false)}
             >
-              🛠️ AI工具推荐 ↗
+              🛠️ AI工具推荐 <span className="ml-auto text-xs opacity-60">↗</span>
             </a>
             <a
               href="https://ai.link.cn"
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-4 py-3 rounded-md hover:bg-accent text-sm text-purple-600"
+              className="flex items-center gap-2 px-4 py-3 rounded-lg bg-purple-50 text-purple-700 text-sm font-medium border border-purple-200"
               onClick={() => setIsMenuOpen(false)}
             >
-              📰 AI热点资讯 ↗
+              📰 AI热点资讯 <span className="ml-auto text-xs opacity-60">↗</span>
             </a>
             
             <div className="border-t pt-4 mt-4 space-y-2">

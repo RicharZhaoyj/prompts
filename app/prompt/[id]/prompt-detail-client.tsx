@@ -2,7 +2,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Star, Download, Heart, Copy, CheckCircle, Clock } from 'lucide-react'
+import { Star, Download, Heart, Copy, CheckCircle, Clock, Wrench, Newspaper } from 'lucide-react'
 import { useState } from 'react'
 import { useToast } from '@/app/components/toast'
 import { SocialShare } from '@/app/components/social-share'
@@ -17,9 +17,102 @@ interface Review {
   text: string
 }
 
+// 分类工具推荐映射
+const CATEGORY_TOOLS: Record<string, Array<{name: string, description: string, icon: string}>> = {
+  '写作': [
+    { name: 'ChatGPT', description: '强大的AI对话模型，适合各类文案创作', icon: '💬' },
+    { name: 'Claude', description: 'Anthropic推出的AI助手，擅长长文本分析', icon: '🖋️' },
+    { name: 'Kimi', description: '国产AI助手，支持长文本阅读和写作', icon: '📝' },
+    { name: '文心一言', description: '百度推出的AI写作助手', icon: '✍️' },
+  ],
+  '编程': [
+    { name: 'GitHub Copilot', description: 'AI代码补全，提升编程效率', icon: '⚡' },
+    { name: 'Cursor', description: 'AI代码编辑器，基于GPT-4', icon: '💻' },
+    { name: '通义灵码', description: '阿里云推出的AI编程助手', icon: '🛠️' },
+    { name: 'CodeGeex', description: '国产AI代码生成工具', icon: '🔧' },
+  ],
+  '图像生成': [
+    { name: 'Midjourney', description: '高质量图像生成，适合创意设计', icon: '🎨' },
+    { name: 'DALL-E 3', description: 'OpenAI推出的图像生成模型', icon: '🖼️' },
+    { name: 'Stable Diffusion', description: '开源图像生成模型，可本地部署', icon: '✨' },
+    { name: 'Ideogram', description: '文字渲染出色的AI图像生成', icon: '🎭' },
+  ],
+  '营销': [
+    { name: 'Jasper', description: 'AI营销文案生成工具', icon: '📢' },
+    { name: 'Canva AI', description: '设计+AI，一站式营销素材', icon: '🎯' },
+    { name: 'Copy.ai', description: '多场景营销文案AI', icon: '✏️' },
+    { name: ' Writesonic', description: 'SEO友好的AI写作工具', icon: '📊' },
+  ],
+  '教育': [
+    { name: 'Khan Academy AI', description: 'AI辅导学习平台', icon: '📚' },
+    { name: 'Wolfram Alpha', description: '计算与知识问答引擎', icon: '🧮' },
+    { name: 'Quizlet AI', description: 'AI辅助学习和记忆工具', icon: '🎓' },
+    { name: 'Turnitin', description: 'AI检测与学术辅助', icon: '✓' },
+  ],
+  '商业': [
+    { name: 'Notion AI', description: 'AI笔记和团队协作工具', icon: '📋' },
+    { name: 'Grammarly', description: 'AI写作辅助和语法检查', icon: '✅' },
+    { name: 'Zapier', description: 'AI自动化工作流工具', icon: '🔄' },
+    { name: 'Tableau AI', description: 'AI驱动的数据分析可视化', icon: '📈' },
+  ],
+  '游戏': [
+    { name: 'Inworld AI', description: 'AI游戏角色对话引擎', icon: '🎮' },
+    { name: 'Scenario', description: 'AI游戏资产生成工具', icon: '🎲' },
+    { name: 'Charisma', description: 'AI驱动的互动叙事引擎', icon: '🎭' },
+    { name: 'Leonardo AI', description: '游戏风格图像生成', icon: '🎨' },
+  ],
+  '音乐': [
+    { name: 'Suno AI', description: 'AI音乐生成，支持多种风格', icon: '🎵' },
+    { name: 'Udio', description: 'AI音乐创作平台', icon: '🎶' },
+    { name: 'Mureka', description: '国产AI音乐生成工具', icon: '🎼' },
+    { name: 'ACE Studio', description: 'AI歌声合成工具', icon: '🎤' },
+  ],
+}
+
+// 分类新闻关键词映射
+const CATEGORY_NEWS: Record<string, string> = {
+  '写作': 'AI写作助手、大语言模型进展、Prompt工程技巧、内容创作效率提升',
+  '编程': 'AI编程助手、代码生成工具、开发者工具新趋势、GitHub Copilot更新',
+  '图像生成': 'AI绘图工具迭代、图像生成技术突破、设计师工作流变革、Midjourney新功能',
+  '营销': 'AI营销自动化、内容营销趋势、品牌AI应用案例、社交媒体AI工具',
+  '教育': 'AI教育应用进展、个性化学习平台、智能辅导系统、教育科技趋势',
+  '商业': 'AI办公效率、企业AI转型、智能数据分析、协作工具创新',
+  '游戏': 'AI游戏开发进展、NPC对话AI、游戏资产生成、游戏设计自动化',
+  '音乐': 'AI音乐生成技术、音乐创作AI工具、声音合成进展、独立音乐人AI辅助',
+  '默认': '大语言模型进展、AI行业动态、技术创新与应用、工具推荐与评测',
+}
+
+// 根据分类获取推荐工具
+const getRecommendedTools = (category: string) => {
+  // 精确匹配
+  if (CATEGORY_TOOLS[category]) {
+    return CATEGORY_TOOLS[category]
+  }
+  // 模糊匹配
+  const lowerCategory = category.toLowerCase()
+  for (const [key, tools] of Object.entries(CATEGORY_TOOLS)) {
+    if (lowerCategory.includes(key.toLowerCase()) || key.toLowerCase().includes(lowerCategory)) {
+      return tools
+    }
+  }
+  return CATEGORY_TOOLS['写作'] // 默认返回写作工具
+}
+
+// 根据分类获取新闻关键词
+const getNewsKeywords = (category: string) => {
+  if (CATEGORY_NEWS[category]) {
+    return CATEGORY_NEWS[category]
+  }
+  return CATEGORY_NEWS['默认']
+}
+
 export default function PromptDetailClient({ prompt, reviews = [] }: { prompt: Prompt; reviews?: Review[] }) {
   const [copied, setCopied] = useState(false)
   const { showToast } = useToast()
+  
+  // 动态获取分类推荐
+  const recommendedTools = getRecommendedTools(prompt.category)
+  const newsKeywords = getNewsKeywords(prompt.category)
 
   const handleCopyPrompt = async () => {
     try {
@@ -259,57 +352,27 @@ export default function PromptDetailClient({ prompt, reviews = [] }: { prompt: P
 
             {/* 推荐配套工具 */}
             <div className="bg-background border rounded-lg p-6 mt-6">
-              <h3 className="text-lg font-bold mb-1">推荐配套工具</h3>
-              <p className="text-xs text-gray-500 mb-4">搭配以下工具使用，效果更佳</p>
+              <div className="flex items-center gap-2 mb-1">
+                <Wrench className="w-5 h-5 text-blue-600" />
+                <h3 className="text-lg font-bold">推荐配套工具</h3>
+              </div>
+              <p className="text-xs text-gray-500 mb-4">为「{prompt.category}」分类精选的工具推荐</p>
               <div className="space-y-3">
-                <a
-                  href="https://tools.link.cn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
-                >
-                  <span className="text-2xl flex-shrink-0">💬</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">ChatGPT</div>
-                    <p className="text-xs text-gray-500 mt-0.5">强大的AI对话模型，适合各类文案创作</p>
-                  </div>
-                </a>
-                <a
-                  href="https://tools.link.cn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
-                >
-                  <span className="text-2xl flex-shrink-0">🖋️</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">Claude</div>
-                    <p className="text-xs text-gray-500 mt-0.5">Anthropic推出的AI助手，擅长长文本分析</p>
-                  </div>
-                </a>
-                <a
-                  href="https://tools.link.cn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
-                >
-                  <span className="text-2xl flex-shrink-0">🎨</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">Midjourney</div>
-                    <p className="text-xs text-gray-500 mt-0.5">高质量图像生成AI，适合创意设计</p>
-                  </div>
-                </a>
-                <a
-                  href="https://tools.link.cn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
-                >
-                  <span className="text-2xl flex-shrink-0">⚡</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">Cursor</div>
-                    <p className="text-xs text-gray-500 mt-0.5">AI代码编辑器，提升编程效率</p>
-                  </div>
-                </a>
+                {recommendedTools.map((tool) => (
+                  <a
+                    key={tool.name}
+                    href="https://tools.link.cn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
+                  >
+                    <span className="text-2xl flex-shrink-0">{tool.icon}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-700">{tool.name}</div>
+                      <p className="text-xs text-gray-500 mt-0.5">{tool.description}</p>
+                    </div>
+                  </a>
+                ))}
               </div>
               <a
                 href="https://tools.link.cn"
@@ -317,18 +380,23 @@ export default function PromptDetailClient({ prompt, reviews = [] }: { prompt: P
                 rel="noopener noreferrer"
                 className="block mt-4 pt-4 border-t border-gray-100 text-center text-sm text-blue-600 hover:text-blue-700 font-medium"
               >
-                查看更多AI工具 →
+                查看更多{prompt.category}相关工具 →
               </a>
             </div>
 
             {/* 相关AI新闻 */}
             <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg p-6 mt-6 text-white">
-              <h3 className="font-bold text-lg mb-1">相关AI新闻</h3>
-              <p className="text-xs text-white/80 mb-4">了解行业最新动态</p>
+              <div className="flex items-center gap-2 mb-1">
+                <Newspaper className="w-5 h-5" />
+                <h3 className="font-bold text-lg">相关AI热点</h3>
+              </div>
+              <p className="text-xs text-white/80 mb-4">了解{prompt.category}领域最新动态</p>
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 mb-4">
-                <p className="text-sm leading-relaxed">
-                  关注 {prompt.category} 领域的最新进展，获取第一手资讯和深度分析。
-                </p>
+                <div className="flex flex-wrap gap-2">
+                  {newsKeywords.split('、').map((keyword, i) => (
+                    <span key={i} className="text-xs px-2 py-1 bg-white/30 rounded-full">{keyword}</span>
+                  ))}
+                </div>
               </div>
               <a
                 href="https://ai.link.cn"
