@@ -315,7 +315,7 @@ export default async function Home() {
             <p className="text-lg text-muted-foreground">发现精选AI工具和最新行业资讯，助力你的AI之旅</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {/* AI工具推荐卡片 */}
             <a
               href="https://tools.link.cn"
@@ -377,14 +377,80 @@ export default async function Home() {
                 </div>
               </div>
             </a>
+
+            {/* AI工具LTD卡片 */}
+            <a
+              href="https://tool.link.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-8 bg-gradient-to-br from-cyan-50 via-background to-teal-50 rounded-2xl border border-cyan-100 hover:border-cyan-300 hover:shadow-xl transition-all relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-100/50 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500" />
+              <div className="relative flex items-start gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-500/20 group-hover:shadow-xl group-hover:scale-105 transition-all">
+                  <span className="text-3xl">⚡</span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="text-xl font-bold text-gray-900">AI工具LTD</h3>
+                    <span className="px-2 py-0.5 bg-cyan-100 text-cyan-700 text-xs font-medium rounded-full">买断</span>
+                  </div>
+                  <p className="text-gray-600 mb-4">全球顶尖AI工具的Lifetime Deal买断方案，一次付费终身使用。</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="text-xs px-2 py-1 bg-cyan-50 text-cyan-700 rounded-full border border-cyan-100">💰 限时优惠</span>
+                    <span className="text-xs px-2 py-1 bg-cyan-50 text-cyan-700 rounded-full border border-cyan-100">🔒 终身授权</span>
+                    <span className="text-xs px-2 py-1 bg-cyan-50 text-cyan-700 rounded-full border border-cyan-100">🎯 精选推荐</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-cyan-600 font-medium group-hover:gap-3 transition-all">
+                    <span>浏览LTD优惠</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            {/* 加密货币分析卡片 */}
+            <a
+              href="https://signal.link.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-8 bg-gradient-to-br from-orange-50 via-background to-amber-50 rounded-2xl border border-orange-100 hover:border-orange-300 hover:shadow-xl transition-all relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100/50 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500" />
+              <div className="relative flex items-start gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/20 group-hover:shadow-xl group-hover:scale-105 transition-all">
+                  <span className="text-3xl">₿</span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="text-xl font-bold text-gray-900">加密货币分析</h3>
+                    <span className="px-2 py-0.5 bg-orange-100 text-orange-700 text-xs font-medium rounded-full">实时</span>
+                  </div>
+                  <p className="text-gray-600 mb-4">智能识别异动品种与横盘启动机会，每小时自动更新市场数据。</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="text-xs px-2 py-1 bg-orange-50 text-orange-700 rounded-full border border-orange-100">📈 实时行情</span>
+                    <span className="text-xs px-2 py-1 bg-orange-50 text-orange-700 rounded-full border border-orange-100">⚡ 异动预警</span>
+                    <span className="text-xs px-2 py-1 bg-orange-50 text-orange-700 rounded-full border border-orange-100">📬 日报订阅</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-orange-600 font-medium group-hover:gap-3 transition-all">
+                    <span>查看行情分析</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
           
           {/* 底部快速链接栏 */}
-          <div className="mt-8 flex justify-center gap-4 text-sm text-muted-foreground">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
             <span>姊妹站点：</span>
             <a href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">tools.link.cn</a>
             <span>·</span>
             <a href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:underline">ai.link.cn</a>
+            <span>·</span>
+            <a href="https://tool.link.cn" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:underline">tool.link.cn</a>
+            <span>·</span>
+            <a href="https://signal.link.cn" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:underline">signal.link.cn</a>
           </div>
         </div>
       </section>

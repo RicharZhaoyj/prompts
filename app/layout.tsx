@@ -61,11 +61,13 @@ export default function RootLayout({
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li><a href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">🛠️ AI工具推荐</a></li>
                       <li><a href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">📰 AI热点资讯</a></li>
+                      <li><a href="https://tool.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-600">⚡ AI工具LTD</a></li>
+                      <li><a href="https://signal.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600">₿ 加密货币分析</a></li>
                     </ul>
                   </div>
                 </div>
                 <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-                  © 2026 PromptMarket · <a href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">AI工具</a> · <a href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">AI热点</a>
+                  © 2026 PromptMarket · <a href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">AI工具</a> · <a href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">AI热点</a> · <a href="https://tool.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-600">LTD</a> · <a href="https://signal.link.cn" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600">加密分析</a>
                 </div>
               </div>
             </footer>
