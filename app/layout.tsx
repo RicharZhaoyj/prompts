@@ -5,12 +5,49 @@ import './globals.css'
 import { Navbar } from './components/navbar'
 import Analytics from './components/analytics'
 import { ToastProvider } from './components/toast'
+import { StructuredData } from './components/structured-data'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Prompt Marketplace - AI Prompts Store',
-  description: 'Discover, share, and sell high-quality AI prompts for ChatGPT, Midjourney, and more',
+  title: {
+    default: 'PromptMarket - AI提示词免费库 | 高质量ChatGPT/Midjourney提示词',
+    template: '%s | PromptMarket',
+  },
+  description: 'AI提示词免费库，发现、分享、免费使用高质量的AI提示词，涵盖ChatGPT、Midjourney、Claude等主流AI工具。提升您的AI使用效率！',
+  keywords: 'AI提示词,Prompt,ChatGPT,Midjourney,Claude,提示词库,AI工具,人工智能',
+  authors: [{ name: 'PromptMarket' }],
+  creator: 'PromptMarket',
+  publisher: 'PromptMarket',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'PromptMarket',
+    title: 'PromptMarket - AI提示词免费库',
+    description: '发现、分享、免费使用高质量的AI提示词',
+    url: 'https://prompts.link.cn',
+    images: [
+      {
+        url: 'https://prompts.link.cn/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'PromptMarket - AI提示词免费库',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PromptMarket - AI提示词免费库',
+    description: '发现、分享、免费使用高质量的AI提示词',
+    images: ['https://prompts.link.cn/twitter-card.png'],
+  },
+  alternates: {
+    canonical: 'https://prompts.link.cn',
+  },
 }
 
 export default function RootLayout({
@@ -22,6 +59,26 @@ export default function RootLayout({
     <html lang="zh-CN">
       <body className={inter.className}>
         <Analytics />
+        <StructuredData
+          type="website"
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'PromptMarket',
+            url: 'https://prompts.link.cn',
+            description: 'AI提示词免费库，发现、分享、免费使用高质量的AI提示词，涵盖ChatGPT、Midjourney、Claude等主流AI工具。',
+            publisher: {
+              '@type': 'Organization',
+              name: 'PromptMarket',
+              url: 'https://prompts.link.cn',
+            },
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://prompts.link.cn/prompts?q={search_term_string}',
+              'query-input': 'required name=search_term_string',
+            },
+          }}
+        />
         <ToastProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar />
