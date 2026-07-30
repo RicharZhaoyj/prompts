@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Star, CheckCircle, Clock } from 'lucide-react'
-import { getPromptById, getPromptReviews } from '@/lib/prompts'
+import { getPromptById, getPromptReviews, getRelatedPrompts } from '@/lib/prompts'
 import { Metadata } from 'next'
 import PromptDetailClient from './prompt-detail-client'
 import { StructuredData } from '@/app/components/structured-data'
@@ -81,6 +81,8 @@ export default async function PromptDetailPage({
 
   // 获取该提示词的真实评论
   const reviews = getPromptReviews(params.id)
+  // 获取相关提示词推荐（同分类、同标签）
+  const relatedPrompts = getRelatedPrompts(params.id, 6)
 
   const productSchema = {
     '@context': 'https://schema.org',
@@ -108,7 +110,7 @@ export default async function PromptDetailPage({
   return (
     <>
       <StructuredData type="product" data={productSchema as any} />
-      <PromptDetailClient prompt={prompt} reviews={reviews} />
+      <PromptDetailClient prompt={prompt} reviews={reviews} relatedPrompts={relatedPrompts} />
     </>
   )
 }

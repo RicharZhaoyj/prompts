@@ -2747,3 +2747,37 @@ export function getPromptReviews(promptId: string) {
   
   return reviews;
 }
+
+// 获取相关提示词：同分类优先，标签匹配次之
+export function getRelatedPrompts(promptId: string, limit = 6): Prompt[] {
+  const current = SAMPLE_PROMPTS.find(p => p.id === promptId);
+  if (!current) return SAMPLE_PROMPTS.slice(0, limit);
+
+  const scored = SAMPLE_PROMPTS
+    .filter(p => p.id !== promptId)
+    .map(p => {
+      let score = 0;
+      // 同分类加5分
+      if (p.category === current.category) score += 5;
+      // 共享标签每个加2分
+      const sharedTags = (p.tags || []).filter(t => (current.tags || []).includes(t));
+      score += sharedTags.length * 2;
+      // 作者相同加3分
+      if (p.author_id === current.author_id) score += 3;
+      return { prompt: p, score };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score || (b.prompt.sales - a.prompt.sales))
+    .slice(0, limit);
+
+  let result = scored.map(s => s.prompt);
+  // 不足则用热门/高销量补足
+  if (result.length < limit) {
+    const fill = SAMPLE_PROMPTS
+      .filter(p => p.id !== promptId && !result.find(r => r.id === p.id))
+      .sort((a, b) => b.sales - a.sales)
+      .slice(0, limit - result.length);
+    result = [...result, ...fill];
+  }
+  return result;
+}

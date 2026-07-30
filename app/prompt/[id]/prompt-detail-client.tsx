@@ -106,7 +106,7 @@ const getNewsKeywords = (category: string) => {
   return CATEGORY_NEWS['默认']
 }
 
-export default function PromptDetailClient({ prompt, reviews = [] }: { prompt: Prompt; reviews?: Review[] }) {
+export default function PromptDetailClient({ prompt, reviews = [], relatedPrompts = [] }: { prompt: Prompt; reviews?: Review[]; relatedPrompts?: Prompt[] }) {
   const [copied, setCopied] = useState(false)
   const { showToast } = useToast()
   
@@ -260,6 +260,68 @@ export default function PromptDetailClient({ prompt, reviews = [] }: { prompt: P
                 )}
               </div>
             </div>
+
+            {/* 相关提示词推荐 (降低跳出率) */}
+            {relatedPrompts.length > 0 && (
+              <div className="mt-12 pt-8 border-t">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-xl font-semibold">✨ 你可能还喜欢这些提示词</h2>
+                  <Link
+                    href="/prompts"
+                    className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                  >
+                    查看全部 →
+                  </Link>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {relatedPrompts.map((rp) => (
+                    <Link
+                      key={rp.id}
+                      href={`/prompt/${rp.id}`}
+                      className="group bg-background border rounded-xl p-4 hover:border-primary/40 hover:shadow-md transition-all duration-200"
+                    >
+                      {rp.image_url && (
+                        <div className="aspect-[4/3] rounded-lg overflow-hidden mb-3 bg-muted">
+                          <img
+                            src={rp.image_url}
+                            alt={rp.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      )}
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="shrink-0 px-2 py-0.5 text-[11px] bg-primary/10 text-primary rounded-full font-medium">
+                          {rp.category}
+                        </span>
+                        {rp.price === 0 ? (
+                          <span className="shrink-0 px-2 py-0.5 text-[11px] bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full font-bold">
+                            🆓 免费
+                          </span>
+                        ) : (
+                          <span className="shrink-0 px-2 py-0.5 text-[11px] bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full font-semibold">
+                            ${rp.price}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2 min-h-[2.5em]">
+                        {rp.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2 mb-3 min-h-[2em]">
+                        {rp.description}
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                          <span className="font-medium text-yellow-600 dark:text-yellow-400">{rp.rating}</span>
+                          <span>({rp.reviews})</span>
+                        </div>
+                        <span>销量 {rp.sales}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <aside className="lg:col-span-1">
