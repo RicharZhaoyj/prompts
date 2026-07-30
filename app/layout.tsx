@@ -67,17 +67,12 @@ export default function RootLayout({
             name: 'PromptMarket',
             url: 'https://prompts.link.cn',
             description: 'AI提示词免费库，发现、分享、免费使用高质量的AI提示词，涵盖ChatGPT、Midjourney、Claude等主流AI工具。',
-            publisher: {
-              '@type': 'Organization',
-              name: 'PromptMarket',
-              url: 'https://prompts.link.cn',
-            },
             potentialAction: {
               '@type': 'SearchAction',
               target: 'https://prompts.link.cn/prompts?q={search_term_string}',
               'query-input': 'required name=search_term_string',
             },
-          }}
+          } as any}
         />
         <ToastProvider>
           <div className="min-h-screen flex flex-col">
