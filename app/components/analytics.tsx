@@ -5,14 +5,14 @@ import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-1BWZN3C49H'
 
 function AnalyticsContent() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    if (!GA_ID || typeof window === 'undefined') return
+    if (typeof window === 'undefined') return
 
     const url = pathname + searchParams.toString()
     
@@ -27,10 +27,6 @@ function AnalyticsContent() {
 }
 
 function Analytics() {
-  if (!GA_ID) {
-    return null
-  }
-
   return (
     <>
       <Script
