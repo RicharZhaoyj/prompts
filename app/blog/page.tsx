@@ -1,17 +1,44 @@
 import Link from 'next/link'
-import { Calendar, ArrowRight, BookOpen, Lightbulb, TrendingUp } from 'lucide-react'
+import { Calendar, ArrowRight, BookOpen, Lightbulb, TrendingUp, HelpCircle } from 'lucide-react'
 import { Metadata } from 'next'
+import { FAQSchema } from '../components/faq-schema'
+
+const BLOG_FAQS = [
+  {
+    question: '新手学习AI提示词应该看哪些内容？',
+    answer: '建议新手按此路径学习：1) 先读《提示词工程最佳实践》掌握四大要素（角色/任务/格式/约束）；2) 选1-2个场景（如写作或编程）找现成模板套用；3) 学习《10个ChatGPT提示词技巧》理解思维链、少样本等进阶；4) 动手实践，对比不同提示词的输出差异。提示词的关键不是「神奇咒语」，而是结构化思维+场景经验。',
+  },
+  {
+    question: 'ChatGPT和Claude的提示词写法有什么区别？',
+    answer: '两者通用原则一致，但细节有差异：1) Claude对长上下文更友好，提示词可以更长更详细；2) ChatGPT对格式指令（如Markdown表格）响应更标准；3) Claude建议在开头使用XML标签（如<human>、<context>）分隔指令和内容；4) ChatGPT使用system prompt效果更好。建议在提示词库中选择对应AI工具的分类版本，或注明工具名让我们帮你适配。',
+  },
+  {
+    question: '写不出好的AI图像提示词怎么办？',
+    answer: 'AI绘画提示词快速上手三步：1) 先抄再改：从提示词库设计分类复制类似风格的模板，替换主体关键词；2) 英文优先：Midjourney/Flux等模型对英文关键词理解更准确，可用DeepL翻译；3) 迭代优化：先出基础图，再逐步加风格/光线/镜头词。进阶可参考博客《Midjourney提示词完整指南》中的参数表和结构公式。',
+  },
+  {
+    question: '提示词写多长比较合适？越长越好吗？',
+    answer: '不是越长越好！建议：简单任务（翻译、改写）30-100字；中等任务（文案、分析）100-300字；复杂任务（报告生成、代码编写）300-800字。超过500字建议分段，用小标题或编号组织。关键原则：每句话都有明确目的，删除形容词和重复信息；用模板复制比每次重写效果更稳定。',
+  },
+]
 
 export const metadata: Metadata = {
-  title: '博客 - PromptMarket | AI提示词技巧与教程',
-  description: '学习如何有效使用AI提示词，获取最新的ChatGPT、Midjourney、Stable Diffusion提示词技巧、教程和最佳实践。',
-  keywords: 'AI提示词教程, ChatGPT技巧, Midjourney教程, AI写作技巧, 提示词优化',
+  title: 'AI提示词教程博客2026 | ChatGPT/Midjourney技巧与最佳实践',
+  description: 'PromptMarket博客：2026最新ChatGPT提示词技巧、Midjourney参数教程、提示词工程最佳实践、AI写作/绘画/编程/副业变现场景化指南。从新手到进阶系统化学习提示词优化，附可复制模板。',
+  keywords: 'AI提示词教程, ChatGPT技巧, Midjourney教程, 提示词工程, Prompt最佳实践, AI写作技巧, Midjourney参数, GPT-5提示词, Claude提示词, 提示词优化, AI副业, 提示词模板',
   openGraph: {
-    title: '博客 - PromptMarket',
-    description: '获取最新的AI提示词技巧、教程和最佳实践。',
+    title: 'AI提示词教程博客2026 | ChatGPT/Midjourney技巧与最佳实践',
+    description: '系统化学习AI提示词优化：ChatGPT技巧、Midjourney参数、提示词工程四大要素，附可复制模板。',
     type: 'website',
     url: 'https://prompts.link.cn/blog',
-    siteName: 'PromptMarket',
+    siteName: 'PromptMarket - AI提示词免费库',
+    locale: 'zh_CN',
+    images: [{ url: 'https://prompts.link.cn/og-image.png', width: 1200, height: 630, alt: 'AI提示词教程博客' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI提示词教程博客2026 | ChatGPT/Midjourney技巧与最佳实践',
+    description: '系统化学习AI提示词优化，附可复制模板。',
   },
   alternates: {
     canonical: 'https://prompts.link.cn/blog',
@@ -175,6 +202,28 @@ export default function BlogPage() {
                 订阅
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-muted/30">
+        <FAQSchema faqs={BLOG_FAQS} />
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center gap-2">
+            <HelpCircle className="w-8 h-8 text-primary" />
+            学习常见问题 FAQ
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {BLOG_FAQS.map((faq, idx) => (
+              <div key={idx} className="bg-background rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-colors">
+                <h3 className="font-semibold text-lg mb-3 flex items-start gap-2">
+                  <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-sm font-bold flex-shrink-0 mt-0.5">Q</span>
+                  {faq.question}
+                </h3>
+                <p className="text-muted-foreground pl-9 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
