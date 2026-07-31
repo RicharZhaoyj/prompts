@@ -5,27 +5,57 @@ import { Metadata } from 'next'
 import { TrendingPrompts } from './components/trending-prompts'
 import { NewsletterSubscribe } from './components/newsletter-subscribe'
 import { StructuredData } from './components/structured-data'
+import { FAQSchema } from './components/faq-schema'
 
 // 使用构建时的固定日期
-const LAST_UPDATED = '2026年6月7日'
+const LAST_UPDATED = '2026年8月1日'
+
+const HOME_FAQS = [
+  {
+    question: 'PromptMarket上的AI提示词是免费的吗？',
+    answer: '是的！PromptMarket内测期间所有提示词完全免费使用，无需注册、无需付费，一键复制即可用在ChatGPT、Midjourney、Claude、Stable Diffusion等所有主流AI工具上。后续会新增部分高级创作者的付费提示词，现有免费内容会永久免费。',
+  },
+  {
+    question: '提示词支持哪些AI工具？怎么使用？',
+    answer: '本站提示词支持所有主流AI工具：ChatGPT/GPT-4/GPT-5、Claude 3/4系列、Midjourney V6/V7、Stable Diffusion XL/Flux、DALL-E 3、文心一言、通义千问等。使用步骤：1) 找到合适的提示词；2) 点击「复制」按钮；3) 粘贴到对应AI工具的输入框即可。每个提示词页面都附有详细的使用场景和示例输出。',
+  },
+  {
+    question: '如何写出高质量的ChatGPT提示词？有什么技巧？',
+    answer: '高质量ChatGPT提示词四大要素：1) 明确角色：告诉AI「你是谁」（如资深文案、产品经理）；2) 具体任务：描述要做什么，避免模糊；3) 输出格式：指定表格/列表/Markdown/JSON等结构；4) 约束条件：字数、风格、受众。进阶技巧：少样本示范（给1-2个例子）、思维链（让AI一步步思考）、角色扮演+用户场景。完整教程见博客《提示词工程最佳实践》。',
+  },
+  {
+    question: 'Midjourney提示词有什么结构和参数技巧？',
+    answer: 'Midjourney提示词推荐结构：[主体描述] + [风格/艺术流派] + [光线/构图] + [氛围/情绪] + [参数]。核心参数：--ar 16:9/3:4/1:1（比例）、--stylize 50-1000（艺术化程度）、--chaos 0-100（多样性）、--version 7（版本号）。常见误区：中文关键词效果差（建议英文）、堆砌形容词无主次、忽略负向提示词（--no）。完整指南见博客《Midjourney提示词完整指南》。',
+  },
+  {
+    question: '我可以提交自己的原创提示词并赚钱吗？',
+    answer: '当然可以！点击首页「成为创作者」按钮即可提交提示词。审核通过后，你可以选择免费分享或设置付费（建议价格5-50元）。免费提示词可以获得更多曝光和粉丝积累，付费提示词每笔销售创作者可获得70%分成。平台还会定期举办创作大赛，设有奖金和首页推荐位奖励。',
+  },
+  {
+    question: 'PromptMarket和其他提示词网站有什么区别？',
+    answer: '四大差异化：1) 质量优先：每条提示词都经过人工验证+真实AI输出测试，不是爬虫搬运；2) 中文友好：为国内用户优化场景（如小红书文案、公众号写作、PPT大纲），不是纯英文翻译；3) 姊妹生态：与AI工具推荐(tools.link.cn)、AI资讯(ai.link.cn)等站点联动，从「了解AI→选工具→用好提示词」一站式解决；4) 完全免费：内测期间不设付费墙，所有内容零门槛使用。',
+  },
+]
 
 export const metadata: Metadata = {
-  title: 'PromptMarket - AI提示词免费库 | ChatGPT Midjourney提示词',
-  description: '发现、免费使用高质量AI提示词！支持ChatGPT、Midjourney、Stable Diffusion、Claude等主流AI工具。全部免费，内测期间不限量使用！',
-  keywords: 'AI提示词, ChatGPT提示词, Midjourney提示词, Stable Diffusion提示词, Claude提示词, 提示词免费, AI工具, 提示词模板, AI写作, AI绘画',
+  title: 'AI提示词免费库2026 | ChatGPT/Midjourney/Claude高质量Prompt模板',
+  description: 'PromptMarket是国内高质量AI提示词免费库，收录120+精选ChatGPT提示词、Midjourney提示词、Claude/Stable Diffusion提示词模板。覆盖写作、编程、设计、营销、办公、副业变现等场景，一键复制即用，无需注册，内测期间全部免费！附提示词工程教程和最佳实践。',
+  keywords: 'AI提示词, ChatGPT提示词, Midjourney提示词, Claude提示词, Stable Diffusion提示词, 提示词模板, 提示词免费, 提示词工程, Prompt市场, AI写作提示词, AI绘画提示词, GPT-5提示词, Flux提示词, AI办公提效, PromptMarket',
   openGraph: {
-    title: 'PromptMarket - AI提示词免费库',
-    description: '发现、免费使用高质量AI提示词。全部免费，内测期间不限量！',
+    title: 'AI提示词免费库2026 | ChatGPT/Midjourney/Claude高质量Prompt模板',
+    description: '120+精选AI提示词，覆盖写作/编程/设计/营销/副业场景，一键复制即用，内测期间全免费！',
     type: 'website',
     url: 'https://prompts.link.cn',
-    siteName: 'PromptMarket',
+    siteName: 'PromptMarket - AI提示词免费库',
     locale: 'zh_CN',
+    images: [{ url: 'https://prompts.link.cn/og-image.png', width: 1200, height: 630, alt: 'AI提示词免费库 - ChatGPT/Midjourney/Claude高质量Prompt模板' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PromptMarket - AI提示词免费库',
-    description: '发现、免费使用高质量AI提示词。',
+    title: 'AI提示词免费库2026 | ChatGPT/Midjourney/Claude高质量Prompt模板',
+    description: '120+精选AI提示词，一键复制即用，内测期间全免费！',
     creator: '@promptmarket',
+    images: ['https://prompts.link.cn/og-image.png'],
   },
   alternates: {
     canonical: 'https://prompts.link.cn',
@@ -66,6 +96,7 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <FAQSchema faqs={HOME_FAQS} />
       <div>
       {/* Beta Banner */}
       <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-b">
