@@ -320,19 +320,61 @@ export default async function Home() {
       {/* FAQ Section */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">常见问题</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">❓ 常见问题 FAQ</h2>
           <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-background rounded-lg p-6">
-              <h3 className="font-semibold text-lg mb-2">这些提示词是免费的吗？</h3>
-              <p className="text-muted-foreground">是的！内测期间所有提示词都是免费使用的，无需注册即可使用。</p>
+            <div className="bg-background rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-colors">
+              <h3 className="font-semibold text-lg mb-3 flex items-start gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-sm font-bold flex-shrink-0 mt-0.5">Q</span>
+                PromptMarket上的AI提示词是免费的吗？
+              </h3>
+              <p className="text-muted-foreground pl-9 leading-relaxed">
+                是的！PromptMarket内测期间所有提示词<strong>完全免费</strong>使用，无需注册、无需付费，<strong>一键复制</strong>即可用在ChatGPT、Midjourney、Claude、Stable Diffusion等所有主流AI工具上。后续会新增部分高级创作者的付费提示词，<strong>现有免费内容会永久免费</strong>。
+              </p>
             </div>
-            <div className="bg-background rounded-lg p-6">
-              <h3 className="font-semibold text-lg mb-2">提示词支持哪些AI工具？</h3>
-              <p className="text-muted-foreground">我们的提示词支持所有主流AI工具，包括ChatGPT、Claude、Midjourney、Stable Diffusion等。</p>
+            <div className="bg-background rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-colors">
+              <h3 className="font-semibold text-lg mb-3 flex items-start gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-sm font-bold flex-shrink-0 mt-0.5">Q</span>
+                提示词支持哪些AI工具？怎么使用？
+              </h3>
+              <p className="text-muted-foreground pl-9 leading-relaxed">
+                本站提示词支持所有主流AI工具：<strong>ChatGPT/GPT-4/GPT-5</strong>、<strong>Claude 3/4系列</strong>、<strong>Midjourney V6/V7</strong>、<strong>Stable Diffusion XL/Flux</strong>、DALL-E 3、文心一言、通义千问等。<strong>使用步骤</strong>：1) 浏览分类或搜索找到合适的提示词；2) 点击「复制」按钮；3) 粘贴到对应AI工具的输入框即可。每个提示词页面都附有详细的使用场景和示例输出。
+              </p>
             </div>
-            <div className="bg-background rounded-lg p-6">
-              <h3 className="font-semibold text-lg mb-2">我可以提交自己的提示词吗？</h3>
-              <p className="text-muted-foreground">当然可以！点击"成为创作者"按钮即可提交你的提示词，审核通过后会展示在平台上。</p>
+            <div className="bg-background rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-colors">
+              <h3 className="font-semibold text-lg mb-3 flex items-start gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-sm font-bold flex-shrink-0 mt-0.5">Q</span>
+                如何写出高质量的ChatGPT提示词？有什么技巧？
+              </h3>
+              <p className="text-muted-foreground pl-9 leading-relaxed">
+                高质量ChatGPT提示词<strong>四大要素</strong>：1) <strong>明确角色</strong>：告诉AI「你是谁」（如资深文案、产品经理）；2) <strong>具体任务</strong>：描述要做什么，避免模糊；3) <strong>输出格式</strong>：指定表格/列表/Markdown/JSON等结构；4) <strong>约束条件</strong>：字数、风格、受众。<strong>进阶技巧</strong>：少样本示范（给1-2个例子）、思维链（让AI一步步思考）、角色扮演+用户场景。完整教程见博客<Link href="/blog/prompt-engineering-best-practices" className="text-primary hover:underline font-medium">《提示词工程最佳实践》</Link>，常用模板可直接在<Link href="/prompts" className="text-primary hover:underline font-medium">提示词库</Link>中一键复制。
+              </p>
+            </div>
+            <div className="bg-background rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-colors">
+              <h3 className="font-semibold text-lg mb-3 flex items-start gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-sm font-bold flex-shrink-0 mt-0.5">Q</span>
+                Midjourney提示词有什么结构和参数技巧？
+              </h3>
+              <p className="text-muted-foreground pl-9 leading-relaxed">
+                Midjourney提示词<strong>推荐结构</strong>：[主体描述] + [风格/艺术流派] + [光线/构图] + [氛围/情绪] + [参数]。<strong>核心参数</strong>：<code>--ar 16:9/3:4/1:1</code>（比例）、<code>--stylize 50-1000</code>（艺术化程度）、<code>--chaos 0-100</code>（多样性）、<code>--version 7</code>（版本号）。<strong>常见误区</strong>：中文关键词效果差（建议英文）、堆砌形容词无主次、忽略负向提示词（<code>--no</code>）。完整指南见博客<Link href="/blog/midjourney-prompt-guide" className="text-primary hover:underline font-medium">《Midjourney提示词完整指南》</Link>，精选Midjourney模板见<Link href="/prompts?category=design" className="text-primary hover:underline font-medium">设计分类</Link>。
+              </p>
+            </div>
+            <div className="bg-background rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-colors">
+              <h3 className="font-semibold text-lg mb-3 flex items-start gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-sm font-bold flex-shrink-0 mt-0.5">Q</span>
+                我可以提交自己的原创提示词并赚钱吗？
+              </h3>
+              <p className="text-muted-foreground pl-9 leading-relaxed">
+                当然可以！点击首页<strong>「成为创作者」</strong>按钮即可提交提示词。审核通过后，你可以选择<strong>免费分享</strong>或<strong>设置付费</strong>（建议价格5-50元）。免费提示词可以获得更多曝光和粉丝积累，付费提示词每笔销售<strong>创作者可获得70%分成</strong>。平台还会定期举办创作大赛，设有奖金和首页推荐位奖励。欢迎到<Link href="/submit" className="text-primary hover:underline font-medium">提交页面</Link>了解详情！
+              </p>
+            </div>
+            <div className="bg-background rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-colors">
+              <h3 className="font-semibold text-lg mb-3 flex items-start gap-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary text-sm font-bold flex-shrink-0 mt-0.5">Q</span>
+                PromptMarket和其他提示词网站有什么区别？
+              </h3>
+              <p className="text-muted-foreground pl-9 leading-relaxed">
+                <strong>四大差异化</strong>：1) <strong>质量优先</strong>：每条提示词都经过人工验证+真实AI输出测试，不是爬虫搬运；2) <strong>中文友好</strong>：为国内用户优化场景（如小红书文案、公众号写作、PPT大纲），不是纯英文翻译；3) <strong>姊妹生态</strong>：与<Link href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI工具推荐</Link>、<Link href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI资讯</Link>等站点联动，从「了解AI→选工具→用好提示词」一站式解决；4) <strong>完全免费</strong>：内测期间不设付费墙，所有内容零门槛使用。
+              </p>
             </div>
           </div>
         </div>

@@ -11,11 +11,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'PromptMarket - AI提示词免费库 | 高质量ChatGPT/Midjourney提示词',
-    template: '%s | PromptMarket',
+    default: 'AI提示词免费库2026 | ChatGPT/Midjourney/Claude高质量Prompt模板',
+    template: '%s | PromptMarket - AI提示词免费库',
   },
-  description: 'AI提示词免费库，发现、分享、免费使用高质量的AI提示词，涵盖ChatGPT、Midjourney、Claude等主流AI工具。提升您的AI使用效率！',
-  keywords: 'AI提示词,Prompt,ChatGPT,Midjourney,Claude,提示词库,AI工具,人工智能',
+  description: '国内高质量AI提示词免费库2026，收录ChatGPT/GPT-5、Midjourney、Claude、Stable Diffusion/Flux等主流AI工具精选Prompt模板。覆盖AI写作、编程、设计、营销、办公、副业变现等场景，一键复制即用，附提示词工程教程与最佳实践。',
+  keywords: 'AI提示词,ChatGPT提示词,Midjourney提示词,Claude提示词,Stable Diffusion提示词,Flux提示词,提示词模板,提示词免费,提示词工程,Prompt市场,AI写作提示词,AI绘画提示词,GPT-5提示词,AI办公提效,提示词优化技巧',
   authors: [{ name: 'PromptMarket' }],
   creator: 'PromptMarket',
   publisher: 'PromptMarket',
