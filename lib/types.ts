@@ -29,13 +29,6 @@ export type Category = {
   prompt_count: number;
 };
 
-export type Category = {
-  id: string;
-  name: string;
-  emoji: string;
-  prompt_count: number;
-};
-
 export type User = {
   id: string;
   email: string;
