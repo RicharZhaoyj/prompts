@@ -30,6 +30,10 @@ export function Navbar() {
         <nav className="hidden md:flex items-center gap-5">
           <Link href="/" className="text-sm font-medium hover:text-primary">首页</Link>
           <Link href="/prompts" className="text-sm font-medium hover:text-primary">浏览</Link>
+          <Link href="/skills" className="text-sm font-medium hover:text-primary flex items-center gap-1">
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[10px] px-1.5 py-0.5 rounded font-bold">NEW</span>
+            AI技能
+          </Link>
           <Link href="/blog" className="text-sm font-medium hover:text-primary">博客</Link>
           <Link href="/submit" className="text-sm font-medium hover:text-primary">提交</Link>
           <Link href="/docs" className="text-sm font-medium hover:text-primary">文档</Link>
@@ -117,6 +121,14 @@ export function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               浏览
+            </Link>
+            <Link 
+              href="/skills" 
+              className="block px-4 py-3 rounded-md hover:bg-accent flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[10px] px-1.5 py-0.5 rounded font-bold">NEW</span>
+              AI技能
             </Link>
             <Link 
               href="/blog" 
