@@ -2,12 +2,13 @@
 'use client'
 
 import Link from 'next/link'
-import { Star, Download, Heart, Copy, CheckCircle, Clock, Wrench, Newspaper } from 'lucide-react'
+import { Star, Download, Heart, Copy, CheckCircle, Clock, Wrench, Newspaper, Cpu, Download as DownloadIcon, ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 import { useToast } from '@/app/components/toast'
 import { SocialShare } from '@/app/components/social-share'
 import { Breadcrumbs } from '@/app/components/breadcrumbs'
 import type { Prompt } from '@/lib/types'
+import { SKILL_PLATFORMS } from '@/lib/prompts'
 
 // 评论类型
 interface Review {
@@ -146,15 +147,32 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="mb-8">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
-                  {prompt.category}
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                {/* Skill 平台徽章 */}
+                {prompt.type === 'skill' && prompt.skill_platform && (() => {
+                  const pInfo = SKILL_PLATFORMS.find((p) => p.id === prompt.skill_platform)
+                  return (
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-white bg-gradient-to-r ${pInfo?.color || 'from-violet-500 to-purple-600'} shadow-sm`}>
+                      <span className="text-sm">{pInfo?.emoji || '🤖'}</span>
+                      {pInfo?.name || prompt.skill_platform} 技能
+                    </span>
+                  )
+                })()}
+                {/* 类型徽章 */}
+                <span className={`px-3 py-1 text-sm font-medium rounded-full ${
+                  prompt.type === 'skill'
+                    ? 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700'
+                    : 'bg-primary/10 text-primary'
+                }`}>
+                  {prompt.type === 'skill' ? '✨ AI技能' : prompt.category}
                 </span>
                 <span className="flex items-center gap-1 text-sm">
                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   {prompt.rating} ({prompt.reviews} 条评价)
                 </span>
-                <span className="text-sm text-muted-foreground">已售出 {prompt.sales}</span>
+                <span className="text-sm text-muted-foreground">
+                  {prompt.type === 'skill' ? `⬇️ ${prompt.sales} 安装` : `已售出 ${prompt.sales}`}
+                </span>
               </div>
               <h1 className="text-3xl font-bold mb-4">{prompt.title}</h1>
               <div className="flex items-center gap-4">
@@ -193,21 +211,86 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
                 <p>{prompt.description}</p>
                 <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">您将获得：</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>完整且经过测试的提示词</li>
-                  <li>使用示例</li>
-                  <li>自定义建议</li>
+                  {prompt.type === 'skill' ? (
+                    <>
+                      <li>完整的SKILL.md技能定义文件</li>
+                      <li>多平台安装说明（TRAE/Claude/Cursor等）</li>
+                      <li>触发词和调用示例</li>
+                      <li>工具调用配置（如适用）</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>完整且经过测试的提示词</li>
+                      <li>使用示例</li>
+                      <li>自定义建议</li>
+                    </>
+                  )}
                 </ul>
-                <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">如何使用：</h3>
+                <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
+                  {prompt.type === 'skill' ? '如何安装技能：' : '如何使用：'}
+                </h3>
                 <ol className="list-decimal pl-6 space-y-2">
-                  <li>从下方复制提示词</li>
-                  <li>粘贴到您喜欢的AI工具中</li>
-                  <li>自定义变量</li>
+                  {prompt.type === 'skill' ? (
+                    <>
+                      <li>打开您的AI IDE（TRAE、Claude Code、Cursor等）</li>
+                      <li>进入技能管理面板，选择「导入技能」</li>
+                      <li>复制下方SKILL.md内容并粘贴，或上传文件</li>
+                      <li>配置所需的API密钥或工具权限（如有）</li>
+                      <li>使用自然语言调用技能功能</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>从下方复制提示词</li>
+                      <li>粘贴到您喜欢的AI工具中</li>
+                      <li>自定义变量</li>
+                    </>
+                  )}
                 </ol>
               </div>
             </div>
 
+            {/* Skill 平台安装跳转区 */}
+            {prompt.type === 'skill' && prompt.skill_platform && (() => {
+              const pInfo = SKILL_PLATFORMS.find((p) => p.id === prompt.skill_platform)
+              return (
+                <div className={`mb-8 bg-gradient-to-br ${pInfo?.color || 'from-violet-500 to-purple-600'} rounded-2xl p-6 text-white relative overflow-hidden`}>
+                  <div className="absolute top-0 right-0 text-[120px] opacity-10 -mt-4 -mr-4">{pInfo?.emoji || '🤖'}</div>
+                  <div className="relative">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                        <Cpu className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold">适用于 {pInfo?.name || prompt.skill_platform}</h3>
+                        <p className="text-sm text-white/80">一键安装到您的AI IDE中</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                        <DownloadIcon className="w-4 h-4" />
+                        下载 SKILL.md
+                      </button>
+                      <button
+                        onClick={handleCopyPrompt}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/20 backdrop-blur-sm text-white rounded-xl font-semibold hover:bg-white/30 transition-colors border border-white/30"
+                      >
+                        <Copy className="w-4 h-4" />
+                        {copied ? '已复制！' : '复制技能代码'}
+                      </button>
+                      <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white rounded-xl font-medium hover:bg-white/20 transition-colors border border-white/20">
+                        <ExternalLink className="w-4 h-4" />
+                        查看安装文档
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )
+            })()}
+
             <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">提示词内容</h2>
+              <h2 className="text-xl font-semibold mb-4">
+                {prompt.type === 'skill' ? '技能内容 / SKILL.md' : '提示词内容'}
+              </h2>
               <div className="bg-muted/50 border rounded-lg p-6 relative">
                 <pre className="whitespace-pre-wrap text-sm font-mono">
                   {prompt.content}
@@ -217,7 +300,7 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
                   className="absolute top-4 right-4 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium flex items-center gap-2 hover:bg-primary/90"
                 >
                   <Copy className="w-4 h-4" />
-                  {copied ? '已复制！' : '复制提示词'}
+                  {copied ? '已复制！' : prompt.type === 'skill' ? '复制技能代码' : '复制提示词'}
                 </button>
               </div>
             </div>
@@ -371,23 +454,41 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
               <hr className="my-6" />
 
               <div>
-                <h3 className="font-semibold mb-3">提示词详情</h3>
+                <h3 className="font-semibold mb-3">{prompt.type === 'skill' ? '技能详情' : '提示词详情'}</h3>
                 <dl className="space-y-2 text-sm">
+                  {prompt.type === 'skill' && prompt.skill_platform && (() => {
+                    const pInfo = SKILL_PLATFORMS.find((p) => p.id === prompt.skill_platform)
+                    return (
+                      <div className="flex justify-between items-center">
+                        <dt className="text-muted-foreground">适用平台</dt>
+                        <dd className="inline-flex items-center gap-1 px-2 py-0.5 bg-gradient-to-r text-white rounded-full text-xs font-medium"
+                          style={{ backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))` }}
+                        >
+                          <span>{pInfo?.emoji || '🤖'}</span>
+                          {pInfo?.name || prompt.skill_platform}
+                        </dd>
+                      </div>
+                    )
+                  })()}
                   <div className="flex justify-between">
                     <dt className="text-muted-foreground">分类</dt>
                     <dd>{prompt.category}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt className="text-muted-foreground">AI模型</dt>
-                    <dd>ChatGPT / Claude</dd>
+                    <dt className="text-muted-foreground">类型</dt>
+                    <dd>{prompt.type === 'skill' ? 'AI Agent技能' : 'Prompt提示词'}</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-muted-foreground">{prompt.type === 'skill' ? '支持IDE' : 'AI模型'}</dt>
+                    <dd>{prompt.type === 'skill' ? 'TRAE / Claude / Cursor' : 'ChatGPT / Claude'}</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-muted-foreground">格式</dt>
-                    <dd>文本</dd>
+                    <dd>{prompt.type === 'skill' ? 'SKILL.md' : '文本'}</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-muted-foreground">更新时间</dt>
-                    <dd>2026年6月</dd>
+                    <dd>2026年8月</dd>
                   </div>
                 </dl>
               </div>

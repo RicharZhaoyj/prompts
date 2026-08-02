@@ -410,9 +410,19 @@ export default function SubmitClient() {
                 <div className="bg-muted/50 border rounded-lg p-4">
                   <h3 className="font-medium mb-2">定价建议</h3>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• 免费提示词可以帮助建立你的声誉</li>
-                    <li>• $5-15 是单一用途提示词的最佳价格区间</li>
-                    <li>• $20+ 适合综合性、专业级提示词</li>
+                    {submitType === 'skill' ? (
+                      <>
+                        <li>• 免费技能可以帮助建立开发者声誉，快速获取用户</li>
+                        <li>• $5-15 是单一功能技能（如代码生成、文档翻译）的最佳价格区间</li>
+                        <li>• $20+ 适合多步自动化、调用多工具的综合性专业级技能</li>
+                      </>
+                    ) : (
+                      <>
+                        <li>• 免费提示词可以帮助建立你的声誉</li>
+                        <li>• $5-15 是单一用途提示词的最佳价格区间</li>
+                        <li>• $20+ 适合综合性、专业级提示词</li>
+                      </>
+                    )}
                   </ul>
                 </div>
 
@@ -428,7 +438,7 @@ export default function SubmitClient() {
                     type="submit"
                     className="flex-1 py-3 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90"
                   >
-                    提交提示词
+                    {submitType === 'skill' ? '提交AI技能' : '提交提示词'}
                   </button>
                 </div>
               </div>
