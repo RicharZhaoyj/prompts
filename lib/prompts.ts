@@ -7007,9 +7007,6 @@ export const SAMPLE_PROMPTS: Prompt[] = [
     created_at: '2026-01-21T00:00:00.000000',
     updated_at: '2026-04-13T00:00:00.000000',
   },
-
-
-  },
 ];
 
 // 分类统计
