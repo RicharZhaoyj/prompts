@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, TrendingUp, Star, CheckCircle2, Sparkles, Zap } from 'lucide-react'
 import { getPromptsByCategory, getCategories, CATEGORIES, getTrendingPrompts } from '@/lib/prompts'
-import { StructuredData } from '@/components/structured-data'
+import { StructuredData } from '@/app/components/structured-data'
 
 type Props = { params: { slug: string } }
 

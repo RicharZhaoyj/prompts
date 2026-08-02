@@ -571,6 +571,45 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
                 浏览AI热点资讯 →
               </a>
             </div>
+
+            {/* 分类快速导航 */}
+            <div className="bg-background border rounded-lg p-6 mt-6">
+              <h3 className="text-sm font-bold text-gray-900 mb-4 flex items-center gap-2">
+                🧭 更多分类
+              </h3>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { name: '写作', emoji: '✍️' },
+                  { name: '编程', emoji: '💻' },
+                  { name: '图像生成', emoji: '🎨' },
+                  { name: '营销', emoji: '📣' },
+                  { name: '商业', emoji: '💼' },
+                  { name: '教育', emoji: '📚' },
+                  { name: '创意', emoji: '✨' },
+                  { name: '职场', emoji: '💼' },
+                ].map((c) => (
+                  <Link
+                    key={c.name}
+                    href={`/category/${encodeURIComponent(c.name)}`}
+                    className={`flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-xs font-medium transition-colors ${
+                      c.name === prompt.category
+                        ? 'bg-purple-100 text-purple-700 ring-1 ring-purple-200'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                    }`}
+                  >
+                    <span>{c.emoji}</span>
+                    <span>{c.name}</span>
+                  </Link>
+                ))}
+              </div>
+              <Link
+                href="/skills"
+                className="mt-3 flex items-center justify-between rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 px-3 py-2 text-xs font-semibold text-purple-700 transition-colors"
+              >
+                🤖 探索 AI 技能专区
+                <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[9px] px-1.5 py-0.5 rounded font-bold ml-1">NEW</span>
+              </Link>
+            </div>
           </aside>
         </div>
       </div>
