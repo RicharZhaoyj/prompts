@@ -115,14 +115,14 @@ export default function RootLayout({
                         <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[9px] px-1 rounded font-bold">NEW</span>
                         🤖 AI技能
                       </Link>
-                      <Link href="/prompts?category=writing" className="inline-block px-2.5 py-1 bg-primary/10 text-primary rounded-full text-xs hover:bg-primary/20 transition-colors">✍️ 写作</Link>
-                      <Link href="/prompts?category=design" className="inline-block px-2.5 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded-full text-xs hover:bg-pink-500/20 transition-colors">🎨 设计</Link>
-                      <Link href="/prompts?category=coding" className="inline-block px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs hover:bg-blue-500/20 transition-colors">💻 编程</Link>
-                      <Link href="/prompts?category=marketing" className="inline-block px-2.5 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs hover:bg-orange-500/20 transition-colors">📣 营销</Link>
-                      <Link href="/prompts?category=productivity" className="inline-block px-2.5 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-xs hover:bg-emerald-500/20 transition-colors">⚡ 办公</Link>
-                      <Link href="/prompts?category=education" className="inline-block px-2.5 py-1 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-full text-xs hover:bg-indigo-500/20 transition-colors">📚 教育</Link>
-                      <Link href="/prompts?category=business" className="inline-block px-2.5 py-1 bg-violet-500/10 text-violet-600 dark:text-violet-400 rounded-full text-xs hover:bg-violet-500/20 transition-colors">💼 商业</Link>
-                      <Link href="/prompts?category=general" className="inline-block px-2.5 py-1 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded-full text-xs hover:bg-cyan-500/20 transition-colors">🤖 通用</Link>
+                      <Link href="/category/写作" className="inline-block px-2.5 py-1 bg-primary/10 text-primary rounded-full text-xs hover:bg-primary/20 transition-colors">✍️ 写作</Link>
+                      <Link href="/category/编程" className="inline-block px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs hover:bg-blue-500/20 transition-colors">💻 编程</Link>
+                      <Link href="/category/图像生成" className="inline-block px-2.5 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded-full text-xs hover:bg-pink-500/20 transition-colors">🎨 图像生成</Link>
+                      <Link href="/category/营销" className="inline-block px-2.5 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full text-xs hover:bg-orange-500/20 transition-colors">📣 营销</Link>
+                      <Link href="/category/商业" className="inline-block px-2.5 py-1 bg-violet-500/10 text-violet-600 dark:text-violet-400 rounded-full text-xs hover:bg-violet-500/20 transition-colors">💼 商业</Link>
+                      <Link href="/category/教育" className="inline-block px-2.5 py-1 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-full text-xs hover:bg-indigo-500/20 transition-colors">📚 教育</Link>
+                      <Link href="/category/创意" className="inline-block px-2.5 py-1 bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400 rounded-full text-xs hover:bg-fuchsia-500/20 transition-colors">✨ 创意</Link>
+                      <Link href="/category/职场" className="inline-block px-2.5 py-1 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded-full text-xs hover:bg-cyan-500/20 transition-colors">💼 职场</Link>
                     </div>
                   </div>
                   <div>
