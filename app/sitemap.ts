@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/docs',
     '/login',
     '/submit',
+    '/skills',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -52,6 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/prompts?category=教育',
     '/prompts?category=创意',
     '/prompts?category=生产力',
+    '/prompts?category=AI技能',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
