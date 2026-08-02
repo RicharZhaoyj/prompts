@@ -7085,6 +7085,51 @@ export async function getCategories() {
   return CATEGORIES;
 }
 
+// AI Skills 专用函数
+export const SKILL_PLATFORMS = [
+  { id: 'Trae', name: 'TRAE', emoji: '🚀', color: 'from-blue-500 to-cyan-500' },
+  { id: 'Claude', name: 'Claude Code', emoji: '🧠', color: 'from-orange-500 to-amber-500' },
+  { id: 'Cursor', name: 'Cursor', emoji: '💻', color: 'from-purple-500 to-pink-500' },
+  { id: 'Windsurf', name: 'Windsurf', emoji: '🌊', color: 'from-teal-500 to-emerald-500' },
+  { id: 'Copilot', name: 'GitHub Copilot', emoji: '🐙', color: 'from-gray-600 to-gray-800' },
+];
+
+export async function getSkills(platform?: string, category?: string, search?: string) {
+  let skills = SAMPLE_PROMPTS.filter((p) => p.type === 'skill');
+  
+  if (platform) {
+    skills = skills.filter((s) => s.skill_platform === platform);
+  }
+  
+  if (category) {
+    skills = skills.filter((s) => s.category === category);
+  }
+  
+  if (search) {
+    const lowerSearch = search.toLowerCase();
+    skills = skills.filter(
+      (s) =>
+        s.title.toLowerCase().includes(lowerSearch) ||
+        s.description.toLowerCase().includes(lowerSearch) ||
+        (s.tags && s.tags.some((tag) => tag.toLowerCase().includes(lowerSearch)))
+    );
+  }
+  
+  return skills;
+}
+
+export async function getSkillPlatforms() {
+  const platforms = new Set<string>();
+  SAMPLE_PROMPTS.filter((p) => p.type === 'skill').forEach((s) => {
+    if (s.skill_platform) platforms.add(s.skill_platform);
+  });
+  return SKILL_PLATFORMS.filter((sp) => platforms.has(sp.id));
+}
+
+export async function getSkillById(id: string) {
+  return SAMPLE_PROMPTS.find((p) => p.id === id && p.type === 'skill');
+}
+
 // 获取提示词的真实评论
 export function getPromptReviews(promptId: string) {
   const prompt = SAMPLE_PROMPTS.find((p) => p.id === promptId);

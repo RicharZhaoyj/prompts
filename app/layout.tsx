@@ -111,6 +111,10 @@ export default function RootLayout({
                   <div>
                     <h3 className="font-semibold mb-4">热门分类</h3>
                     <div className="flex flex-wrap gap-2">
+                      <Link href="/skills" className="inline-flex items-center gap-1 px-2.5 py-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-purple-700 dark:text-purple-400 rounded-full text-xs hover:from-purple-500/20 hover:to-pink-500/20 transition-colors font-medium">
+                        <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[9px] px-1 rounded font-bold">NEW</span>
+                        🤖 AI技能
+                      </Link>
                       <Link href="/prompts?category=writing" className="inline-block px-2.5 py-1 bg-primary/10 text-primary rounded-full text-xs hover:bg-primary/20 transition-colors">✍️ 写作</Link>
                       <Link href="/prompts?category=design" className="inline-block px-2.5 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 rounded-full text-xs hover:bg-pink-500/20 transition-colors">🎨 设计</Link>
                       <Link href="/prompts?category=coding" className="inline-block px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-xs hover:bg-blue-500/20 transition-colors">💻 编程</Link>
