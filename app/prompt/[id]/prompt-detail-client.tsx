@@ -136,7 +136,8 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
         <div className="container mx-auto px-4">
           <Breadcrumbs
             items={[
-              { label: '提示词', href: '/prompts' },
+              { label: '全部分类', href: '/prompts' },
+              { label: prompt.category, href: `/category/${encodeURIComponent(prompt.category)}` },
               { label: prompt.title, href: `/prompt/${prompt.id}` },
             ]}
           />
