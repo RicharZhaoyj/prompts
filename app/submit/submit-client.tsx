@@ -1,14 +1,18 @@
 'use client'
 
-import { useState, useMemo } from 'react'
-import { Upload, DollarSign, FileText, CheckCircle, Eye, Copy, X } from 'lucide-react'
-import { CATEGORIES } from '@/lib/prompts'
+import { useState, useMemo, useRef } from 'react'
+import { Upload, DollarSign, FileText, CheckCircle, Eye, Copy, X, Cpu, Code, FileCode } from 'lucide-react'
+import { CATEGORIES, SKILL_PLATFORMS } from '@/lib/prompts'
 import { useRouter } from 'next/navigation'
 
 export default function SubmitClient() {
   const router = useRouter()
   const [step, setStep] = useState(1)
   const [showPreview, setShowPreview] = useState(false)
+  const [submitType, setSubmitType] = useState<'prompt' | 'skill'>('prompt')
+  const [skillMdContent, setSkillMdContent] = useState('')
+  const [skillFileName, setSkillFileName] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -17,11 +21,29 @@ export default function SubmitClient() {
     price: '',
     tags: '',
     imageUrl: '',
+    skillPlatform: 'Trae',
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setStep(3)
+  }
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    
+    setSkillFileName(file.name)
+    const reader = new FileReader()
+    reader.onload = (event) => {
+      const content = event.target?.result as string
+      setSkillMdContent(content)
+      // 自动填充内容
+      if (content && !formData.prompt) {
+        setFormData({ ...formData, prompt: content })
+      }
+    }
+    reader.readAsText(file)
   }
 
   const tagList = useMemo(() => {
