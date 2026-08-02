@@ -6506,8 +6506,8 @@ export const SAMPLE_PROMPTS: Prompt[] = [
     image_url: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop',
     tags: ["\u8f9e\u804c", "\u79bb\u804c", "\u804c\u573a"],
     created_at: '2025-07-05T23:21:11.687812',
-    updated_at: '2026-05-19T23:21:11.687812',,
-
+    updated_at: '2026-05-19T23:21:11.687812',
+  },
   {
     id: 'skill-t1',
     title: '[Trae Skill] SEO自动化部署',
