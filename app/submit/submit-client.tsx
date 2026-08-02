@@ -57,9 +57,13 @@ export default function SubmitClient() {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-green-500" />
           </div>
-          <h1 className="text-2xl font-bold mb-4">提示词提交成功！</h1>
+          <h1 className="text-2xl font-bold mb-4">
+            {submitType === 'skill' ? 'AI技能提交成功！' : '提示词提交成功！'}
+          </h1>
           <p className="text-muted-foreground mb-8">
-            你的提示词已提交！它将被审核后很快在市场上发布。
+            {submitType === 'skill' 
+              ? '你的AI技能已提交！它将被审核后很快在技能市场上发布。'
+              : '你的提示词已提交！它将被审核后很快在市场上发布。'}
           </p>
           <div className="space-y-3">
             <button
@@ -71,6 +75,8 @@ export default function SubmitClient() {
             <button
               onClick={() => {
                 setStep(1)
+                setSkillMdContent('')
+                setSkillFileName('')
                 setFormData({
                   title: '',
                   category: '',
@@ -79,11 +85,12 @@ export default function SubmitClient() {
                   price: '',
                   tags: '',
                   imageUrl: '',
+                  skillPlatform: 'Trae',
                 })
               }}
               className="w-full py-3 border rounded-md font-medium hover:bg-accent"
             >
-              提交另一个提示词
+              {submitType === 'skill' ? '提交另一个AI技能' : '提交另一个提示词'}
             </button>
           </div>
         </div>
@@ -94,11 +101,48 @@ export default function SubmitClient() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="bg-muted/50 py-12">
+      <div className="bg-gradient-to-br from-violet-50 via-purple-50 to-pink-50 py-12 border-b">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold mb-4">提交你的提示词</h1>
-          <p className="text-muted-foreground">
-            分享你的AI专业知识，今天就开始赚钱
+          {/* Type Selector */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="bg-white rounded-2xl p-2 shadow-sm border inline-flex gap-2 mx-auto">
+              <button
+                type="button"
+                onClick={() => setSubmitType('prompt')}
+                className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all ${
+                  submitType === 'prompt'
+                    ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                <FileText className="w-4 h-4" />
+                提交 AI 提示词
+              </button>
+              <button
+                type="button"
+                onClick={() => setSubmitType('skill')}
+                className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all ${
+                  submitType === 'skill'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                <Cpu className="w-4 h-4" />
+                提交 AI 技能
+                <span className="bg-yellow-400 text-yellow-900 text-[10px] px-1.5 py-0.5 rounded-full font-bold">
+                  NEW
+                </span>
+              </button>
+            </div>
+          </div>
+          
+          <h1 className="text-3xl font-bold mb-4 text-center">
+            {submitType === 'skill' ? '提交你的AI技能' : '提交你的提示词'}
+          </h1>
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto">
+            {submitType === 'skill'
+              ? '分享你的SKILL.md技能插件，支持TRAE、Claude Code、Cursor等平台，今天就开始赚钱'
+              : '分享你的AI专业知识，今天就开始赚钱'}
           </p>
         </div>
       </div>
@@ -108,7 +152,7 @@ export default function SubmitClient() {
         <div className="flex items-center justify-center mb-12">
           {[
             { num: 1, label: '基本信息' },
-            { num: 2, label: '提示词详情' },
+            { num: 2, label: submitType === 'skill' ? 'SKILL.md 内容' : '提示词详情' },
             { num: 3, label: '完成' },
           ].map((s, index) => (
             <div key={s.num} className="flex items-center">
@@ -148,6 +192,31 @@ export default function SubmitClient() {
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   />
                 </div>
+
+                {submitType === 'skill' && (
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      适用平台 <span className="text-red-500">*</span>
+                    </label>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                      {SKILL_PLATFORMS.map((p) => (
+                        <button
+                          key={p.id}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, skillPlatform: p.id })}
+                          className={`p-4 rounded-xl border-2 text-left transition-all ${
+                            formData.skillPlatform === p.id
+                              ? `border-transparent bg-gradient-to-br ${p.color} text-white shadow-md`
+                              : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                          }`}
+                        >
+                          <div className="text-2xl mb-1">{p.emoji}</div>
+                          <div className="font-semibold text-sm">{p.name}</div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div>
                   <label className="block text-sm font-medium mb-2">
@@ -231,27 +300,87 @@ export default function SubmitClient() {
                   onClick={() => setStep(2)}
                   className="w-full py-3 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90"
                 >
-                  继续填写提示词内容
+                  {submitType === 'skill' ? '继续上传 SKILL.md' : '继续填写提示词内容'}
                 </button>
               </div>
             )}
 
             {step === 2 && (
               <div className="space-y-6">
+                {submitType === 'skill' && (
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      上传 SKILL.md <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".md,.markdown,text/markdown,text/plain"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                    />
+                    <div
+                      onClick={() => fileInputRef.current?.click()}
+                      className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
+                        skillMdContent
+                          ? 'border-green-300 bg-green-50/50'
+                          : 'border-gray-300 hover:border-purple-400 hover:bg-purple-50/30'
+                      }`}
+                    >
+                      {skillMdContent ? (
+                        <div>
+                          <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <FileCode className="w-7 h-7 text-green-600" />
+                          </div>
+                          <p className="font-semibold text-green-700 mb-1">{skillFileName}</p>
+                          <p className="text-sm text-green-600">
+                            文件已上传，大小 {(skillMdContent.length / 1024).toFixed(1)} KB
+                          </p>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setSkillMdContent('')
+                              setSkillFileName('')
+                            }}
+                            className="mt-3 text-sm text-red-500 hover:text-red-600 font-medium"
+                          >
+                            移除文件，重新上传
+                          </button>
+                        </div>
+                      ) : (
+                        <div>
+                          <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <Upload className="w-7 h-7 text-purple-600" />
+                          </div>
+                          <p className="font-semibold text-gray-800 mb-1">点击上传 SKILL.md 文件</p>
+                          <p className="text-sm text-gray-500">
+                            支持 .md 或 .markdown 格式，建议包含技能说明、触发词、工具调用配置等
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    提示词内容 <span className="text-red-500">*</span>
+                    {submitType === 'skill' ? '技能内容 / SKILL.md 原文' : '提示词内容'} <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     required
-                    rows={12}
+                    rows={submitType === 'skill' ? 16 : 12}
                     className="w-full px-4 py-3 border rounded-md font-mono text-sm"
-                    placeholder="粘贴你的提示词在这里..."
+                    placeholder={submitType === 'skill' 
+                      ? 'SKILL.md 内容将自动填充，或在此手动编写技能定义...'
+                      : '粘贴你的提示词在这里...'}
                     value={formData.prompt}
                     onChange={(e) => setFormData({ ...formData, prompt: e.target.value })}
                   />
                   <p className="text-sm text-muted-foreground mt-2">
-                    使用 [方括号] 来标注可自定义的变量
+                    {submitType === 'skill'
+                      ? '标准SKILL.md格式：包含 name、description、triggers、tools、steps 等字段'
+                      : '使用 [方括号] 来标注可自定义的变量'}
                   </p>
                 </div>
 
