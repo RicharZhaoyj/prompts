@@ -116,12 +116,12 @@ export default async function PromptDetailPage({
       {
         '@type': 'Question',
         name: isSkill
-          ? `如何在${prompt.skill_platforms?.[0] || 'IDE'}中安装和使用${prompt.title}？`
+          ? `如何在${(prompt as any).skill_platform?.split(',')[0] || 'IDE'}中安装和使用${prompt.title}？`
           : `${prompt.title}适合哪些场景使用？`,
         acceptedAnswer: {
           '@type': 'Answer',
           text: isSkill
-            ? `${prompt.title}是一个AI技能(SKILL.md格式)，适用于${prompt.skill_platforms?.join('、') || '主流AI IDE'}。安装方式：1) 下载SKILL.md文件；2) 在你的AI IDE（如Trae/Cursor）中导入该技能；3) 在对话中调用即可自动执行。详细安装步骤请参考详情页的安装指南。`
+            ? `${prompt.title}是一个AI技能(SKILL.md格式)，适用于${(prompt as any).skill_platform || '主流AI IDE'}。安装方式：1) 下载SKILL.md文件；2) 在你的AI IDE（如Trae/Cursor）中导入该技能；3) 在对话中调用即可自动执行。详细安装步骤请参考详情页的安装指南。`
             : `${prompt.title}适用于${prompt.category}场景。使用方法：1) 复制提示词内容；2) 粘贴到ChatGPT/Claude/Midjourney等AI工具中；3) 根据你的具体需求替换占位符内容；4) AI生成结果后可进一步追问优化。本提示词已被${prompt.sales}+用户使用验证。`,
         },
       },
