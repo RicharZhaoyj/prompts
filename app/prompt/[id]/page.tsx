@@ -107,9 +107,47 @@ export default async function PromptDetailPage({
     },
   }
 
+  // FAQPage Schema（根据提示词类型动态生成FAQ）
+  const isSkill = prompt.type === 'skill'
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: isSkill
+          ? `如何在${prompt.skill_platforms?.[0] || 'IDE'}中安装和使用${prompt.title}？`
+          : `${prompt.title}适合哪些场景使用？`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isSkill
+            ? `${prompt.title}是一个AI技能(SKILL.md格式)，适用于${prompt.skill_platforms?.join('、') || '主流AI IDE'}。安装方式：1) 下载SKILL.md文件；2) 在你的AI IDE（如Trae/Cursor）中导入该技能；3) 在对话中调用即可自动执行。详细安装步骤请参考详情页的安装指南。`
+            : `${prompt.title}适用于${prompt.category}场景。使用方法：1) 复制提示词内容；2) 粘贴到ChatGPT/Claude/Midjourney等AI工具中；3) 根据你的具体需求替换占位符内容；4) AI生成结果后可进一步追问优化。本提示词已被${prompt.sales}+用户使用验证。`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `${prompt.title}是免费的吗？支持哪些AI工具？`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `本${isSkill ? '技能' : '提示词'}完全免费使用。${isSkill ? '兼容Trae、Cursor、Windsurf等支持SKILL.md格式的AI IDE。' : '兼容ChatGPT/GPT-4/GPT-5、Claude 3/4、文心一言、通义千问、Kimi等所有主流大语言模型。'}复制后直接粘贴到对应工具即可使用。`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `如何让AI输出效果更好？有什么使用技巧？`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `3个核心技巧：① 提供具体上下文——把你的项目背景、目标受众、已有素材告诉AI，输出质量提升300%；② 分步迭代——不要一次性让AI完成全部，先出大纲→确认后再展开→最后润色；③ 给参考范例——如果有满意的旧作品，附在提示词后让AI学习风格。更多技巧请参考详情页的使用指南。`,
+        },
+      },
+    ],
+  }
+
   return (
     <>
       <StructuredData type="product" data={productSchema as any} />
+      <StructuredData type="faq" data={faqSchema as any} />
       <PromptDetailClient prompt={prompt} reviews={reviews} relatedPrompts={relatedPrompts} />
     </>
   )
