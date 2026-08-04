@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-1BWZN3C49H'
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-2F2V94W35E'
 
 function AnalyticsContent() {
   const pathname = usePathname()
