@@ -52,6 +52,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://prompts.link.cn',
   },
+  verification: {
+    google: 'hjmaTabNnB5LyL-9wtvf-Ra6AeJPrklQAWAaQA1YeZ4',
+  },
 }
 
 export default function RootLayout({
