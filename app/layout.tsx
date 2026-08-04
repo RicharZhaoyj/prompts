@@ -24,6 +24,10 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
   openGraph: {
     type: 'website',
     siteName: 'PromptMarket',
@@ -43,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'PromptMarket - AI提示词免费库',
     description: '发现、分享、免费使用高质量的AI提示词',
-    images: ['https://prompts.link.cn/twitter-card.png'],
+    images: ['https://prompts.link.cn/og-image.png'],
   },
   alternates: {
     canonical: 'https://prompts.link.cn',
