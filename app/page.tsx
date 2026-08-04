@@ -317,6 +317,50 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* SEO Content Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
+            <h2 className="text-2xl font-bold mb-6 text-center">为什么选择 PromptMarket 的 AI 提示词？</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted-foreground">
+              <div>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">🎯 精选高质量提示词模板</h3>
+                <p className="text-sm leading-relaxed">
+                  我们的提示词库收录了 120+ 经过人工验证的 AI 提示词模板，覆盖 ChatGPT 提示词、Midjourney 提示词、Claude 提示词、Stable Diffusion 提示词和 Flux 提示词等主流 AI 工具。每个提示词都经过真实 AI 输出测试，确保一键复制即可获得高质量结果。无论你是 AI 新手还是资深用户，都能在这里找到适合自己场景的 Prompt 模板。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">📚 全场景覆盖</h3>
+                <p className="text-sm leading-relaxed">
+                  提示词分类涵盖 AI 写作（公众号文章、小红书文案、SEO内容）、AI 编程（代码生成、Code Review、Debug）、AI 绘画（Midjourney 绘图、Stable Diffusion 出图、Flux 图像生成）、AI 营销（广告文案、邮件营销、社媒运营）、AI 办公（PPT 大纲、会议纪要、数据分析）和 AI 副业变现等热门场景。每个分类下都有多个精选提示词供你免费使用。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">⚡ 即用型提示词工程</h3>
+                <p className="text-sm leading-relaxed">
+                  所有提示词都遵循提示词工程最佳实践，采用 CRISPE 框架（Capacity & Role + Insight + Statement + Personality + Experiment）和 CoT（Chain of Thought）思维链技术，让 AI 输出更精准、更有逻辑。每个提示词页面都附有使用场景说明、示例输出和参数调优建议，帮助你快速掌握提示词工程技巧。
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">🔄 持续更新完全免费</h3>
+                <p className="text-sm leading-relaxed">
+                  PromptMarket 内测期间所有提示词完全免费，无需注册即可使用。我们持续跟踪 AI 工具更新（GPT-5、Midjourney V7、Claude 4 等），同步更新提示词库，确保你始终用到最新最有效的 Prompt。同时支持创作者提交原创提示词，平台审核通过后可获得 70% 分成，构建良性循环的提示词生态。
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 p-6 bg-background rounded-xl border border-border/50">
+              <h3 className="text-lg font-semibold mb-3">💡 提示词使用小贴士</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong>1. 选择合适的提示词：</strong>根据你的使用场景（写作/编程/绘图/营销）在分类中筛选，或使用搜索功能快速定位。<br/>
+                <strong>2. 替换变量内容：</strong>提示词中的 <code className="text-primary">[方括号]</code> 部分需要替换为你的实际需求，如 <code className="text-primary">[主题]</code>、<code className="text-primary">[目标受众]</code> 等。<br/>
+                <strong>3. 迭代优化：</strong>首次输出不满意时，尝试调整提示词中的风格描述、输出格式或约束条件，通常 2-3 轮迭代即可获得理想结果。<br/>
+                <strong>4. 保存常用模板：</strong>把效果好的提示词保存到你的个人收藏或笔记中，形成自己的提示词库，长期复用效率翻倍。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
