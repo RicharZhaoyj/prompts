@@ -9,6 +9,7 @@ import { SocialShare } from '@/app/components/social-share'
 import { Breadcrumbs } from '@/app/components/breadcrumbs'
 import type { Prompt } from '@/lib/types'
 import { SKILL_PLATFORMS } from '@/lib/prompts'
+import { analytics } from '@/app/components/analytics'
 
 // 评论类型
 interface Review {
@@ -119,6 +120,7 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
     try {
       await navigator.clipboard.writeText(prompt.content)
       setCopied(true)
+      analytics.event('copy_prompt', 'engagement', prompt.id)
       showToast('提示词已复制到剪贴板！', 'success')
       setTimeout(() => setCopied(false), 2000)
     } catch {
@@ -127,6 +129,7 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
   }
 
   const handleNotifyMe = () => {
+    analytics.event('purchase_intent', 'monetization', prompt.id, prompt.price)
     showToast('感谢您的关注！我们会在正式上线时通知您。', 'success')
   }
 
@@ -415,18 +418,34 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
                 <p className="text-sm text-muted-foreground">一次性购买，终身使用</p>
               </div>
 
-              <button
-                onClick={handleNotifyMe}
-                className="w-full py-3 bg-primary text-primary-foreground rounded-md font-medium mb-4 hover:bg-primary/90 flex items-center justify-center gap-2"
-              >
-                <Clock className="w-5 h-5" />
-                上线时通知我
-              </button>
-
-              <div className="text-center text-sm text-muted-foreground mb-6">
-                <p>支付功能即将上线</p>
-                <p>敬请期待！</p>
-              </div>
+              {prompt.price > 0 ? (
+                <>
+                  <button
+                    onClick={handleNotifyMe}
+                    className="w-full py-3 bg-primary text-primary-foreground rounded-md font-medium mb-4 hover:bg-primary/90 flex items-center justify-center gap-2"
+                  >
+                    <Clock className="w-5 h-5" />
+                    购买上线时通知我
+                  </button>
+                  <div className="text-center text-sm text-muted-foreground mb-6">
+                    <p>支付功能正在接入</p>
+                    <p>提交意向后优先获得通知</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={handleCopyPrompt}
+                    className="w-full py-3 bg-primary text-primary-foreground rounded-md font-medium mb-4 hover:bg-primary/90 flex items-center justify-center gap-2"
+                  >
+                    <Copy className="w-5 h-5" />
+                    免费复制提示词
+                  </button>
+                  <div className="text-center text-sm text-muted-foreground mb-6">
+                    <p>当前内容免费使用</p>
+                  </div>
+                </>
+              )}
 
               <button className="w-full py-3 border rounded-md font-medium mb-6 hover:bg-accent flex items-center justify-center gap-2">
                 <Heart className="w-5 h-5" />

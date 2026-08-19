@@ -130,7 +130,9 @@ export default async function PromptDetailPage({
         name: `${prompt.title}是免费的吗？支持哪些AI工具？`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `本${isSkill ? '技能' : '提示词'}完全免费使用。${isSkill ? '兼容Trae、Cursor、Windsurf等支持SKILL.md格式的AI IDE。' : '兼容ChatGPT/GPT-4/GPT-5、Claude 3/4、文心一言、通义千问、Kimi等所有主流大语言模型。'}复制后直接粘贴到对应工具即可使用。`,
+          text: prompt.price > 0
+            ? `本${isSkill ? '技能' : '提示词'}为一次性购买内容，价格为${prompt.price}美元。购买功能正在接入，提交购买意向后会优先收到通知。`
+            : `本${isSkill ? '技能' : '提示词'}完全免费使用。${isSkill ? '兼容Trae、Cursor、Windsurf等支持SKILL.md格式的AI IDE。' : '兼容ChatGPT/GPT-4/GPT-5、Claude 3/4、文心一言、通义千问、Kimi等所有主流大语言模型。'}复制后直接粘贴到对应工具即可使用。`,
         },
       },
       {

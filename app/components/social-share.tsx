@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { analytics } from '@/app/components/analytics'
 import {
   Twitter,
   Facebook,
@@ -24,8 +25,9 @@ export function SocialShare({ title, url, image, description }: ShareProps) {
   const [copied, setCopied] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
 
+  const shareUrl = url.startsWith('http') ? url : `https://prompts.link.cn${url.startsWith('/') ? url : `/${url}`}`
   const encodedTitle = encodeURIComponent(title)
-  const encodedUrl = encodeURIComponent(url)
+  const encodedUrl = encodeURIComponent(shareUrl)
   const encodedDescription = encodeURIComponent(description || title)
 
   const shareLinks = {
@@ -39,7 +41,8 @@ export function SocialShare({ title, url, image, description }: ShareProps) {
 
   const handleCopyLink = async () => {
     try {
-      await navigator.clipboard.writeText(url)
+      await navigator.clipboard.writeText(shareUrl)
+      analytics.event('copy_share_link', 'engagement', shareUrl)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch (error) {
@@ -112,6 +115,7 @@ export function SocialShare({ title, url, image, description }: ShareProps) {
                     href={button.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => analytics.event('share_prompt', 'acquisition', button.label)}
                     className="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-accent transition-colors"
                     title={button.label}
                   >
