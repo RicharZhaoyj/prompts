@@ -231,7 +231,7 @@ export default async function Home() {
             {categories.map((category) => (
               <Link
                 key={category.id}
-                href={`/prompts?category=${category.id}`}
+                href={`/category/${encodeURIComponent(category.name)}`}
                 className="p-6 bg-background rounded-lg border hover:border-primary hover:shadow-md transition-all text-center"
               >
                 <div className="text-4xl mb-3">{category.emoji}</div>
