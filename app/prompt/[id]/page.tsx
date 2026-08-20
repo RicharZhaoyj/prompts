@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ].filter(Boolean).join(', ')
 
   return {
-    title: `${prompt.title} - PromptMarket | AI提示词商店`,
+    title: prompt.title,
     description: `${prompt.description} - 高质量的${prompt.category}提示词，${prompt.rating}星评价，${prompt.sales}人已购买。`,
     keywords: seoKeywords,
     openGraph: {

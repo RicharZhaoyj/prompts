@@ -620,11 +620,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: '文章未找到 - PromptMarket',
     }
   }
+  const canonical = `https://prompts.link.cn/blog/${params.id}`
   return {
-    title: `${post.title} - PromptMarket 博客`,
+    title: post.title,
     description: post.content.slice(0, 150),
+    alternates: {
+      canonical,
+    },
     openGraph: {
-      title: post.title,
+      title: `${post.title} | PromptMarket`,
+      description: post.content.slice(0, 150),
+      url: canonical,
+      type: 'article',
+      images: [post.image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} | PromptMarket`,
+      description: post.content.slice(0, 150),
       images: [post.image],
     },
   }
