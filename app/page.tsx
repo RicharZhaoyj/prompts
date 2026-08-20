@@ -13,7 +13,7 @@ const LAST_UPDATED = '2026年8月1日'
 const HOME_FAQS = [
   {
     question: 'PromptMarket上的AI提示词是免费的吗？',
-    answer: '是的！PromptMarket内测期间所有提示词完全免费使用，无需注册、无需付费，一键复制即可用在ChatGPT、Midjourney、Claude、Stable Diffusion等所有主流AI工具上。后续会新增部分高级创作者的付费提示词，现有免费内容会永久免费。',
+    answer: 'PromptMarket同时提供免费和付费提示词：免费提示词无需注册即可一键复制，部分高级创作者内容会按作者定价。付费内容会在详情页明确标注，现有免费内容会永久免费。',
   },
   {
     question: '提示词支持哪些AI工具？怎么使用？',
@@ -33,17 +33,17 @@ const HOME_FAQS = [
   },
   {
     question: 'PromptMarket和其他提示词网站有什么区别？',
-    answer: '四大差异化：1) 质量优先：每条提示词都经过人工验证+真实AI输出测试，不是爬虫搬运；2) 中文友好：为国内用户优化场景（如小红书文案、公众号写作、PPT大纲），不是纯英文翻译；3) 姊妹生态：与AI工具推荐(tools.link.cn)、AI资讯(ai.link.cn)等站点联动，从「了解AI→选工具→用好提示词」一站式解决；4) 完全免费：内测期间不设付费墙，所有内容零门槛使用。',
+    answer: '四大差异化：1) 质量优先：每条提示词都经过人工验证+真实AI输出测试，不是爬虫搬运；2) 中文友好：为国内用户优化场景（如小红书文案、公众号写作、PPT大纲），不是纯英文翻译；3) 姊妹生态：与AI工具推荐(tools.link.cn)、AI资讯(ai.link.cn)等站点联动，从「了解AI→选工具→用好提示词」一站式解决；4) 免费与付费分层：免费内容零门槛，优质付费内容支持创作者持续更新。',
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'AI提示词免费库2026 | ChatGPT/Midjourney/Claude高质量Prompt模板',
-  description: 'PromptMarket是国内高质量AI提示词免费库，收录120+精选ChatGPT提示词、Midjourney提示词、Claude/Stable Diffusion提示词模板。覆盖写作、编程、设计、营销、办公、副业变现等场景，一键复制即用，无需注册，内测期间全部免费！附提示词工程教程和最佳实践。',
+  title: 'AI提示词库2026 | ChatGPT、Midjourney、Claude免费与付费Prompt模板',
+  description: 'PromptMarket收录120+精选ChatGPT、Midjourney、Claude和Stable Diffusion提示词，覆盖写作、编程、设计、营销、办公与副业场景。免费内容一键复制，优质付费模板支持创作者持续更新。',
   keywords: 'AI提示词, ChatGPT提示词, Midjourney提示词, Claude提示词, Stable Diffusion提示词, 提示词模板, 提示词免费, 提示词工程, Prompt市场, AI写作提示词, AI绘画提示词, GPT-5提示词, Flux提示词, AI办公提效, PromptMarket',
   openGraph: {
-    title: 'AI提示词免费库2026 | ChatGPT/Midjourney/Claude高质量Prompt模板',
-    description: '120+精选AI提示词，覆盖写作/编程/设计/营销/副业场景，一键复制即用，内测期间全免费！',
+    title: 'AI提示词库2026 | ChatGPT、Midjourney、Claude免费与付费Prompt模板',
+    description: '120+精选AI提示词，覆盖写作、编程、设计、营销与副业场景，免费内容一键复制，付费模板明确标注。',
     type: 'website',
     url: 'https://prompts.link.cn',
     siteName: 'PromptMarket - AI提示词免费库',
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI提示词免费库2026 | ChatGPT/Midjourney/Claude高质量Prompt模板',
-    description: '120+精选AI提示词，一键复制即用，内测期间全免费！',
+    title: 'AI提示词库2026 | ChatGPT、Midjourney、Claude免费与付费Prompt模板',
+    description: '120+精选AI提示词，免费内容一键复制，付费模板明确标注，覆盖写作、编程、设计与营销。',
     creator: '@promptmarket',
     images: ['https://prompts.link.cn/og-image.png'],
   },
@@ -103,8 +103,8 @@ export default async function Home() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-center gap-2 text-sm">
             <Gift className="w-4 h-4 text-primary" />
-            <span className="font-medium text-primary">🔥 内测期间全部免费！</span>
-            <span className="text-muted-foreground">无需注册，即可使用所有提示词</span>
+            <span className="font-medium text-primary">🔥 免费提示词 + 精选付费模板</span>
+            <span className="text-muted-foreground">无需注册即可复制免费内容，付费内容明码标价</span>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ export default async function Home() {
             <span className="text-primary">AI提示词</span> 提升你的效率
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            全部免费使用！涵盖写作、编程、设计、营销等多个场景。
+            免费提示词可直接使用，另有精选付费模板支持创作者持续更新，涵盖写作、编程、设计、营销等多个场景。
             <br />
             无需注册，直接使用。帮助 1,580+ 用户提升工作效率。
           </p>
@@ -159,8 +159,8 @@ export default async function Home() {
             <div className="flex items-center gap-3 justify-center">
               <CheckCircle className="w-6 h-6 text-green-500" />
               <div className="text-sm">
-                <div className="font-semibold">100% 免费</div>
-                <div className="text-muted-foreground">内测期间全部免费</div>
+                <div className="font-semibold">免费内容可直接用</div>
+                <div className="text-muted-foreground">付费模板明码标价</div>
               </div>
             </div>
             <div className="flex items-center gap-3 justify-center">
@@ -342,9 +342,9 @@ export default async function Home() {
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-3 text-foreground">🔄 持续更新完全免费</h3>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">🔄 持续更新，免费与付费分层</h3>
                 <p className="text-sm leading-relaxed">
-                  PromptMarket 内测期间所有提示词完全免费，无需注册即可使用。我们持续跟踪 AI 工具更新（GPT-5、Midjourney V7、Claude 4 等），同步更新提示词库，确保你始终用到最新最有效的 Prompt。同时支持创作者提交原创提示词，平台审核通过后可获得 70% 分成，构建良性循环的提示词生态。
+                  PromptMarket 提供无需注册即可使用的免费提示词，也提供由创作者定价的高级模板。我们持续跟踪 AI 工具更新（GPT-5、Midjourney V7、Claude 4 等），同步更新提示词库，确保你始终用到最新有效的 Prompt。同时支持创作者提交原创提示词，平台审核通过后可获得 70% 分成，构建良性循环的提示词生态。
                 </p>
               </div>
             </div>
@@ -372,7 +372,7 @@ export default async function Home() {
                 PromptMarket上的AI提示词是免费的吗？
               </h3>
               <p className="text-muted-foreground pl-9 leading-relaxed">
-                是的！PromptMarket内测期间所有提示词<strong>完全免费</strong>使用，无需注册、无需付费，<strong>一键复制</strong>即可用在ChatGPT、Midjourney、Claude、Stable Diffusion等所有主流AI工具上。后续会新增部分高级创作者的付费提示词，<strong>现有免费内容会永久免费</strong>。
+                PromptMarket同时提供免费和付费提示词。免费内容无需注册即可<strong>一键复制</strong>，付费内容会在详情页明确标注价格，适用于ChatGPT、Midjourney、Claude、Stable Diffusion等主流AI工具；现有免费内容会<strong>永久免费</strong>。
               </p>
             </div>
             <div className="bg-background rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-colors">
@@ -417,7 +417,7 @@ export default async function Home() {
                 PromptMarket和其他提示词网站有什么区别？
               </h3>
               <p className="text-muted-foreground pl-9 leading-relaxed">
-                <strong>四大差异化</strong>：1) <strong>质量优先</strong>：每条提示词都经过人工验证+真实AI输出测试，不是爬虫搬运；2) <strong>中文友好</strong>：为国内用户优化场景（如小红书文案、公众号写作、PPT大纲），不是纯英文翻译；3) <strong>姊妹生态</strong>：与<Link href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI工具推荐</Link>、<Link href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI资讯</Link>等站点联动，从「了解AI→选工具→用好提示词」一站式解决；4) <strong>完全免费</strong>：内测期间不设付费墙，所有内容零门槛使用。
+                <strong>四大差异化</strong>：1) <strong>质量优先</strong>：每条提示词都经过人工验证+真实AI输出测试，不是爬虫搬运；2) <strong>中文友好</strong>：为国内用户优化场景（如小红书文案、公众号写作、PPT大纲），不是纯英文翻译；3) <strong>姊妹生态</strong>：与<Link href="https://tools.link.cn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI工具推荐</Link>、<Link href="https://ai.link.cn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI资讯</Link>等站点联动，从「了解AI→选工具→用好提示词」一站式解决；4) <strong>免费与付费分层</strong>：免费内容零门槛，优质付费内容支持创作者持续更新。
               </p>
             </div>
           </div>
