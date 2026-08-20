@@ -11,10 +11,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'AI提示词免费库2026 | ChatGPT/Midjourney/Claude高质量Prompt模板',
-    template: '%s | PromptMarket - AI提示词免费库',
+    default: 'AI提示词库2026 | ChatGPT、Midjourney、Claude免费与付费Prompt模板',
+    template: '%s | PromptMarket - AI提示词库',
   },
-  description: '国内高质量AI提示词免费库2026，收录ChatGPT/GPT-5、Midjourney、Claude、Stable Diffusion/Flux等主流AI工具精选Prompt模板。覆盖AI写作、编程、设计、营销、办公、副业变现等场景，一键复制即用，附提示词工程教程与最佳实践。',
+  description: '国内高质量AI提示词库2026，收录ChatGPT/GPT-5、Midjourney、Claude、Stable Diffusion/Flux等主流AI工具精选Prompt模板。免费内容一键复制，优质付费模板明确标注，覆盖写作、编程、设计、营销、办公与副业场景。',
   keywords: 'AI提示词,ChatGPT提示词,Midjourney提示词,Claude提示词,Stable Diffusion提示词,Flux提示词,提示词模板,提示词免费,提示词工程,Prompt市场,AI写作提示词,AI绘画提示词,GPT-5提示词,AI办公提效,提示词优化技巧',
   authors: [{ name: 'PromptMarket' }],
   creator: 'PromptMarket',
@@ -31,22 +31,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'PromptMarket',
-    title: 'PromptMarket - AI提示词免费库',
-    description: '发现、分享、免费使用高质量的AI提示词',
+    title: 'PromptMarket - AI提示词库（免费与付费）',
+    description: '发现高质量免费提示词与精选付费模板，支持创作者持续更新',
     url: 'https://prompts.link.cn',
     images: [
       {
         url: 'https://prompts.link.cn/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'PromptMarket - AI提示词免费库',
+        alt: 'PromptMarket - AI提示词库（免费与付费）',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PromptMarket - AI提示词免费库',
-    description: '发现、分享、免费使用高质量的AI提示词',
+    title: 'PromptMarket - AI提示词库（免费与付费）',
+    description: '发现高质量免费提示词与精选付费模板，支持创作者持续更新',
     images: ['https://prompts.link.cn/og-image.png'],
   },
   alternates: {
@@ -73,7 +73,7 @@ export default function RootLayout({
             '@type': 'WebSite',
             name: 'PromptMarket',
             url: 'https://prompts.link.cn',
-            description: 'AI提示词免费库，发现、分享、免费使用高质量的AI提示词，涵盖ChatGPT、Midjourney、Claude等主流AI工具。',
+            description: 'AI提示词库，提供免费提示词与精选付费模板，涵盖ChatGPT、Midjourney、Claude等主流AI工具。',
             potentialAction: {
               '@type': 'SearchAction',
               target: 'https://prompts.link.cn/prompts?q={search_term_string}',
@@ -98,7 +98,7 @@ export default function RootLayout({
                       <span className="font-bold">PromptMarket</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      AI提示词免费库，发现、分享、免费使用高质量的AI提示词。
+                      AI提示词库，免费内容可直接使用，精选付费模板支持创作者持续更新。
                     </p>
                   </div>
                   <div>
