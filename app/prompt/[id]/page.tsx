@@ -84,6 +84,16 @@ export default async function PromptDetailPage({
   // 获取相关提示词推荐（同分类、同标签）
   const relatedPrompts = getRelatedPrompts(params.id, 6)
 
+  // 付费正文只在支付验证接口确认后返回，避免随未购买详情页下发完整内容。
+  const clientPrompt = prompt.price > 0
+    ? { ...prompt, content: prompt.content.slice(0, 240) }
+    : prompt
+  const clientRelatedPrompts = relatedPrompts.map((related) => (
+    related.price > 0
+      ? { ...related, content: related.content.slice(0, 120) }
+      : related
+  ))
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -131,7 +141,7 @@ export default async function PromptDetailPage({
         acceptedAnswer: {
           '@type': 'Answer',
           text: prompt.price > 0
-            ? `本${isSkill ? '技能' : '提示词'}为一次性购买内容，价格为${prompt.price}美元。购买功能正在接入，提交购买意向后会优先收到通知。`
+            ? `本${isSkill ? '技能' : '提示词'}为一次性购买内容，价格为${prompt.price}美元。登录后可在线购买，支付成功后解锁完整内容。`
             : `本${isSkill ? '技能' : '提示词'}完全免费使用。${isSkill ? '兼容Trae、Cursor、Windsurf等支持SKILL.md格式的AI IDE。' : '兼容ChatGPT/GPT-4/GPT-5、Claude 3/4、文心一言、通义千问、Kimi等所有主流大语言模型。'}复制后直接粘贴到对应工具即可使用。`,
         },
       },
@@ -150,7 +160,7 @@ export default async function PromptDetailPage({
     <>
       <StructuredData type="product" data={productSchema as any} />
       <StructuredData type="faq" data={faqSchema as any} />
-      <PromptDetailClient prompt={prompt} reviews={reviews} relatedPrompts={relatedPrompts} />
+      <PromptDetailClient prompt={clientPrompt} reviews={reviews} relatedPrompts={clientRelatedPrompts} />
     </>
   )
 }
