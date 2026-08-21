@@ -2,7 +2,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Star, Download, Heart, Copy, CheckCircle, Clock, Wrench, Newspaper, Cpu, Download as DownloadIcon, ExternalLink } from 'lucide-react'
+import { Star, Download, Heart, Copy, CheckCircle, Wrench, Newspaper, Cpu, Download as DownloadIcon, ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 import { useToast } from '@/app/components/toast'
 import { SocialShare } from '@/app/components/social-share'
@@ -110,6 +110,7 @@ const getNewsKeywords = (category: string) => {
 
 export default function PromptDetailClient({ prompt, reviews = [], relatedPrompts = [] }: { prompt: Prompt; reviews?: Review[]; relatedPrompts?: Prompt[] }) {
   const [copied, setCopied] = useState(false)
+  const [isCheckingOut, setIsCheckingOut] = useState(false)
   const { showToast } = useToast()
   
   // 动态获取分类推荐
@@ -117,6 +118,12 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
   const newsKeywords = getNewsKeywords(prompt.category)
 
   const handleCopyPrompt = async () => {
+    if (prompt.price > 0) {
+      analytics.event('locked_content_attempt', 'monetization', prompt.id, prompt.price)
+      showToast('付费内容请先购买后解锁', 'error')
+      return
+    }
+
     try {
       await navigator.clipboard.writeText(prompt.content)
       setCopied(true)
@@ -128,9 +135,34 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
     }
   }
 
-  const handleNotifyMe = () => {
-    analytics.event('purchase_intent', 'monetization', prompt.id, prompt.price)
-    showToast('感谢您的关注！我们会在正式上线时通知您。', 'success')
+  const handleCheckout = async () => {
+    analytics.beginCheckout(prompt.id, prompt.title, prompt.category, prompt.price)
+    setIsCheckingOut(true)
+
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ promptId: prompt.id }),
+      })
+      const data = await response.json()
+
+      if (response.status === 401) {
+        showToast('请先登录后购买', 'error')
+        window.location.href = `/login?callbackUrl=${encodeURIComponent(window.location.pathname)}`
+        return
+      }
+
+      if (!response.ok || !data.url) {
+        throw new Error(data.error || 'Checkout unavailable')
+      }
+
+      window.location.href = data.url
+    } catch {
+      showToast('支付暂不可用，请稍后重试', 'error')
+    } finally {
+      setIsCheckingOut(false)
+    }
   }
 
   return (
@@ -296,16 +328,30 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
                 {prompt.type === 'skill' ? '技能内容 / SKILL.md' : '提示词内容'}
               </h2>
               <div className="bg-muted/50 border rounded-lg p-6 relative">
-                <pre className="whitespace-pre-wrap text-sm font-mono">
-                  {prompt.content}
-                </pre>
-                <button
-                  onClick={handleCopyPrompt}
-                  className="absolute top-4 right-4 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium flex items-center gap-2 hover:bg-primary/90"
-                >
-                  <Copy className="w-4 h-4" />
-                  {copied ? '已复制！' : prompt.type === 'skill' ? '复制技能代码' : '复制提示词'}
-                </button>
+                {prompt.price > 0 ? (
+                  <div className="space-y-4">
+                    <pre className="whitespace-pre-wrap text-sm font-mono text-muted-foreground">
+                      {prompt.content}…
+                    </pre>
+                    <div className="rounded-lg border border-dashed border-primary/40 bg-primary/5 p-4 text-center">
+                      <p className="font-medium">付费内容已锁定</p>
+                      <p className="mt-1 text-sm text-muted-foreground">购买后解锁完整提示词并复制使用</p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <pre className="whitespace-pre-wrap text-sm font-mono">
+                      {prompt.content}
+                    </pre>
+                    <button
+                      onClick={handleCopyPrompt}
+                      className="absolute top-4 right-4 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium flex items-center gap-2 hover:bg-primary/90"
+                    >
+                      <Copy className="w-4 h-4" />
+                      {copied ? '已复制！' : prompt.type === 'skill' ? '复制技能代码' : '复制提示词'}
+                    </button>
+                  </>
+                )}
               </div>
             </div>
 
@@ -421,15 +467,16 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
               {prompt.price > 0 ? (
                 <>
                   <button
-                    onClick={handleNotifyMe}
+                    onClick={handleCheckout}
+                    disabled={isCheckingOut}
                     className="w-full py-3 bg-primary text-primary-foreground rounded-md font-medium mb-4 hover:bg-primary/90 flex items-center justify-center gap-2"
                   >
-                    <Clock className="w-5 h-5" />
-                    购买上线时通知我
+                    <CheckCircle className="w-5 h-5" />
+                    {isCheckingOut ? '正在准备支付…' : '登录并立即购买'}
                   </button>
                   <div className="text-center text-sm text-muted-foreground mb-6">
-                    <p>支付功能正在接入</p>
-                    <p>提交意向后优先获得通知</p>
+                    <p>支付成功后解锁完整内容</p>
+                    <p>一次购买，终身使用</p>
                   </div>
                 </>
               ) : (
@@ -635,4 +682,5 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
     </div>
   )
 }
+
 

@@ -1,6 +1,6 @@
 
 import { NextResponse } from 'next/server'
-import { stripe } from '@/lib/stripe'
+import { isStripeConfigured, stripe } from '@/lib/stripe'
 import { getPromptById } from '@/lib/prompts'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
@@ -12,12 +12,24 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
+  if (!isStripeConfigured) {
+    return NextResponse.json({ error: 'Checkout is not configured' }, { status: 503 })
+  }
+
+  if (!(session.user as { id?: string }).id) {
+    return NextResponse.json({ error: 'Account identity is unavailable' }, { status: 403 })
+  }
+
   try {
     const { promptId } = await request.json()
     const prompt = await getPromptById(promptId)
 
     if (!prompt) {
       return NextResponse.json({ error: 'Prompt not found' }, { status: 404 })
+    }
+
+    if (!Number.isFinite(prompt.price) || prompt.price <= 0) {
+      return NextResponse.json({ error: 'This prompt is free' }, { status: 400 })
     }
 
     const product = await stripe.products.create({
@@ -58,3 +70,4 @@ export async function POST(request: Request) {
     )
   }
 }
+
