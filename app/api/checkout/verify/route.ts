@@ -27,7 +27,7 @@ export async function GET(request: Request) {
 
     const currentUserId = (session.user as { id?: string }).id
     const purchaseUserId = checkoutSession.metadata?.userId
-    if (purchaseUserId && currentUserId && purchaseUserId !== currentUserId) {
+    if (!currentUserId || !purchaseUserId || purchaseUserId !== currentUserId) {
       return NextResponse.json({ error: 'Purchase belongs to another account' }, { status: 403 })
     }
 

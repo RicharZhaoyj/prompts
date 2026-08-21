@@ -16,6 +16,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Checkout is not configured' }, { status: 503 })
   }
 
+  if (!(session.user as { id?: string }).id) {
+    return NextResponse.json({ error: 'Account identity is unavailable' }, { status: 403 })
+  }
+
   try {
     const { promptId } = await request.json()
     const prompt = await getPromptById(promptId)
