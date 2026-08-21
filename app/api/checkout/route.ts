@@ -32,27 +32,25 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'This prompt is free' }, { status: 400 })
     }
 
-    const product = await stripe.products.create({
-      name: prompt.title,
-      description: prompt.description,
-      images: prompt.image_url ? [prompt.image_url] : [],
-    })
-
-    const price = await stripe.prices.create({
-      product: product.id,
-      unit_amount: Math.round(prompt.price * 100),
-      currency: 'usd',
-    })
-
     const checkoutSession = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
         {
-          price: price.id,
+          price_data: {
+            currency: 'usd',
+            unit_amount: Math.round(prompt.price * 100),
+            product_data: {
+              name: prompt.title,
+              description: prompt.description.slice(0, 500),
+              ...(prompt.image_url ? { images: [prompt.image_url] } : {}),
+            },
+          },
           quantity: 1,
         },
       ],
       mode: 'payment',
+      client_reference_id: (session.user as { id: string }).id,
+      customer_email: session.user.email || undefined,
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/purchase-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/prompt/${promptId}`,
       metadata: {
