@@ -4,12 +4,16 @@ import { getPrompts, getCategories } from '@/lib/prompts'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '浏览AI提示词 - PromptMarket',
-  description: '浏览精选高质量AI提示词，覆盖写作、编程、图像生成、营销等多个领域，支持ChatGPT、Midjourney、Claude等主流AI工具，一键复制即用。',
-  keywords: 'AI提示词列表, ChatGPT提示词库, Midjourney提示词, 提示词大全',
+  title: 'AI提示词库：ChatGPT、Midjourney、Claude模板',
+  description: '浏览可直接复制的AI提示词库，覆盖ChatGPT、Claude、Midjourney、编程、写作、营销和图像生成，按场景筛选免费与付费Prompt模板。',
+  keywords: 'AI提示词库, ChatGPT提示词, Midjourney提示词, Claude提示词, 提示词模板, 免费Prompt',
+  alternates: {
+    canonical: 'https://prompts.link.cn/prompts',
+  },
   openGraph: {
-    title: '浏览AI提示词 - PromptMarket',
-    description: '浏览精选高质量AI提示词，支持ChatGPT、Midjourney等主流AI工具。',
+    title: 'AI提示词库：ChatGPT、Midjourney、Claude模板',
+    description: '按写作、编程、营销和图像生成场景浏览可复制的免费与付费Prompt模板。',
+    url: 'https://prompts.link.cn/prompts',
     type: 'website',
   },
 }
