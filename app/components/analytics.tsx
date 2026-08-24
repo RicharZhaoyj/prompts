@@ -14,12 +14,30 @@ function AnalyticsContent() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const url = pathname + searchParams.toString()
-    
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag('config', GA_ID, {
+    const query = searchParams.toString()
+    const url = query ? `${pathname}?${query}` : pathname
+    let attempts = 0
+    let retryTimer: number | undefined
+
+    const sendPageView = () => {
+      if (typeof window.gtag !== 'function') {
+        if (attempts < 20) {
+          attempts += 1
+          retryTimer = window.setTimeout(sendPageView, 250)
+        }
+        return
+      }
+
+      window.gtag('event', 'page_view', {
         page_path: url,
+        page_location: window.location.origin + url,
+        page_title: document.title,
       })
+    }
+
+    sendPageView()
+    return () => {
+      if (retryTimer) window.clearTimeout(retryTimer)
     }
   }, [pathname, searchParams])
 
