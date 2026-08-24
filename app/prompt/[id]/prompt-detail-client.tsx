@@ -683,3 +683,4 @@ export default function PromptDetailClient({ prompt, reviews = [], relatedPrompt
   )
 }
 
+

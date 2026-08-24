@@ -15,3 +15,4 @@ export const getStripePublicKey = () => {
 export const isStripeConfigured = Boolean(
   process.env.STRIPE_SECRET_KEY && process.env.NEXT_PUBLIC_SITE_URL
 )
+

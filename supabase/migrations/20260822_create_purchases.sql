@@ -33,3 +33,4 @@ before update on public.purchases
 for each row execute function public.set_purchases_updated_at();
 
 alter table public.purchases enable row level security;
+

@@ -14,3 +14,4 @@
 5. 重新部署后，在 Stripe Dashboard 用测试事件验证 Webhook 返回 2xx；再用测试卡完成一笔测试支付，确认 `purchases` 中只有一条对应 `stripe_session_id` 的记录。
 
 未完成第 1—4 步时，Webhook 会返回 503，Stripe 会重试；不会写入不完整订单。
+
