@@ -3,6 +3,14 @@ import { getPrompts, getCategories } from '@/lib/prompts'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://prompts.link.cn'
+  const now = new Date()
+
+  // Source data can contain scheduled/future-dated records. Sitemap lastmod
+  // must describe the page as of the build, never a date in the future.
+  const safeLastModified = (value: string) => {
+    const parsed = new Date(value)
+    return Number.isNaN(parsed.getTime()) || parsed > now ? now : parsed
+  }
 
   const prompts = await getPrompts()
   const cats = await getCategories()
@@ -32,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 提示词/技能详情页
   const promptRoutes = prompts.map((prompt) => ({
     url: `${baseUrl}/prompt/${prompt.id}`,
-    lastModified: new Date(prompt.updated_at),
+    lastModified: safeLastModified(prompt.updated_at),
     changeFrequency: 'monthly' as const,
     priority: prompt.type === 'skill' ? 0.75 : 0.7,
   }))
